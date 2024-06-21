@@ -1,0 +1,55 @@
+@import components/mixins
+@import components/header
+@import components/footer
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    text-decoration: none
+    list-style: none
+html
+    font-size: 1px
+
+body
+    font-family: Montserrat
+    color: #121212
+
+.wrapper
+    max-width: 90%
+    margin: 0 auto
+
+.d-none
+    display: none
+
+.d-flex
+    display: flex
+
+.flex-between
+    display: flex
+    justify-content: space-between
+
+.item-center
+    align-items: center
+
+.position-center
+    position: relative
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+
+.gray-bgc
+    background-color: #F1F1F1
+
+.social-icon,
+.header-btn
+    column-gap: 10rem
+
+.social-icon
+    a
+        transition: all .5s ease
+        &:hover
+            filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.25))
+
+.white-text
+    color: #fff
