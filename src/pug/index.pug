@@ -9,5 +9,71 @@ html(lang="en")
         link(rel="stylesheet", href="css/style.css")
         title Дешевше - інтернет магазин необхідних товарів для всієї родини
     body 
-        include components/header
+        header
+            include components/header
+        main 
+            section.baner-main
+                .hero.wrapper
+                    .proposition.position-center
+                        p -30%
+                        p на нову колекцію
+                        a(href="catalog").yellow-cta в каталог 
+            section.perevagi
+                .wrapper
+                    h2 наші переваги
+                    .flex-between 
+                        div.d-flex.item-center
+                            picture 
+                                img(src="img/oplata.svg", alt="")
+                            p оплата при отриманні
+                        div.d-flex.item-center
+                            picture 
+                                img(src="img/obmin.svg", alt="")
+                            p обмін та повернення
+                        div.d-flex.item-center
+                            picture 
+                                img(src="img/delivery.svg", alt="")
+                            p швидка доставка
+                        div.d-flex.item-center
+                            picture 
+                                img(src="img/yakist.svg", alt="")
+                            p гарантія якості
+                        div.d-flex.item-center
+                            picture 
+                                img(src="img/kupyty.svg", alt="")
+                            p покупка  
+                                br 
+                                span в 1 клік
+            section.popular 
+                h2 популярні категорії
+                .wrapper.flex-between.popular-elements
+                    p
+                        picture
+                            img(src="img/img1.png", alt="")
+                        span Сумки
+                    p
+                        picture
+                            img(src="img/img2.png", alt="")
+                        span Футболки
+                    p
+                        picture
+                            img(src="img/img3.png", alt="")
+                        span Велосипедки
+                    p
+                        picture
+                            img(src="img/img4.png", alt="")
+                        span Взуття
+                    p
+                        picture
+                            img(src="img/img5.png", alt="")
+                        span Штани
+                    p
+                        picture
+                            img(src="img/img6.png", alt="")
+                        span Піжами
+                    p
+                        picture
+                            img(src="img/img7.png", alt="")
+                        span Аксесуари
         include components/footer
+

@@ -1,6 +1,12 @@
+header
+    position: relative
+    background-color: #fff
+    z-index: 999
 .header
+    position: relative
+    background-color: #fff
     padding: 30px 0
-
+    z-index: 25
 .contact
     p
         column-gap: 5rem
@@ -33,3 +39,13 @@
         cursor: pointer
         &:hover
             background-color: #F1E12F
+
+.header-btn
+    svg
+        path 
+            transition: all .5s ease
+            fill: #214498
+        &:hover
+            > path
+                fill: #F1E12F
+        

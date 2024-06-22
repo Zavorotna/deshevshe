@@ -1,0 +1,112 @@
+.header-navigation
+    background-color: #214498
+
+.sub-menu-main,
+.help-sub-menu,
+.black-fon
+    display: none
+
+.navigation-menu-catalog
+    position: relative
+    z-index: 2
+    a
+        display: block
+        padding: 15px 35px 15px 15px
+        color: #fff
+        font-size: 16px
+        font-weight: 600
+        letter-spacing: 0.8px
+        text-transform: uppercase
+        transition: all .5s ease
+    > li
+        &:hover
+            > a
+                color: #F1E12F
+            > a
+                svg
+                    top: 40%
+                    transform: rotate(180deg)
+                svg > path
+                    stroke: #F1E12F
+            > .black-fon
+                display: block
+                position: fixed
+                top: 0
+                left: 0
+                width: 100%
+                height: 100%
+                background: rgba(0, 0, 0, 0.50)
+                z-index: -1
+            > .sub-menu-main
+                display: flex
+                align-items: flex-start
+                column-gap: 37rem
+                position: absolute
+                top: 100%
+                width: 100%
+                left: 0
+                z-index: 0
+                padding: 31px 0 54px
+                background-color: #fff
+                border-top: 10px solid transparent
+                z-index: 20
+            > .help-sub-menu
+                display: block
+                position: absolute
+                background-color: #fff
+                padding: 30px
+                z-index: 20
+.down-menu
+    position: relative
+    svg
+        transition: all .5s ease
+        right: 5px
+        path
+            stroke: #fff
+.second-subMenu
+    display: flex
+    justify-content: space-between
+
+.sub-menu
+    min-width: 295rem
+    svg
+        path
+            fill: #121212
+    li
+        column-gap: 10rem
+        padding: 7px 7px 7px 50px
+        transition: all .3s ease
+        &:hover
+            background: #D7D9DF
+            a
+                color: #214498
+            svg path
+                fill: #214498
+    a
+        padding: 0
+        color: #121212
+        font-size: 16px
+        font-weight: 500
+        letter-spacing: 0.8px
+        text-transform: uppercase
+.second-subMenu
+    width: 65%
+    p
+        padding: 8px 0 18px
+        color: #000
+        font-size: 16px
+        font-weight: 500
+    a
+        padding: 0 0 15rem 0
+        color: #121212
+        font-size: 14px
+        font-weight: 300
+        text-transform: none
+.help-sub-menu
+    min-width: 300px
+    a
+        padding: 0
+        padding-bottom: 15rem
+        color: #121212
+        font-size: 14px
+        font-weight: 500
