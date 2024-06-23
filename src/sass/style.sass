@@ -14,7 +14,7 @@ html
 body
     font-family: Montserrat
     color: #121212
-
+    
 .wrapper
     max-width: 90%
     margin: 0 auto
@@ -49,15 +49,15 @@ body
         transition: all .5s ease
         &:hover
             filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.25))
-.baner-main
+.main
     padding: 30px 0 100px
 
-.hero
+.main-bg
     position: relative
     width: 100vw
     height: 100vh
-    background: url(../img/baner.jpg) no-repeat center/cover
-.proposition
+    background: url(../img/main-bg.jpg) no-repeat center/cover
+.new-colection
     left: 10%
     p
         text-transform: uppercase
@@ -87,7 +87,7 @@ body
         color: #fff
         background-color: #214498
 
-h2
+h2, h1
     margin-bottom: 63rem
     color: #121212
     text-align: center
@@ -107,7 +107,9 @@ h2
 .popular
     padding: 90px 0 100px
     background: rgba(241, 241, 241, 0.30)
-    p
+    a
+        color: #121212
+        display: block
         min-width: 150px
         text-align: center
     picture
@@ -117,17 +119,43 @@ h2
         border-radius: 50%
         border: 2px solid
         overflow: hidden
+        &:hover
+            img
+                width: 115px
+                height: 115px
+                position: relative
+                top: 50%
+                left: 50%
+                transform: translate(-55%, -50%)
+                border-radius: 50%
+                border-radius: 140px
+                box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.15)
+        &:hover
+            ~ span
+                font-size: 24px
+                font-weight: 600
         img
             width: 100%
-            object-fit: contain
+            object-fit: cover
             object-position: center
     span
         text-align: center
         font-size: 20px
         font-weight: 500
+        transition: all .5s ease
         +media(1440)
             font-size: 24px
 
 .popular-elements
+    min-height: 170px
     column-gap: 15rem
+.top-prodaz
+    padding: 100rem 0
+.top-prodaz-card
+    display: grid
+    grid-template-columns: repeat(4, 21vw)
+    gap: 20px
+    width: 100%
+    margin: 0 auto
+@import components/card-style
 @import components/footer

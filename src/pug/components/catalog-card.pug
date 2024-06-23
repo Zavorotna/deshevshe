@@ -1,0 +1,44 @@
+figure.card
+    a(href="product-page.html")
+    figcaption 
+        span.flag 
+            span new
+        picture 
+            img(src="img/catalog-card.png", alt="") 
+        .hover-card
+            h3 Джинсові шорти
+            p.d-flex.price-block.item-center
+                span.price 800₴
+                span.old-price 1200₴
+        form(action="#")
+            .color.d-flex.item-center
+                label
+                    input(type="radio", name="color" value="black")
+                label
+                    input(type="radio", name="color" value="red")
+                label
+                    input(type="radio", name="color" value="blue")
+                label
+                    input(type="radio", name="color" value="gray")
+                label
+                    input(type="radio", name="color" value="white") 
+            .size.d-flex.item-center
+                p
+                    input(type="radio", name="size" id="xs")
+                    label(for="xs") xs
+                p
+                    input(type="radio", name="size" id="s")
+                    label(for="s") s
+                p
+                    input(type="radio", name="size" id="m")
+                    label(for="m") m
+                p
+                    input(type="radio", name="size" id="l")
+                    label(for="l") l
+                p
+                    input(type="radio", name="size" id="xl")
+                    label(for="xl") xl
+                p
+                    input(type="radio", name="size" id="xxl")
+                    label(for="xxl") xxl
+            button(type='submit').blue-btn.submit-btn купити 
