@@ -42,27 +42,22 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     })
     // Отримання всіх пунктів підменю
-    const subMenuItems = document.querySelectorAll('.item');
+    const subMenuItems = document.querySelectorAll('.item')
 
-    // Цикл для кожного пункту підменю
     subMenuItems.forEach(item => {
-        // Знаходження дочірнього меню
-        const subMenu = document.querySelector('.default-menu');
+        const subMenu = document.querySelector('.default-menu')
 
-        // Додавання події для наведення миші
         item.addEventListener('mouseenter', function () {
-            // Сховати дочірнє меню, якщо воно є
             if (subMenu) {
-                subMenu.style.display = 'none';
+                subMenu.style.display = 'none'
             }
-        });
+        })
         item.addEventListener('mouseleave', function () {
-            // Сховати дочірнє меню, якщо воно є
             if (subMenu) {
-                subMenu.style.display = 'flex';
+                subMenu.style.display = 'flex'
             }
-        });
-    });
+        })
+    })
 
 
 })
