@@ -3,7 +3,8 @@
 
 .sub-menu-main,
 .help-sub-menu,
-.black-fon
+.black-fon,
+.second-subMenu
     display: none
 
 .navigation-menu-catalog
@@ -70,16 +71,13 @@
         right: 5px
         path
             stroke: #fff
-.second-subMenu
-    display: flex
-    justify-content: space-between
-
 .sub-menu
+    position: relative
     min-width: 295rem
     svg
         path
             fill: #121212
-    li
+    > li
         column-gap: 10rem
         padding: 7px 7px 7px 50px
         transition: all .3s ease
@@ -89,6 +87,29 @@
                 color: #214498
             svg path
                 fill: #214498
+        &:hover
+            > .second-subMenu
+                position: absolute
+                top: 0
+                left: 100%
+                display: flex
+                justify-content: space-around
+                width: 100%
+                min-width: 65vw
+                p
+                    padding: 8px 0 18px
+                    color: #000
+                    font-size: 16px
+                    font-weight: 500
+                a
+                    padding: 0 0 15rem 0
+                    color: #121212
+                    font-size: 14px
+                    font-weight: 300
+                    text-transform: none
+                    transition: .25s
+                    &:hover
+                        font-weight: 600
     a
         padding: 0
         color: #121212
@@ -96,22 +117,37 @@
         font-weight: 500
         letter-spacing: 0.8px
         text-transform: uppercase
-.second-subMenu
-    width: 65%
+.item
+    &:hover
+        > .default-menu
+            display: none
+
+.default-menu
+    display: flex
+    justify-content: space-around
+    position: absolute
+    top: 0
+    left: 100%
+    display: flex
+    justify-content: space-around
+    width: 100%
+    min-width: 65vw
     p
         padding: 8px 0 18px
         color: #000
         font-size: 16px
         font-weight: 500
-    a
-        padding: 0 0 15rem 0
-        color: #121212
-        font-size: 14px
-        font-weight: 300
-        text-transform: none
-        transition: .25s
-        &:hover
-            font-weight: 600
+    ul
+        li
+            a
+                padding: 0 0 15rem 0
+                color: #121212 !important
+                font-size: 14px 
+                font-weight: 300 
+                text-transform: none
+                transition: .25s
+                &:hover
+                    font-weight: 600
 .help-sub-menu
     min-width: 300px
     a
