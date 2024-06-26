@@ -3,7 +3,6 @@
 
 .sub-menu-main,
 .help-sub-menu,
-.black-fon,
 .second-subMenu
     display: none
 
@@ -46,16 +45,16 @@
                     transform: rotate(180deg)
                 svg > path
                     stroke: #F1E12F
-            > .black-fon
-                +media(1024)
-                    display: block
-                    position: fixed
-                    top: 154.5px
-                    left: 0
-                    width: 100%
-                    height: 100%
-                    background: rgba(0, 0, 0, 0.50)
-                    z-index: -1
+            // > .black-fon
+            //     +media(1024)
+            //         // display: block
+            //         position: fixed
+            //         top: 154.5px
+            //         left: 0
+            //         width: 100%
+            //         height: 100%
+            //         background: rgba(0, 0, 0, 0.50)
+            //         z-index: -1
             > .sub-menu-main
                 width: 100%
                 padding: 0 0 54px
@@ -68,9 +67,10 @@
                     column-gap: 37rem
                     padding: 31px 0 54px
                     max-height: 80vh
+                    min-width: 85vw
                     background-color: #fff
                     border-top: 10px solid transparent
-                    overflow: auto
+                    overflow-x: auto
                     z-index: 20
                 &::-webkit-scrollbar
                     width: 5px
@@ -87,6 +87,14 @@
                     transform: translateX(-50%)
                     background-color: #fff
                     z-index: 20
+.black-fon-style
+    position: fixed
+    top: 154.5px
+    left: 0
+    width: 100%
+    height: 100%
+    background: rgba(0, 0, 0, 0.50)
+    z-index: -1
 .d-block
     display: block
 .down-menu
@@ -126,7 +134,7 @@
                     display: flex
                     justify-content: space-around
                     width: 100%
-                    min-width: 65vw
+                    min-width: 60vw
                 ul
                     padding-left: 20px
                     display: none
@@ -178,7 +186,7 @@
         left: 100%
         display: flex
         justify-content: space-around
-        min-width: 65vw
+        min-width: 60vw
     p
         padding: 8px 20px 
         color: #fff

@@ -1,0 +1,31 @@
+doctype html
+html(lang="uk")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=2.0")
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+        link(rel="stylesheet", href="css/style.css")
+        title Дешевше - інтернет магазин необхідних товарів для всієї родини
+    body#body
+        header
+            include components/header
+        main.wrapper
+            p.page-look.d-flex
+                a(href="index.html") головна
+                span /
+                a(href="#")  каталог
+                span /
+                a(href="#")  жіночий одяг
+                span /
+                span.selected-page джинсові шорти
+            .flex-between.catalog-main
+                include components/filter
+                include components/catalog-product-card
+
+        footer
+            #footer
+                include components/footer
+
+    script(src="js/scripts.js")
