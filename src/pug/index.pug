@@ -1,8 +1,8 @@
 doctype html
-html(lang="en")
+html(lang="uk")
     head
         meta(charset="UTF-8")
-        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=2.0")
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
@@ -12,6 +12,15 @@ html(lang="en")
         header
             include components/header
         main 
+            .d-flex.flex-arrow
+                a(href="#body").arrow-up.arrow
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="10" viewBox="0 0 18 10" fill="none">
+                        <path d="M1 9L9 0.999999L17 9" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                a(href="#footer").arrow-down.arrow
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="10" viewBox="0 0 18 10" fill="none">
+                        <path d="M1 0.999999L9 9L17 1" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
             section.main
                 .main-bg.wrapper
                     .new-colection.position-center
@@ -47,7 +56,7 @@ html(lang="en")
             section.popular 
                 h2 популярні категорії
                 .wrapper.flex-between.popular-elements
-                    a(href="#") 
+                    a(href="#")
                         picture
                             img(src="img/img1.png", alt="")
                         span Сумки
@@ -76,7 +85,8 @@ html(lang="en")
                             img(src="img/img7.png", alt="")
                         span Аксесуари
             include components/top-prodaz
-        include components/footer
+        #footer
+            fffinclude components/footer
 
     script(src="js/scripts.js")
 

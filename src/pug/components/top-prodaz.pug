@@ -1,8 +1,9 @@
 section.top-prodaz.wrapper 
     h1 топ продажів
-    .top-prodaz-card
-        - for(let i = 0; i < 8; i++) 
-            include catalog-card
+    .wrapper-card
+        .top-prodaz-card
+            - for(let i = 0; i < 8; i++) 
+                include catalog-card
     .catalog-cta-center
         a(href="catalog.pug").yellow-cta в каталог
     

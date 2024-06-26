@@ -8,8 +8,25 @@
     display: none
 
 .navigation-menu-catalog
-    position: relative
-    z-index: 2
+    position: absolute
+    top: 0
+    left: -100%
+    width: 100%
+    height: 120vh
+    padding: 50px 20px
+    background-color: #214498
+    z-index: 99
+    transition: all .5s ease
+    +media(1024)
+        position: relative
+        top: 0
+        left: 0
+        padding: 0
+        display: flex
+        height: auto
+        overflow: none
+        justify-content: space-between
+        z-index: 2
     a
         display: block
         padding: 15px 35px 15px 15px
@@ -30,40 +47,48 @@
                 svg > path
                     stroke: #F1E12F
             > .black-fon
-                display: block
-                position: fixed
-                top: 159px
-                left: 0
-                width: 100%
-                height: 100%
-                background: rgba(0, 0, 0, 0.50)
-                z-index: -1
+                +media(1024)
+                    display: block
+                    position: fixed
+                    top: 154.5px
+                    left: 0
+                    width: 100%
+                    height: 100%
+                    background: rgba(0, 0, 0, 0.50)
+                    z-index: -1
             > .sub-menu-main
-                display: flex
-                align-items: flex-start
-                column-gap: 37rem
-                position: absolute
-                top: 100%
                 width: 100%
-                max-height: 80vh
-                left: 0
-                z-index: 0
-                padding: 31px 0 54px
-                background-color: #fff
-                border-top: 10px solid transparent
-                overflow: auto
-                z-index: 20
+                padding: 0 0 54px
+                +media(1024)
+                    position: absolute
+                    top: 100%
+                    left: 0
+                    display: flex
+                    align-items: flex-start
+                    column-gap: 37rem
+                    padding: 31px 0 54px
+                    max-height: 80vh
+                    background-color: #fff
+                    border-top: 10px solid transparent
+                    overflow: auto
+                    z-index: 20
                 &::-webkit-scrollbar
                     width: 5px
                     background-color: #ccc
                 &::-webkit-scrollbar-thumb
                     background-color: #929090
-            > .help-sub-menu
-                display: block
-                position: absolute
-                background-color: #fff
+            > ul.help-sub-menu
                 padding: 30px
-                z-index: 20
+                +media(1024)
+                    display: block
+                    position: absolute
+                    top: 100%
+                    left: 42%
+                    transform: translateX(-50%)
+                    background-color: #fff
+                    z-index: 20
+.d-block
+    display: block
 .down-menu
     position: relative
     svg
@@ -76,89 +101,124 @@
     min-width: 295rem
     svg
         path
-            fill: #121212
+            fill: #fff
+            +media(1024)
+                fill: #121212
     > li
         column-gap: 10rem
-        padding: 7px 7px 7px 50px
+        padding: 7px 7px 7px 10px
         transition: all .3s ease
-        &:hover
-            background: #D7D9DF
-            a
-                color: #214498
-            svg path
-                fill: #214498
+        +media(1024)
+            padding: 7px 7px 7px 50px
+        +media(1024)
+            &:hover
+                background: #D7D9DF
+                a
+                    color: #214498
+                svg path
+                    fill: #214498
         &:hover
             > .second-subMenu
-                position: absolute
-                top: 0
-                left: 100%
-                display: flex
-                justify-content: space-around
-                width: 100%
-                min-width: 65vw
+                +media(1024)
+                    position: absolute
+                    top: 0
+                    left: 100%
+                    display: flex
+                    justify-content: space-around
+                    width: 100%
+                    min-width: 65vw
                 ul
-                    min-width: 200px
+                    padding-left: 20px
+                    display: none
+                    min-width: 170px
+                    +media(1024)
+                        display: block
+                        padding-left: 0
                 p
-                    padding: 8px 0 18px
-                    color: #000
+                    padding: 8px 20px
+                    color: #fff
                     font-size: 16px
                     font-weight: 500
+                    +media(1024)
+                        padding: 8px 0 18px
+                        color: #000
                 a
                     padding: 0 0 15rem 0
-                    color: #121212
+                    color: #fff
                     font-size: 14px
                     font-weight: 300
                     text-transform: none
                     transition: .25s
+                    +media(1024)
+                        color: #121212
                     &:hover
                         font-weight: 600
     a
         padding: 0
-        color: #121212
+        color: #fff
         font-size: 16px
         font-weight: 500
         letter-spacing: 0.8px
         text-transform: uppercase
+        +media(1024)
+            color: #121212
 .item
     &:hover
         > .default-menu
             display: none
+.d-block
+    display: block !important
 
 .default-menu
-    display: flex
-    justify-content: space-around
-    position: absolute
-    top: 0
-    left: 100%
-    display: flex
-    justify-content: space-around
+    display: none
     width: 100%
-    min-width: 65vw
+    +media(1024)
+        position: absolute
+        top: 0
+        left: 100%
+        display: flex
+        justify-content: space-around
+        min-width: 65vw
     p
-        padding: 8px 0 18px
-        color: #000
+        padding: 8px 20px 
+        color: #fff
         font-size: 16px
         font-weight: 500
+        +media(1024)
+            padding: 8px 0 18px
+            color: #000
     ul
-        min-width: 200px
+        display: none
+        padding-left: 20px
+        min-width: 170px
+        +media(1024)
+            display: block
+            padding-left: 0
         li
             a
                 padding: 0 0 15rem 0
-                color: #121212 !important
+                color: #fff !important
                 font-size: 14px 
                 font-weight: 300 
                 text-transform: none
                 transition: .25s
+                +media(1024)
+                    color: #121212 !important
                 &:hover
                     font-weight: 600
 .help-sub-menu
     min-width: 300px
+    +media(1024)
+        max-width: 300px
+        position: absolute
     a
         padding: 0
         padding-bottom: 15rem
-        color: #121212
+        color: #fff
         font-size: 14px
         font-weight: 500
         transition: .25s
+        +media(1024)
+            color: #121212
         &:hover
             font-weight: 600

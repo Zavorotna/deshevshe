@@ -7,6 +7,23 @@ header
     background-color: #fff
     padding: 30px 0
     z-index: 25
+    flex-wrap: wrap
+    justify-content: center
+    row-gap: 15px
+    +media(768)
+        justify-content: space-between
+    +media(1024)
+        flex-wrap: nowrap
+.burger-logo
+    column-gap: 20px
+    img
+        width: 90%
+        +media(768)
+
+.mobile-cart
+    +media(1024)
+        display: none
+
 .contact
     p
         column-gap: 5rem
@@ -18,9 +35,14 @@ header
         font-weight: 400
 
 .search-block
-    max-width: 365rem
+    width: 100%
     min-width: 300rem
     position: relative
+    +media(1024)
+        min-width: 200rem
+        max-width: 250rem
+    +media(1220)
+        max-width: 365rem
     input
         width: 100%
         padding: 12px 10px
@@ -48,4 +70,55 @@ header
         &:hover
             > path
                 fill: #F1E12F
-        
+
+div.decstop-cart
+    +media(1024)
+        display: flex
+.decstop-contact
+    display: none
+    +media(1024)
+        display: block
+
+
+.burger,
+.burger-admin
+    position: relative
+    display: block
+    width: 40rem
+    height: 40rem
+    z-index: 5
+    cursor: pointer
+    +media(1024)
+        display: none
+
+.bord
+    position: absolute
+    top: 50%
+    left: 0
+    width: 100%
+    height: 4rem
+    background: #214498
+    border-radius: 5px
+    transform: translateY(-50%)
+    z-index: 5
+    &::before,
+    &::after
+        position: absolute
+        content: ""
+        width: 100%
+        height: 4rem
+        background: #214498
+        border-radius: 5px
+        z-index: 5
+    &::before
+        top: 10rem
+        right: 0
+    &::after
+        right: 0
+        bottom: 10rem
+
+.cancel-menu
+    position: absolute
+    top: 20px
+    right: 20px
+    

@@ -9,14 +9,19 @@
     text-decoration: none
     list-style: none
 html
-    font-size: 1px
+    font-size: 0.8px
+    scroll-behavior: smooth
+    +media(1024)
+        font-size: 1px
+    +media(2200)
+        font-size: 2px
 
 body
     font-family: Montserrat
     color: #121212
-    
+
 .wrapper
-    max-width: 90%
+    max-width: 85%
     margin: 0 auto
 
 .d-none
@@ -49,6 +54,34 @@ body
         transition: all .5s ease
         &:hover
             filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.25))
+.arrow
+    display: block
+    position: fixed
+    bottom: 20px
+    right: 20px
+    width: 45px
+    height: 45px
+    background-color: #214498
+    border-radius: 50%
+    transition: all .25s ease
+    cursor: pointer
+    z-index: 25
+    +media(1024)
+        width: 60px
+        height: 60px
+    &:hover
+        background-color: #FDF028
+    svg
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+.arrow-up
+    bottom: 70px
+    +media(1024)
+        bottom: 90px
+.flex-arrow
+    flex-direction: column
 .main
     padding: 30px 0 100px
 
@@ -58,18 +91,23 @@ body
     height: 100vh
     background: url(../img/main-bg.jpg) no-repeat center/cover
 .new-colection
-    left: 10%
+    +media(1024)
+        left: 10%
     p
         text-transform: uppercase
     p:first-child
         color: #214498
-        font-size: 128px
+        font-size: 68px
         font-weight: 900
         letter-spacing: 6.4px
+        +media(768)
+            font-size: 128px
     p:nth-child(2)
         margin-bottom: 50rem
-        font-size: 36px
+        font-size: 26px
         font-weight: 700
+        +media(768)
+            font-size: 36px
 
 .yellow-cta
     padding: 25px
@@ -91,13 +129,30 @@ h2, h1
     margin-bottom: 63rem
     color: #121212
     text-align: center
-    font-size: 48px
+    font-size: 28px
     font-weight: 700
     text-transform: uppercase
+    +media(768)
+        font-size: 48px
 .perevagi
     padding-bottom: 100rem
     div
-        column-gap: 13px
+        width: 100%
+        gap: 30px
+        flex-wrap: wrap
+        +media(768)
+            width: auto
+        +media(1024)
+            gap: 13px
+            flex-wrap: nowrap
+        picture
+            display: inline-block
+            min-width: 65px
+            +media(1024)
+                min-width: 50px
+                max-width: 50px
+            img
+                width: 100%
     p
         max-width: 180px
         font-size: 18px
@@ -110,8 +165,11 @@ h2, h1
     a
         color: #121212
         display: block
-        min-width: 150px
+        min-width: 130px
         text-align: center
+        +media(768)
+            min-width: 150px
+            max-width: 170px
     picture
         display: inline-block
         width: 130px
@@ -148,16 +206,34 @@ h2, h1
 
 .popular-elements
     min-height: 170px
-    column-gap: 15rem
+    gap: 15rem
+    overflow: auto
+    &::-webkit-scrollbar
+        width: 100%
+        height: 5px
+        background-color: #ccc
+    &::-webkit-scrollbar-thumb
+        background-color: #929090
+    // flex-wrap: wrap
+    // +media(1024)
+    //     flex-wrap: nowrap
+    // a
+    //     display: flex
+    //     align-items: center
+    //     flex-direction: column
+    //     column-gap: 20px
 .top-prodaz
     padding: 100rem 0
+
 .top-prodaz-card
     display: grid
-    grid-template-columns: repeat(4, 21vw)
     gap: 20px
     width: 100%
-    margin: 0 auto
     padding-bottom: 50px
+    +media(768)
+        grid-template-columns: repeat(2, 1fr)
+    +media(1024)
+        grid-template-columns: repeat(4, 20vw)
 
 .catalog-cta-center
     width: 100%
@@ -166,5 +242,13 @@ h2, h1
     align-items: center
     a
         min-width: 300px
+.footer-flex
+    row-gap: 20rem
+    flex-wrap: wrap
+    +media(1024)
+        flex-wrap: nowrap
+.cancel-menu
+    +media(1024)
+        display: none
 @import components/card-style
 @import components/footer
