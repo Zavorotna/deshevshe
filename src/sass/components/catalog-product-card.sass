@@ -19,16 +19,24 @@
         font-weight: 500
 
 .header-catalog-card
-    padding: 47px 0 30px
+    padding: 10px 0 30px
 .catalog-head
     margin: 0
     font-size: 24px
     font-weight: 600
 .filter-header-block
+    padding: 29px 0 21px
     h2
+        margin: 0
         font-size: 18px
         font-weight: 600
         text-transform: uppercase
+    a
+        column-gap: 8px
+        color: #121212
+        font-size: 14px
+        font-weight: 300
+        opacity: 0.5
 //sort select
 .sort-select
     column-gap: 10rem
@@ -115,8 +123,9 @@
 .catalog-container
     display: grid
     gap: 20px
-    width: 100%
     grid-template-columns: repeat(3, 1fr)
+    width: 100%
+    padding-bottom: 50px
 
 .slider-range
     position: relative
@@ -219,7 +228,9 @@
 
 .description-select
     width: 100%
-
+.filter-select
+    .visible
+        padding: 20px
 .description-more
     color: #1E1E1E
     font-size: 14px
@@ -227,15 +238,22 @@
     max-height: 0
     overflow: hidden
     background: rgba(241, 241, 241, 0.30)
-    // transition: max-height .5s ease
+    p
+        column-gap: 5px
     input
-        display: none
+        appearance: none
+        width: 10px
+        height: 10px
+        border: 0.5px solid #9E9E9E
+        background: #FFF
+        cursor: pointer
     input + label
         cursor: pointer
-        &:hover
-            color: #C482E6
+    input:checked
+        border: 0.5px solid #214498
+        background: #214498
     input:checked + label
-        color: #C482E6
+        font-weight: 600
 .description-menu-main,
 .description-menu
     background: rgba(241, 241, 241, 0.30)
@@ -263,7 +281,7 @@
         padding: 15px
         background: #D9D9D9
         color: #214498
-        svg 
+        svg
             path
                 fill: #214498
 .readmore-menu
@@ -275,8 +293,9 @@
         padding-left: 10px
 
 .category-nav_catalog
-    > li
-        border-bottom: 1px solid #D9D9D9
+    > ul
+        > li
+            border-bottom: 1px solid #D9D9D9
 
 .readmore-menu
     padding: 10px 20px
@@ -305,3 +324,54 @@
             color: #121212
             font-size: 14px
             font-weight: 300
+
+.cta-more
+    width: 100%
+    max-width: 365rem
+    border: 1px solid #000
+    a
+        display: block
+        padding: 25rem
+        color: #121212
+        text-align: center
+        font-size: 16px
+        font-weight: 700
+        letter-spacing: 0.8px
+        text-transform: uppercase
+
+.pagination
+    padding: 26px 0
+    justify-content: center
+
+.pagination-button
+    color: #000
+    font-size: 18px
+    padding: 0 4px
+    min-width: 15px
+    font-style: normal
+    font-weight: 400
+    letter-spacing: 9px
+    transition: all .3s ease
+    text-transform: uppercase
+    span
+        text-align: center
+    svg
+        transition: all .3s ease
+    &:hover
+        font-weight: 700
+        > svg
+            transform: scale(1.1)
+        
+.current-page
+    font-weight: 700
+
+.cta-prev
+    padding-right: 30px
+    padding-left: 10px
+.cta-next
+    padding-right: 10px
+    padding-left: 30px
+
+.view-product 
+    padding: 69px 0 50px
+

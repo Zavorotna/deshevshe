@@ -45,9 +45,11 @@ figure
             transform: scale(1.15)
 .hover-card
     h3
+        min-height: 50px
         padding: 20px 0 15px
-        font-size: 24px
+        font-size: 16px
         font-weight: 500
+        box-sizing: content-box
 
 .price-block
     column-gap: 10rem
@@ -61,32 +63,40 @@ figure
 .old-price
     font-size: 16px
     font-weight: 300
-    text-decoration-line: strikethrough
+    text-decoration: line-through
     text-transform: uppercase
+    opacity: .5
 .color, .size
     column-gap: 10px
     padding-bottom: 15px
-.color
-    input[type="radio"]
-        position: relative
-        appearance: none
-        -webkit-appearance: none
-        width: 20px
-        height: 20px
-        border-radius: 50%
-        background-color: red
-        cursor: pointer
-        z-index: 4
-        &:checked::after
-            content: ""
-            position: absolute
-            top: 50%
-            left: 50%
-            transform: translate(-50%, -50%)
-            width: 24px
-            height: 24px
-            border: 1px solid #000
-            border-radius: 50%
+
+.article
+    padding-bottom: 15px
+    color: #9E9E9E
+    font-size: 14px
+    font-weight: 400
+
+// .color
+//     input[type="radio"]
+//         position: relative
+//         appearance: none
+//         -webkit-appearance: none
+//         width: 20px
+//         height: 20px
+//         border-radius: 50%
+//         background-color: red
+//         cursor: pointer
+//         z-index: 4
+//         &:checked::after
+//             content: ""
+//             position: absolute
+//             top: 50%
+//             left: 50%
+//             transform: translate(-50%, -50%)
+//             width: 24px
+//             height: 24px
+//             border: 1px solid #000
+//             border-radius: 50%
 
 .size
     input
@@ -119,7 +129,6 @@ figure
     text-align: center
     text-transform: uppercase
     z-index: 4
-
 
 .blue-btn
     padding: 19px

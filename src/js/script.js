@@ -11,8 +11,43 @@ document.addEventListener("DOMContentLoaded", function () {
     if (document.querySelector('.down-menu')) {
         //sub menu header
         const menuItems = document.querySelectorAll('.down-menu'),
-            body = document.querySelector("#body")
+            body = document.querySelector("#body"),
+            listItemMain = document.querySelectorAll(".navigation-menu-catalog > li"),
+            subMenuSecond = document.querySelectorAll(".sub-menu > li")
+        //ховер при наведені на головній навігації
+        const addHoverClass = (element, className) => element.classList.add(className),
+            removeHoverClass = (element, className) => element.classList.remove(className)
         
+        listItemMain.forEach(listItem => {
+            listItem.addEventListener("mouseenter", function() {
+                const link = this.querySelector("a"),
+                    subMenu = this.querySelector(".sub-menu-main") || this.querySelector(".help-sub-menu")
+                
+                if (link) addHoverClass(link, "yellow-header-hover")
+                if (subMenu) addHoverClass(subMenu, subMenu.classList.contains("sub-menu-main") ? "hover-sub-menu" : "hover-help-menu")
+            })
+            listItem.addEventListener("mouseleave", function() {
+                const link = this.querySelector("a"),
+                    subMenu = this.querySelector(".sub-menu-main") || this.querySelector(".help-sub-menu")
+                
+                if (link) removeHoverClass(link, "yellow-header-hover")
+                if (subMenu) removeHoverClass(subMenu, subMenu.classList.contains("sub-menu-main") ? "hover-sub-menu" : "hover-help-menu")
+            })
+        })
+        
+        subMenuSecond.forEach(subMenuSecList => {
+            subMenuSecList.addEventListener("mouseenter", function() {
+                addHoverClass(this, "hover-sub-sub-a")
+                const secondSubMenu = this.querySelector(".second-subMenu")
+                if (secondSubMenu) addHoverClass(secondSubMenu, "subSecond-hover")
+            })
+            subMenuSecList.addEventListener("mouseleave", function() {
+                removeHoverClass(this, "hover-sub-sub-a")
+                const secondSubMenu = this.querySelector(".second-subMenu")
+                if (secondSubMenu) removeHoverClass(secondSubMenu, "subSecond-hover")
+            })
+        })
+        // ховер на фон
         const toggleBodyOverflow = (toggle) => {
             if (toggle) {
                 body.style.height = "100vh"
@@ -37,7 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const subMenu = item.nextElementSibling,
                 blackFon = item.previousElementSibling,
                 listItemMenu = blackFon.parentElement
-        
             const showMenu = () => {
                 toggleBodyOverflow(true)
                 toggleBlackFon(blackFon, true)
@@ -127,41 +161,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 mobileMenu.style.top = "0"
                 isMenuOpen = true
             })
-            if (window.innerWidth < 1024) {
-                itemMobile.forEach(item => {
-                    item.addEventListener("click", function (e) {
-                        let subSubmenu = item.nextElementSibling;
-                        if (subSubmenu && subSubmenu.classList.contains('sub-menu-main') || subSubmenu && subSubmenu.classList.contains('help-sub-menu')) {
-                            if (subSubmenu.classList.contains('d-flex')) {
-                                let downCta = document.querySelectorAll(".down-menu")
-                                downCta.forEach(items => {
-                                    items.addEventListener("click", function () {
-                                        items.style.color = "#F1E12F"
-                                        let svgItem = items.querySelector("svg")
-                                        svgItem.style.transform = "rotate(180deg)"
-                                        svgItem.style.top = "40%"
-                                        svgItem.querySelector("path").style.stroke = "#F1E12F"
-                                    })
-                                })
-                                subSubmenu.classList.remove('d-flex');
-                                subSubmenu.style.display = 'none';
-                            } else {
-                                let downCta = document.querySelectorAll(".down-menu")
-                                downCta.forEach(items => {
-                                    items.addEventListener("click", function () {
-                                        items.style.color = "#fff"
-                                        let svgItem = items.querySelector("svg")
-                                        svgItem.style.transform = "rotate(0deg)"
-                                        svgItem.querySelector("path").style.stroke = "#fff"
-                                    })
-                                })
-                                subSubmenu.classList.add('d-flex')
-                                subSubmenu.style.display = 'block'
-                            }
-                        }
-                    })
-                })
-            }
 
             window.addEventListener('scroll', function () {
                 sections.forEach(section => {
@@ -187,19 +186,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 burger.style.left = "0"
             }
         }
-
-        // if(window.innerWidth >= 1024) {
-        //     const subMenuMain = document.querySelector(".big-menu"),
-        //         downMenu = document.querySelectorAll(".down-menu")
-        //     downMenu.forEach(downMenuItem => {
-        //         downMenuItem.addEventListener("mouseenter", function() {
-        //             subMenuMain.classList.add("hover-subMenuMain")
-        //         })
-        //         downMenuItem.addEventListener("mouseleave", function() {
-        //             subMenuMain.classList.remove("hover-subMenuMain")
-        //         })
-        //     })
-        // }
     }
     if (document.querySelector(".sort-select")) {
         const selects = document.querySelectorAll('.select')
@@ -255,7 +241,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         })
     }
-
+    //кастомний рендж цін
     if (document.querySelector('.slider-range')) {
         const slider = document.querySelector('.slider-range'),
             minHandle = document.querySelector('#min-handle'),

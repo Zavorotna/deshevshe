@@ -6,22 +6,20 @@ figure.card
         picture 
             img(src="img/catalog-card.png", alt="") 
         .hover-card
-            h3 Джинсові шорти
-            p.d-flex.price-block.item-center
-                span.price 800₴
-                span.old-price 1200₴
+            h3 Шорти джинсові жіночі, колір блакитний
+            p.article Артикул: 83635337
         form(action="#")
-            .color.d-flex.item-center
-                label
-                    input(type="radio", name="color" value="black")
-                label
-                    input(type="radio", name="color" value="red")
-                label
-                    input(type="radio", name="color" value="blue")
-                label
-                    input(type="radio", name="color" value="gray")
-                label
-                    input(type="radio", name="color" value="white") 
+            //- .color.d-flex.item-center
+            //-     label
+            //-         input(type="radio", name="color" value="black")
+            //-     label
+            //-         input(type="radio", name="color" value="red")
+            //-     label
+            //-         input(type="radio", name="color" value="blue")
+            //-     label
+            //-         input(type="radio", name="color" value="gray")
+            //-     label
+            //-         input(type="radio", name="color" value="white") 
             .size.d-flex.item-center
                 p
                     input(type="radio", name="size" id="xs")
@@ -41,4 +39,7 @@ figure.card
                 p
                     input(type="radio", name="size" id="xxl")
                     label(for="xxl") xxl
+            p.d-flex.price-block.item-center
+                span.price 800₴
+                span.old-price 1200₴
             button(type='submit').blue-btn.submit-btn купити 

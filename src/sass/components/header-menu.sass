@@ -35,58 +35,55 @@
         letter-spacing: 0.8px
         text-transform: uppercase
         transition: all .5s ease
-    > li
+
+.hover-help-menu
+    display: block
+    position: absolute
+    padding: 30px
+    min-width: 300px
+    top: 100%
+    left: 42%
+    transform: translateX(-50%)
+    background-color: #fff
+    z-index: 20
+    a
+        padding: 0
+        padding-bottom: 15rem
+        color: #121212
+        font-size: 14px
+        font-weight: 500
+        transition: .25s
         &:hover
-            > a
-                color: #F1E12F
-            > a
-                svg
-                    top: 40%
-                    transform: rotate(180deg)
-                svg > path
-                    stroke: #F1E12F
-            // > .black-fon
-            //     +media(1024)
-            //         // display: block
-            //         position: fixed
-            //         top: 154.5px
-            //         left: 0
-            //         width: 100%
-            //         height: 100%
-            //         background: rgba(0, 0, 0, 0.50)
-            //         z-index: -1
-            > .sub-menu-main
-                width: 100%
-                padding: 0 0 54px
-                +media(1024)
-                    position: absolute
-                    top: 100%
-                    left: 0
-                    display: flex
-                    align-items: flex-start
-                    column-gap: 37rem
-                    padding: 31px 0 54px
-                    max-height: 80vh
-                    min-width: 85vw
-                    background-color: #fff
-                    border-top: 10px solid transparent
-                    overflow-x: auto
-                    z-index: 20
-                &::-webkit-scrollbar
-                    width: 5px
-                    background-color: #ccc
-                &::-webkit-scrollbar-thumb
-                    background-color: #929090
-            > ul.help-sub-menu
-                padding: 30px
-                +media(1024)
-                    display: block
-                    position: absolute
-                    top: 100%
-                    left: 42%
-                    transform: translateX(-50%)
-                    background-color: #fff
-                    z-index: 20
+            font-weight: 600
+
+.hover-sub-menu
+    position: absolute
+    top: 100%
+    left: 0
+    display: flex
+    align-items: flex-start
+    column-gap: 37rem
+    padding: 31px 0 54px
+    width: 100%
+    max-height: 80vh
+    background-color: #fff
+    border-top: 10px solid transparent
+    overflow-x: auto
+    z-index: 20
+    &::-webkit-scrollbar
+        width: 5px
+        background-color: #ccc
+    &::-webkit-scrollbar-thumb
+        background-color: #929090
+
+a.yellow-header-hover
+    color: #F1E12F
+    svg
+        top: 40%
+        transform: rotate(180deg)
+    svg > path
+        stroke: #F1E12F
+
 .black-fon-style
     position: fixed
     top: 154.5px
@@ -95,8 +92,9 @@
     height: 100%
     background: rgba(0, 0, 0, 0.50)
     z-index: -1
-.d-block
-    display: block
+
+
+
 .down-menu
     position: relative
     svg
@@ -114,119 +112,81 @@
                 fill: #121212
     > li
         column-gap: 10rem
-        padding: 7px 7px 7px 10px
         transition: all .3s ease
-        +media(1024)
-            padding: 7px 7px 7px 50px
-        +media(1024)
-            &:hover
-                background: #D7D9DF
-                a
-                    color: #214498
-                svg path
-                    fill: #214498
-        &:hover
-            > .second-subMenu
-                +media(1024)
-                    position: absolute
-                    top: 0
-                    left: 100%
-                    display: flex
-                    justify-content: space-around
-                    width: 100%
-                    min-width: 60vw
-                ul
-                    padding-left: 20px
-                    display: none
-                    min-width: 170px
-                    +media(1024)
-                        display: block
-                        padding-left: 0
-                p
-                    padding: 8px 20px
-                    color: #fff
-                    font-size: 16px
-                    font-weight: 500
-                    +media(1024)
-                        padding: 8px 0 18px
-                        color: #000
-                a
-                    padding: 0 0 15rem 0
-                    color: #fff
-                    font-size: 14px
-                    font-weight: 300
-                    text-transform: none
-                    transition: .25s
-                    +media(1024)
-                        color: #121212
-                    &:hover
-                        font-weight: 600
+        padding: 7px 7px 7px 50px
     a
         padding: 0
-        color: #fff
+        color: #121212
         font-size: 16px
         font-weight: 500
         letter-spacing: 0.8px
         text-transform: uppercase
-        +media(1024)
-            color: #121212
+        
+.hover-sub-sub-a
+    background: #D7D9DF
+    a
+        color: #214498
+        svg 
+            path
+                fill: #214498
+.subSecond-hover
+    position: absolute
+    top: 0
+    left: 100%
+    display: flex
+    justify-content: space-around
+    width: 100%
+    ul
+        min-width: 170px
+        display: block
+        padding-left: 0
+    p
+        font-size: 16px
+        font-weight: 500
+        padding: 8px 0 18px
+        color: #000
+    a
+        padding: 0 0 15rem 0
+        color: #121212
+        font-size: 14px
+        font-weight: 300
+        text-transform: none
+        transition: .25s
+        &:hover
+            font-weight: 600
 .item
     &:hover
         > .default-menu
             display: none
+
 .d-block
     display: block !important
 
 .default-menu
-    display: none
     width: 100%
-    +media(1024)
-        position: absolute
-        top: 0
-        left: 100%
-        display: flex
-        justify-content: space-around
-        min-width: 60vw
+    position: absolute
+    top: 0
+    left: 100%
+    display: flex
+    justify-content: space-around
+    min-width: 60vw
     p
-        padding: 8px 20px 
-        color: #fff
+        padding: 8px 0 18px
+        color: #000
         font-size: 16px
         font-weight: 500
-        +media(1024)
-            padding: 8px 0 18px
-            color: #000
     ul
-        display: none
-        padding-left: 20px
+        display: block
+        padding-left: 0
         min-width: 170px
-        +media(1024)
-            display: block
-            padding-left: 0
         li
             a
                 padding: 0 0 15rem 0
-                color: #fff !important
-                font-size: 14px 
-                font-weight: 300 
+                font-size: 14px
+                font-weight: 300
                 text-transform: none
                 transition: .25s
-                +media(1024)
-                    color: #121212 !important
+                color: #121212
                 &:hover
                     font-weight: 600
-.help-sub-menu
-    min-width: 300px
-    +media(1024)
-        max-width: 300px
-        position: absolute
-    a
-        padding: 0
-        padding-bottom: 15rem
-        color: #fff
-        font-size: 14px
-        font-weight: 500
-        transition: .25s
-        +media(1024)
-            color: #121212
-        &:hover
-            font-weight: 600
+

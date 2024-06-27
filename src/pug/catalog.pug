@@ -23,6 +23,11 @@ html(lang="uk")
             .flex-between.catalog-main
                 include components/filter
                 include components/catalog-product-card
+            section.view-product 
+                h2 переглянуті товари
+                .top-prodaz-card
+                    - for(let i = 0; i < 4; i++) 
+                        include components/catalog-card
 
         footer
             #footer
