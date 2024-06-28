@@ -311,7 +311,13 @@
 .visible-menu
     max-height: 1000rem
     transition: max-height 1s ease
-
+.visible-menu
+    overflow: auto
+    &::-webkit-scrollbar
+        width: 5px
+        background-color: #ccc
+    &::-webkit-scrollbar-thumb
+        background-color: #929090
 .visible::not(::firs-child)
     padding: 20px
 

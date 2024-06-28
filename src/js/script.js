@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         label.style.border = "1px solid"
         label.style.borderColor = color === 'white' ? '#ccc' : 'transparent'
     })
+
     if (document.querySelector('.down-menu')) {
         //sub menu header
         const menuItems = document.querySelectorAll('.down-menu'),
@@ -333,4 +334,56 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleVisibility(menuReadMore, "visible-menu", "readmore-active-menu")
     toggleVisibility(menuReadMoreMain, "visible-menu", "readmore-active-menu-main")
     
+
+    function slider() {
+        const sliderContainer = document.querySelector('.carousel-card'),
+            sliderImages = [...document.querySelectorAll('.carousel-item')],
+            btnSlider = document.querySelectorAll(".btn")
+
+        let imageHeight = sliderImages[0].offsetHeight
+
+        let currentSlide = 0
+        btnSlider.forEach(itemBtn => {
+            if (sliderImages.length > 3) {
+                itemBtn.style.display = "block"
+            } else {
+                itemBtn.style.display = "none"
+            }
+        })
+
+        function nextSlide(e) {
+            e.preventDefault()
+            if (currentSlide > 0) {
+                currentSlide--
+                sliderContainer.style.transition = 'transform 0.3s ease-in-out'
+                sliderContainer.style.transform = `translateY(-${currentSlide * imageHeight}px)`
+            }
+        }
+
+        function prevSlide(e) {
+            e.preventDefault()
+            if (currentSlide < sliderImages.length - 3) {
+                currentSlide++
+                sliderContainer.style.transition = 'transform 0.3s ease-in-out'
+                sliderContainer.style.transform = `translateY(-${currentSlide * imageHeight}px)`
+            }
+        }
+
+        const nextButton = document.querySelector('.btn-next')
+        if (nextButton) {
+            nextButton.addEventListener('click', nextSlide)
+        }
+
+        const prevButton = document.querySelector('.btn-prev')
+        if (prevButton) {
+            prevButton.addEventListener('click', prevSlide)
+        }
+
+    }
+    if (document.querySelector(".img-block")) {
+        slider()
+        window.addEventListener('resize', () => {
+            slider()
+        })
+    }
 })
