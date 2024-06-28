@@ -131,7 +131,7 @@
     border-top: 1px solid #D9D9D9
     +media(1440)
         margin: 53px 0 50px
-.size
+.size-card
     column-gap: 10px
     input
         display: none
@@ -166,23 +166,152 @@ p.descript-text
     max-height: 70px
     border: none
     cursor: pointer
+.haracteristic-btn
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    gap: 20px
+
+.description-product,
+.haracteristic-block,
+.comment-card,
+.delivery-card
+    display: none
+
+.description-product.active,
+.haracteristic-block.active,
+.comment-card.active,
+.delivery-card.active
+    display: block
+    padding-top: 30px
+
+.transparent-cta.active
+    color: #fff
+    background: #214498
+    border: 1px solid #214498
+
 .transparent-cta
-    justify-content: center
-    column-gap: 10px
+    color: #121212
+    max-height: 70rem
+    padding: 20px
     background-color: transparent
-    font-size: 18px
-    font-weight: 700
-    letter-spacing: 0.9px
-    text-transform: uppercase
+    font-size: 16px
+    font-weight: 500
+    text-align: center
     border: 1px solid #121212
+    text-transform: uppercase
     transition: all .25s ease
-    svg
-        path 
-            fill: #121212
+    +media(1440)
+        font-size: 18px
     &:hover
         color: #fff
         background: #214498
-        border: none
+        border: 1px solid #214498
+
+.button-transparent
+    justify-content: center
+    column-gap: 10px
+    font-weight: 700
+    letter-spacing: 0.9px
+    transition: all .25s ease
+    svg
+        path
+            fill: #121212
+    &:hover
         svg
-            path 
+            path
                 fill: #fff
+
+.description-product
+    padding: 30px 0
+.text-product-descr
+    margin-bottom: 25px
+    font-size: 18px
+    font-weight: 400
+.descript-card
+    margin: 0
+    margin-bottom: 25px
+
+.head-descript
+    margin-bottom: 15px
+    font-size: 18px
+    font-weight: 600
+    text-transform: uppercase
+.list-descript
+    padding-bottom: 25px
+    li
+        font-size: 18px
+        font-weight: 400
+        position: relative
+        padding-left: 30px
+        &::before
+            content: ""
+            position: absolute
+            width: 3px
+            height: 3px
+            top: 50%
+            left: 15px
+            background-color: #000
+            border-radius: 50%
+.comment-card-block
+    column-gap: 100px
+.delivery-card
+    li
+        padding-bottom: 10px
+
+.head-delivery
+    padding-bottom: 30px
+    font-size: 24px
+    font-weight: 600
+    text-transform: uppercase
+.size-table-popup
+    display: none
+    position: absolute
+    top: 63%
+    left: 50%
+    width: 85vw
+    padding: 30px
+    transform: translate(-50%, -50%)
+    background: #FFF
+    z-index: 9999
+    +media(1840)
+        padding: 50px
+    h2
+        padding-bottom: 30px
+        margin: 0
+        font-size: 24px
+        font-weight: 600
+        text-transform: uppercase
+    table
+        width: 100%
+        border-collapse: collapse
+        td, th
+            min-width: 200px
+            max-width: 200px
+            padding: 10px
+            text-align: center
+            color: #121212
+            font-size: 12px
+            text-transform: uppercase
+            +media(1440)
+                padding: 17px
+    thead
+        tr
+            border: 1px solid #121212
+            background: #D9D9D9
+        th + th
+            border-left: 1px solid #121212
+        th
+            padding: 17px
+            font-weight: 500
+    tbody
+        tr
+            &:nth-child(odd)
+                background: #FFF            
+        tr
+            &:nth-child(even)
+                background: #F1F1F1   
+                
+.cancel-size-popup 
+    position: absolute
+    top: 4%
+    right: 2%

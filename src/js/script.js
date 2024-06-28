@@ -18,31 +18,31 @@ document.addEventListener("DOMContentLoaded", function () {
         //ховер при наведені на головній навігації
         const addHoverClass = (element, className) => element.classList.add(className),
             removeHoverClass = (element, className) => element.classList.remove(className)
-        
+
         listItemMain.forEach(listItem => {
-            listItem.addEventListener("mouseenter", function() {
+            listItem.addEventListener("mouseenter", function () {
                 const link = this.querySelector("a"),
                     subMenu = this.querySelector(".sub-menu-main") || this.querySelector(".help-sub-menu")
-                
+
                 if (link) addHoverClass(link, "yellow-header-hover")
                 if (subMenu) addHoverClass(subMenu, subMenu.classList.contains("sub-menu-main") ? "hover-sub-menu" : "hover-help-menu")
             })
-            listItem.addEventListener("mouseleave", function() {
+            listItem.addEventListener("mouseleave", function () {
                 const link = this.querySelector("a"),
                     subMenu = this.querySelector(".sub-menu-main") || this.querySelector(".help-sub-menu")
-                
+
                 if (link) removeHoverClass(link, "yellow-header-hover")
                 if (subMenu) removeHoverClass(subMenu, subMenu.classList.contains("sub-menu-main") ? "hover-sub-menu" : "hover-help-menu")
             })
         })
-        
+
         subMenuSecond.forEach(subMenuSecList => {
-            subMenuSecList.addEventListener("mouseenter", function() {
+            subMenuSecList.addEventListener("mouseenter", function () {
                 addHoverClass(this, "hover-sub-sub-a")
                 const secondSubMenu = this.querySelector(".second-subMenu")
                 if (secondSubMenu) addHoverClass(secondSubMenu, "subSecond-hover")
             })
-            subMenuSecList.addEventListener("mouseleave", function() {
+            subMenuSecList.addEventListener("mouseleave", function () {
                 removeHoverClass(this, "hover-sub-sub-a")
                 const secondSubMenu = this.querySelector(".second-subMenu")
                 if (secondSubMenu) removeHoverClass(secondSubMenu, "subSecond-hover")
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 body.style.overflow = ''
             }
         }
-        
+
         const toggleBlackFon = (blackFon, toggle) => {
             if (toggle) {
                 blackFon.classList.add("black-fon-style")
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 blackFon.style.display = 'none'
             }
         }
-        
+
         menuItems.forEach(item => {
             const subMenu = item.nextElementSibling,
                 blackFon = item.previousElementSibling,
@@ -77,12 +77,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 toggleBodyOverflow(true)
                 toggleBlackFon(blackFon, true)
             }
-        
+
             const hideMenu = () => {
                 toggleBodyOverflow(false)
                 toggleBlackFon(blackFon, false)
             }
-        
+
             item.addEventListener('mouseenter', showMenu)
             item.addEventListener('mouseleave', hideMenu)
             subMenu.addEventListener('mouseenter', showMenu)
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
             listItemMenu.addEventListener('mouseenter', showMenu)
             listItemMenu.addEventListener('mouseleave', hideMenu)
         })
-        
+
 
         // Отримання всіх пунктів підменю
 
@@ -254,17 +254,17 @@ document.addEventListener("DOMContentLoaded", function () {
             maxValueSpan = document.querySelector('#max-value'),
             sliderWidth = slider.offsetWidth,
             handleWidth = minHandle.offsetWidth
-    
+
         let minPrice = minValueSpan.getAttribute("data-value"),
             maxPrice = maxValueSpan.getAttribute("data-value")
-    
+
         function updateRange() {
             const minPos = minHandle.offsetLeft,
                 maxPos = maxHandle.offsetLeft
-    
+
             range.style.left = minPos + 'px'
             range.style.width = (maxPos - minPos) + 'px'
-    
+
             const minValue = Math.round(minPrice + (minPos / (sliderWidth - handleWidth)) * (maxPrice - minPrice)),
                 maxValue = Math.round(minPrice + (maxPos / (sliderWidth - handleWidth)) * (maxPrice - minPrice))
             minPriceInput.value = minValue
@@ -272,47 +272,47 @@ document.addEventListener("DOMContentLoaded", function () {
             minValueSpan.textContent = minValue
             maxValueSpan.textContent = maxValue
         }
-    
+
         function handleDrag(e, handle) {
             e.preventDefault()
-    
+
             const handleStartX = e.clientX || e.touches[0].clientX
             const handleStartLeft = handle.offsetLeft
-    
+
             const onMove = (moveEvent) => {
                 const moveX = moveEvent.clientX || moveEvent.touches[0].clientX
                 let newLeft = moveX - handleStartX + handleStartLeft
-    
+
                 if (handle === minHandle) {
                     newLeft = Math.max(0, Math.min(newLeft, maxHandle.offsetLeft - handleWidth))
                 } else {
                     newLeft = Math.max(minHandle.offsetLeft + handleWidth, Math.min(newLeft, sliderWidth - handleWidth))
                 }
-    
+
                 handle.style.left = newLeft + 'px'
                 updateRange()
             }
-    
+
             const onEnd = () => {
                 document.removeEventListener('mousemove', onMove)
                 document.removeEventListener('mouseup', onEnd)
                 document.removeEventListener('touchmove', onMove)
                 document.removeEventListener('touchend', onEnd)
             }
-    
+
             document.addEventListener('mousemove', onMove)
             document.addEventListener('mouseup', onEnd)
             document.addEventListener('touchmove', onMove)
             document.addEventListener('touchend', onEnd)
         }
-    
+
         minHandle.addEventListener('mousedown', (e) => handleDrag(e, minHandle))
         maxHandle.addEventListener('mousedown', (e) => handleDrag(e, maxHandle))
         minHandle.addEventListener('touchstart', (e) => handleDrag(e, minHandle))
         maxHandle.addEventListener('touchstart', (e) => handleDrag(e, maxHandle))
-    
+
         updateRange()
-    
+
     }
     // випадаючі категорії в каталозі
     function toggleVisibility(buttons, visibleClass, activeClass) {
@@ -325,15 +325,15 @@ document.addEventListener("DOMContentLoaded", function () {
             })
         })
     }
-    
+
     const btnReadMore = document.querySelectorAll(".readmore")
     const menuReadMore = document.querySelectorAll(".readmore-menu")
     const menuReadMoreMain = document.querySelectorAll(".readmore-menu-main")
-    
+
     toggleVisibility(btnReadMore, "visible", "readmore-active")
     toggleVisibility(menuReadMore, "visible-menu", "readmore-active-menu")
     toggleVisibility(menuReadMoreMain, "visible-menu", "readmore-active-menu-main")
-    
+
 
     function slider() {
         const sliderContainer = document.querySelector('.carousel-card'),
@@ -384,6 +384,59 @@ document.addEventListener("DOMContentLoaded", function () {
         slider()
         window.addEventListener('resize', () => {
             slider()
+        })
+    }
+    if (document.querySelector("#delivery")) {
+        const buttons = document.querySelectorAll('.transparent-cta'),
+            sections = document.querySelectorAll('.description-product, .haracteristic-block, .comment-card, .delivery-card')
+
+        function hideAllSections() {
+            sections.forEach(section => section.classList.remove('active'))
+        }
+        function deactivateAllButtons() {
+            buttons.forEach(button => button.classList.remove('active'))
+        }
+
+        buttons.forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                const target = button.getAttribute('data-target')
+
+                hideAllSections()
+                deactivateAllButtons()
+
+                const sectionToShow = document.getElementById(target)
+                if (sectionToShow) {
+                    sectionToShow.classList.add('active')
+                    button.classList.add('active')
+                }
+            })
+        })
+
+        hideAllSections()
+        deactivateAllButtons()
+        document.querySelector('.description-product').classList.add('active')
+        document.querySelector('[data-target="about"]').classList.add('active')
+    }
+
+    if(document.querySelector(".popup-size-cta")) {
+        const popupSize = document.querySelector(".popup-size-cta"),
+            blackFonPOpup = document.querySelector(".black-fon-popup"),
+            tablePopup = document.querySelector(".size-table-popup"),
+            cancelPopupSize = document.querySelector(".cancel-size-popup"),
+            bodyCard = document.querySelector("#body")
+        popupSize.addEventListener("click", function() {
+            blackFonPOpup.classList.add("black-fon-style")
+            tablePopup.style.display = "block"
+            body.style.height = "100vh"
+            body.style.overflow = "hidden"
+            
+        })
+        cancelPopupSize.addEventListener("click", function() {
+            blackFonPOpup.classList.remove("black-fon-style")
+            tablePopup.style.display = "none"
+            body.style.height = ""
+            body.style.overflow = ""
         })
     }
 })
