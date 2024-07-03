@@ -1,0 +1,35 @@
+doctype html
+html(lang="uk")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=2.0")
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+        link(rel="stylesheet" href="css/style.css")
+        title Дешевше - інтернет магазин необхідних товарів для всієї родини
+    body#body
+        header
+            .fixed-header
+                include components/header
+        main.wrapper
+            p.page-look.d-flex
+                a(href="index.html") головна
+                span /
+                span.selected-page вподобані товари
+            .head-basket.flex-between.item-center
+                h1 вподобані товари
+            .empty-like-product.d-flex.item-center
+                .descript-empty
+                    p Створюйте та зберігайте свої приватні списки товарів. 
+                    p Додавайте товари, які хочете зберегти особисто для себе та зручно керуйте ними.
+                a(href="#").yellow-cta.btn-card.contact-cta увійти або зареєструватися
+            .full-like-product
+                section.view-product
+                    .top-prodaz-card
+                        - for(let i = 0; i < 4; i++) 
+                            include components/catalog-card
+            
+        footer 
+            include components/footer
+        script(src="js/scripts.js")

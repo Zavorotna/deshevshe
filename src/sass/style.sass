@@ -1,7 +1,9 @@
 @import components/mixins
 @import components/header
 @import components/header-menu
+@import components/popup-reg
 @import components/privacy
+@import components/help
 
 *
     margin: 0
@@ -13,6 +15,8 @@ html
     font-size: 0.8px
     scroll-behavior: smooth
     +media(1024)
+        font-size: 0.9px
+    +media(1440)
         font-size: 1px
     +media(2200)
         font-size: 2px
@@ -22,7 +26,7 @@ body
     color: #121212
 
 .wrapper
-    max-width: 85%
+    max-width: 90%
     margin: 0 auto
 
 .d-none
@@ -31,7 +35,8 @@ body
     display: block
 .d-flex
     display: flex
-
+.grid
+    display: grid
 .flex-between
     display: flex
     justify-content: space-between
@@ -52,25 +57,28 @@ body
     column-gap: 10rem
 
 .social-icon
+    display: none
+    +media(1024)
+        display: flex
     a
         transition: all .5s ease
         &:hover
-            filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.25))
+            filter: drop-shadow(0rem 2rem 5rem rgba(0, 0, 0, 0.25))
 .arrow
     display: block
     position: fixed
-    bottom: 20px
-    right: 20px
-    width: 45px
-    height: 45px
+    bottom: 20rem
+    right: 20rem
+    width: 45rem
+    height: 45rem
     background-color: #214498
     border-radius: 50%
     transition: all .25s ease
     cursor: pointer
     z-index: 25
     +media(1024)
-        width: 60px
-        height: 60px
+        width: 60rem
+        height: 60rem
     &:hover
         background-color: #FDF028
     svg
@@ -79,13 +87,13 @@ body
         left: 50%
         transform: translate(-50%, -50%)
 .arrow-up
-    bottom: 70px
+    bottom: 70rem
     +media(1024)
-        bottom: 90px
+        bottom: 90rem
 .flex-arrow
     flex-direction: column
 .main
-    padding: 30px 0 100px
+    padding: 30rem 0 100rem
 
 .main-bg
     position: relative
@@ -99,28 +107,28 @@ body
         text-transform: uppercase
     p:first-child
         color: #214498
-        font-size: 68px
+        font-size: 68rem
         font-weight: 900
-        letter-spacing: 6.4px
+        letter-spacing: 6.4rem
         +media(768)
-            font-size: 128px
+            font-size: 128rem
     p:nth-child(2)
         margin-bottom: 50rem
-        font-size: 26px
+        font-size: 26rem
         font-weight: 700
         +media(768)
-            font-size: 36px
+            font-size: 36rem
 
 .yellow-cta
-    padding: 20px
-    max-width: 280px
+    padding: 20rem 0
+    // max-width: 280rem
     display: block
     color: #121212
     text-align: center
-    font-size: 16px
+    font-size: 16rem
     font-weight: 700
     background-color: #FDF028
-    letter-spacing: 0.8px
+    letter-spacing: 0.8rem
     text-transform: uppercase
     transition: all .25s ease
     &:hover
@@ -131,68 +139,68 @@ h2, h1
     margin-bottom: 63rem
     color: #121212
     text-align: center
-    font-size: 28px
+    font-size: 28rem
     font-weight: 700
     text-transform: uppercase
     +media(768)
-        font-size: 48px
+        font-size: 48rem
 .perevagi
     padding-bottom: 100rem
     div
         width: 100%
-        gap: 30px
+        gap: 30rem
         flex-wrap: wrap
         +media(768)
             width: auto
         +media(1024)
-            gap: 13px
+            gap: 13rem
             flex-wrap: nowrap
         picture
             display: inline-block
-            min-width: 65px
+            min-width: 65rem
             +media(1024)
-                min-width: 50px
-                max-width: 50px
+                min-width: 50rem
+                max-width: 50rem
             img
                 width: 100%
     p
-        max-width: 180px
-        font-size: 18px
+        max-width: 180rem
+        font-size: 18rem
         font-weight: 600
         text-transform: uppercase
 
 .popular
-    padding: 90px 0 100px
+    padding: 90rem 0 100rem
     background: rgba(241, 241, 241, 0.30)
     a
         color: #121212
         display: block
-        min-width: 130px
+        min-width: 130rem
         text-align: center
         +media(768)
-            min-width: 150px
-            max-width: 170px
+            min-width: 150rem
+            max-width: 170rem
     picture
         display: inline-block
-        width: 130px
-        height: 130px
+        width: 130rem
+        height: 130rem
         border-radius: 50%
-        border: 2px solid
+        border: 2rem solid
         overflow: hidden
         &:hover
             img
-                width: 115px
-                height: 115px
+                width: 115rem
+                height: 115rem
                 position: relative
                 top: 50%
                 left: 50%
                 transform: translate(-55%, -50%)
                 border-radius: 50%
-                border-radius: 140px
-                box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.15)
+                border-radius: 140rem
+                box-shadow: 0rem 0rem 3rem 2rem rgba(0, 0, 0, 0.15)
         &:hover
             ~ span
-                font-size: 24px
+                font-size: 24rem
                 font-weight: 600
         img
             width: 100%
@@ -200,19 +208,19 @@ h2, h1
             object-position: center
     span
         text-align: center
-        font-size: 20px
+        font-size: 20rem
         font-weight: 500
         transition: all .5s ease
         +media(1440)
-            font-size: 24px
+            font-size: 24rem
 
 .popular-elements
-    min-height: 170px
+    min-height: 170rem
     gap: 15rem
     overflow: auto
     &::-webkit-scrollbar
         width: 100%
-        height: 5px
+        height: 5rem
         background-color: #ccc
     &::-webkit-scrollbar-thumb
         background-color: #929090
@@ -222,13 +230,13 @@ h2, h1
 
 .top-prodaz-card
     display: grid
-    gap: 20px
+    gap: 20rem
     width: 100%
-    padding-bottom: 50px
+    padding-bottom: 50rem
     +media(768)
         grid-template-columns: repeat(2, 1fr)
     +media(1024)
-        grid-template-columns: repeat(4, 20vw)
+        grid-template-columns: repeat(4, 1fr)
 
 .catalog-cta-center
     width: 100%
@@ -236,7 +244,7 @@ h2, h1
     justify-content: center
     align-items: center
     a
-        min-width: 300px
+        min-width: 300rem
 .footer-flex
     row-gap: 20rem
     flex-wrap: wrap
@@ -245,9 +253,40 @@ h2, h1
 .cancel-menu
     +media(1024)
         display: none
+.top-prodaz-main
+    position: relative
+.view-all
+    position: absolute
+    top: 120rem
+    right: 0
+    a
+        color: #999
+        font-size: 18rem
+        font-style: normal
+        font-weight: 400
+        line-height: normal
+        transition: all .25s ease
+        text-decoration-line: underline
+        &:hover
+            color: #6d6a6a
+            
+    .gray-sircle 
+        width: 40px
+        height: 40px
+        border-radius: 50%
+        background-color: #F1F1F1
+        &:hover
+            background-color: #afacac
+            
+
 @import components/card-style
 @import components/comment
 @import components/form-comment
 @import components/catalog-product-card
 @import components/card-page
+@import components/basket
+@import components/order
+@import components/contacts
+@import components/like-product
+@import components/spivpracia
 @import components/footer

@@ -1,5 +1,18 @@
 .header-navigation
     background-color: #214498
+    position: relative
+.flag-UA
+    position: absolute
+    width: 58px
+    top: 5px
+    left: 0
+    height: 80%
+    z-index: 99
+    +media(1024)
+        bottom: -20%
+        left: 2%
+        width: 85rem
+        height: 80%
 
 .sub-menu-main,
 .help-sub-menu,
@@ -8,13 +21,13 @@
 
 .navigation-menu-catalog
     position: absolute
-    top: 0
+    top: -62px
     left: -100%
-    width: 100%
+    width: 80%
     height: 120vh
-    padding: 50px 20px
+    padding: 50rem 20rem
     background-color: #214498
-    z-index: 99
+    z-index: 100
     transition: all .5s ease
     +media(1024)
         position: relative
@@ -28,19 +41,19 @@
         z-index: 2
     a
         display: block
-        padding: 15px 35px 15px 15px
+        padding: 15rem 35rem 15rem 15rem
         color: #fff
-        font-size: 16px
+        font-size: 16rem
         font-weight: 600
-        letter-spacing: 0.8px
+        letter-spacing: 0.8rem
         text-transform: uppercase
         transition: all .5s ease
 
 .hover-help-menu
     display: block
     position: absolute
-    padding: 30px
-    min-width: 300px
+    padding: 30rem
+    min-width: 300rem
     top: 100%
     left: 42%
     transform: translateX(-50%)
@@ -50,7 +63,7 @@
         padding: 0
         padding-bottom: 15rem
         color: #121212
-        font-size: 14px
+        font-size: 14rem
         font-weight: 500
         transition: .25s
         &:hover
@@ -63,15 +76,15 @@
     display: flex
     align-items: flex-start
     column-gap: 37rem
-    padding: 31px 0 54px
+    padding: 31rem 0 54rem
     width: 100%
     max-height: 80vh
     background-color: #fff
-    border-top: 10px solid transparent
+    border-top: 10rem solid transparent
     overflow-x: auto
     z-index: 20
     &::-webkit-scrollbar
-        width: 5px
+        width: 5rem
         background-color: #ccc
     &::-webkit-scrollbar-thumb
         background-color: #929090
@@ -84,20 +97,23 @@ a.yellow-header-hover
     svg > path
         stroke: #F1E12F
 
-.black-fon-style
+.black-fon-style,
+.black-fon-popup
     position: fixed
-    top: 154.5px
+    top: 159rem
     left: 0
     width: 100%
     height: 100%
     background: rgba(0, 0, 0, 0.50)
     z-index: 10
+    +media(1440)
+        top: 154.5rem
 
 .down-menu
     position: relative
     svg
         transition: all .5s ease
-        right: 5px
+        right: 5rem
         path
             stroke: #fff
 .sub-menu
@@ -109,16 +125,18 @@ a.yellow-header-hover
             +media(1024)
                 fill: #121212
     > li
-        column-gap: 10rem
         transition: all .3s ease
-        padding: 7px 7px 7px 50px
+        padding: 7rem 7rem 7rem 50rem
     a
         padding: 0
         color: #121212
-        font-size: 16px
+        font-size: 16rem
         font-weight: 500
-        letter-spacing: 0.8px
+        letter-spacing: 0.8rem
         text-transform: uppercase
+        span
+            display: inline-block
+            padding-left: 5rem
         
 .hover-sub-sub-a
     background: #D7D9DF
@@ -133,20 +151,20 @@ a.yellow-header-hover
     left: 100%
     display: flex
     justify-content: space-around
+    min-width: 60vw
     width: 100%
     ul
-        min-width: 170px
+        min-width: 170rem
         display: block
-        padding-left: 0
     p
-        font-size: 16px
+        font-size: 16rem
         font-weight: 500
-        padding: 8px 0 18px
+        padding: 8rem 0 18rem
         color: #000
     a
         padding: 0 0 15rem 0
         color: #121212
-        font-size: 14px
+        font-size: 14rem
         font-weight: 300
         text-transform: none
         transition: .25s
@@ -169,18 +187,18 @@ a.yellow-header-hover
     justify-content: space-around
     min-width: 60vw
     p
-        padding: 8px 0 18px
+        padding: 8rem 0 18rem
         color: #000
-        font-size: 16px
+        font-size: 16rem
         font-weight: 500
     ul
         display: block
         padding-left: 0
-        min-width: 170px
+        min-width: 170rem
         li
             a
                 padding: 0 0 15rem 0
-                font-size: 14px
+                font-size: 14rem
                 font-weight: 300
                 text-transform: none
                 transition: .25s

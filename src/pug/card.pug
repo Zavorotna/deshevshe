@@ -10,7 +10,8 @@ html(lang="uk")
         title Дешевше - інтернет магазин необхідних товарів для всієї родини
     body#body
         header
-            include components/header
+            .fixed-header
+                include components/header
         main.wrapper
             p.page-look.d-flex
                 a(href="index.html") головна
@@ -89,51 +90,52 @@ html(lang="uk")
                                             <path d="M20.9999 1.00008L1 21M0.999915 1L20.9998 20.9999" stroke="#D9D9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
                                     h2 розмірна сітка
-                                    table 
-                                        thead 
-                                            tr
-                                                th розмір
-                                                th міжнародний розмір
-                                                th обхват грудей
-                                                th обхват талії
-                                                th обхват стегон
-                                        tbody 
-                                            tr
-                                                td 34
-                                                td xs
-                                                td 80-84
-                                                td 60-62
-                                                td 88-92
-                                            tr
-                                                td 36
-                                                td S
-                                                td 84-90
-                                                td 62-64
-                                                td 92-94
-                                            tr
-                                                td 38
-                                                td m
-                                                td 84-90
-                                                td 62-64
-                                                td 92-94
-                                            tr
-                                                td 40
-                                                td l
-                                                td 94-98
-                                                td 66-68
-                                                td 96-100
-                                            tr
-                                                td 42
-                                                td xl
-                                                td 98-102
-                                                td 68-74
-                                                td 100-106
-                                            tr
-                                                td 44
-                                                td xxl
-                                                td 102-104
-                                                td 74-78
-                                                td 106-112
+                                    .table-block
+                                        table 
+                                            thead 
+                                                tr
+                                                    th розмір
+                                                    th міжнародний розмір
+                                                    th обхват грудей
+                                                    th обхват талії
+                                                    th обхват стегон
+                                            tbody 
+                                                tr
+                                                    td 34
+                                                    td xs
+                                                    td 80-84
+                                                    td 60-62
+                                                    td 88-92
+                                                tr
+                                                    td 36
+                                                    td S
+                                                    td 84-90
+                                                    td 62-64
+                                                    td 92-94
+                                                tr
+                                                    td 38
+                                                    td m
+                                                    td 84-90
+                                                    td 62-64
+                                                    td 92-94
+                                                tr
+                                                    td 40
+                                                    td l
+                                                    td 94-98
+                                                    td 66-68
+                                                    td 96-100
+                                                tr
+                                                    td 42
+                                                    td xl
+                                                    td 98-102
+                                                    td 68-74
+                                                    td 100-106
+                                                tr
+                                                    td 44
+                                                    td xxl
+                                                    td 102-104
+                                                    td 74-78
+                                                    td 106-112
 
                         p.size.d-flex.size-card
                             input(type="radio" id="size1" name="size" disabled)

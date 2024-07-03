@@ -49,15 +49,15 @@ document.addEventListener("DOMContentLoaded", function () {
             })
         })
         // ховер на фон
-        const toggleBodyOverflow = (toggle) => {
-            if (toggle) {
-                body.style.height = "100vh"
-                body.style.overflowY = 'hidden'
-            } else {
-                body.style.height = ''
-                body.style.overflow = ''
-            }
-        }
+        // const toggleBodyOverflow = (toggle) => {
+        //     if (toggle) {
+        //         // body.style.height = "100vh"
+        //         // body.style.overflowY = 'hidden'
+        //     } else {
+        //         // body.style.height = ''
+        //         // body.style.overflow = ''
+        //     }
+        // }
 
         const toggleBlackFon = (blackFon, toggle) => {
             if (toggle) {
@@ -74,12 +74,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 blackFon = item.previousElementSibling,
                 listItemMenu = blackFon.parentElement
             const showMenu = () => {
-                toggleBodyOverflow(true)
+                // toggleBodyOverflow(true)
                 toggleBlackFon(blackFon, true)
             }
 
             const hideMenu = () => {
-                toggleBodyOverflow(false)
+                // toggleBodyOverflow(false)
                 toggleBlackFon(blackFon, false)
             }
 
@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 burger.classList.add('active')
                 mobileMenu.style.overflowY = "scroll"
                 mobileMenu.style.left = "0"
-                mobileMenu.style.top = "0"
+                mobileMenu.style.top = "-62px"
                 isMenuOpen = true
             })
 
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 burger.classList.remove('active')
                 burger.classList.add("noactive")
                 mobileMenu.style.left = "-100%"
-                mobileMenu.style.top = "0"
+                mobileMenu.style.top = "-62px"
                 mobileMenu.style.overflowY = ""
                 burger.style.left = "0"
             }
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (selectItems.length > 0) {
                 const firstItem = selectItems[0]
                 thisInput.value = firstItem.dataset.value
-                selectIn.innerHTML = firstItem.innerHTML
+                // selectIn.innerHTML = firstItem.innerHTML
                 firstItem.classList.add('is-active')
             }
             selectItems.forEach(item => {
@@ -393,6 +393,7 @@ document.addEventListener("DOMContentLoaded", function () {
         function hideAllSections() {
             sections.forEach(section => section.classList.remove('active'))
         }
+
         function deactivateAllButtons() {
             buttons.forEach(button => button.classList.remove('active'))
         }
@@ -419,24 +420,138 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector('[data-target="about"]').classList.add('active')
     }
 
-    if(document.querySelector(".popup-size-cta")) {
+    if (document.querySelector(".popup-size-cta")) {
         const popupSize = document.querySelector(".popup-size-cta"),
             blackFonPOpup = document.querySelector(".black-fon-popup"),
             tablePopup = document.querySelector(".size-table-popup"),
-            cancelPopupSize = document.querySelector(".cancel-size-popup"),
-            bodyCard = document.querySelector("#body")
-        popupSize.addEventListener("click", function() {
+            cancelPopupSize = document.querySelector(".cancel-size-popup")
+        popupSize.addEventListener("click", function () {
             blackFonPOpup.classList.add("black-fon-style")
             tablePopup.style.display = "block"
             body.style.height = "100vh"
             body.style.overflow = "hidden"
-            
+
         })
-        cancelPopupSize.addEventListener("click", function() {
+        cancelPopupSize.addEventListener("click", function () {
             blackFonPOpup.classList.remove("black-fon-style")
             tablePopup.style.display = "none"
             body.style.height = ""
             body.style.overflow = ""
+        })
+    }
+
+
+    const cabinetCta = document.querySelector(".cabinet-cta"),
+        blackFonReg = document.querySelector(".black-fon-popup"),
+        popupCabinet = document.querySelector(".popup-cabinet"),
+        cancelCabinetPopup = document.querySelector(".cancel-popup-cabinet"),
+        eyeReg = document.querySelectorAll(".eye")
+
+    cabinetCta.addEventListener("click", function (e) {
+        e.preventDefault()
+        console.log("+");
+        popupCabinet.style.display = "block"
+        blackFonReg.style.display = "block"
+    })
+
+    cancelCabinetPopup.addEventListener("click", function (e) {
+        e.preventDefault()
+        popupCabinet.style.display = "none"
+        blackFonReg.style.display = "none"
+
+    })
+
+    eyeReg.forEach(eye => {
+        eye.addEventListener('click', function (e) {
+            e.preventDefault()
+            const target = document.getElementById(this.getAttribute('data-target'))
+            if (target.type === 'password') {
+                target.type = 'text'
+            } else {
+                target.type = 'password'
+            }
+        })
+    })
+    const entryLink = document.querySelector('.d-flex.item-center.cta-reg .entry'),
+        registrationLink = document.querySelector('.d-flex.item-center.cta-reg .registration'),
+        entryForm = document.querySelector('.entry-form'),
+        registrationForm = document.querySelector('.registration-form')
+
+    entryLink.addEventListener('click', function () {
+        entryLink.classList.add('active-link')
+        registrationLink.classList.remove('active-link')
+        entryForm.classList.add('active-form')
+        registrationForm.classList.remove('active-form')
+    })
+
+    registrationLink.addEventListener('click', function () {
+        registrationLink.classList.add('active-link')
+        entryLink.classList.remove('active-link')
+        registrationForm.classList.add('active-form')
+        entryForm.classList.remove('active-form')
+    })
+
+    if (document.querySelector(".menu-help-item ")) {
+        const ctaHelp = document.querySelectorAll(".menu-help-item a")
+
+        ctaHelp.forEach(helpItem => {
+            helpItem.addEventListener("mouseenter", function () {
+                helpItem.classList.add("hover-cta-help")
+            })
+            helpItem.addEventListener("mouseleave", function () {
+                helpItem.classList.remove("hover-cta-help")
+            })
+        })
+        
+        
+    }
+    const menuItems = document.querySelectorAll('.menu-help-item a'),
+        contentSections = document.querySelectorAll('.help-content')
+
+    function activateSection(target) {
+        menuItems.forEach(i => i.classList.remove('active-cta-help'))
+
+        const activeItem = Array.from(menuItems).find(i => i.getAttribute('data-href') === target)
+        if (activeItem) {
+            activeItem.classList.add('active-cta-help')
+        }
+
+        contentSections.forEach(section => {
+            section.style.display = 'none'
+            section.classList.remove('active-help')
+        })
+
+        const targetSection = document.getElementById(target)
+        if (targetSection) {
+            targetSection.style.display = 'block'
+            targetSection.classList.add('active-help')
+        }
+    }
+
+    if (menuItems.length > 0) {
+        menuItems.forEach(item => {
+            item.addEventListener('click', function(event) {
+                event.preventDefault()
+                const target = this.getAttribute('data-href')
+                activateSection(target)
+                history.pushState(null, '', `#${target}`)
+            })
+        })
+
+        const hash = window.location.hash.substring(1)
+        if (hash) {
+            activateSection(hash)
+        } else {
+            const initialSection = document.getElementById(menuItems[0].getAttribute('data-href'))
+            if (initialSection) {
+                initialSection.style.display = 'block'
+                initialSection.classList.add('active-help')
+            }
+        }
+
+        window.addEventListener('hashchange', function() {
+            const newHash = window.location.hash.substring(1)
+            activateSection(newHash)
         })
     }
 })

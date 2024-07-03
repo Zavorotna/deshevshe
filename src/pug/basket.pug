@@ -1,0 +1,56 @@
+doctype html
+html(lang="uk")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=2.0")
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+        link(rel="stylesheet" href="css/style.css")
+        title Дешевше - інтернет магазин необхідних товарів для всієї родини
+    body#body
+        header
+            .fixed-header
+                include components/header
+        main.wrapper
+            p.page-look.d-flex
+                a(href="index.html") головна
+                span /
+                span.selected-page кошик
+            .grid.basket-grid
+                .basket-main 
+                    .head-basket.flex-between.item-center
+                        h1 кошик
+                        p.text-cart 4 товари
+                    - for(let i = 0; i < 4; i++)
+                        include components/basket-card
+                .form-comment.form-basket 
+                    form(action="#")
+                        p.head-comment-form ваше замовлення
+                        .form-to-add_comment
+                            .readmore.basket-readmore
+                                span Промокод
+                            p.description-more.basket-descr
+                                input#promo(type="text" name="promo" placeholder="Введіть промокод")
+                            .readmore.basket-readmore
+                                span Застосувати сертифікат
+                            p.description-more.basket-descr
+                                input#sertyficat(type="text" name="sertyficat" placeholder="Введіть сертифікат") 
+                        .sum-basket.flex-between.item-center
+                            p.text-sum Разом:
+                            p.sum 3200₴
+                        a(href="order.html").btn-card.yellow-cta оформити замовлення
+                        //- button(type="submit").btn-card.yellow-cta.basket-cta оформити замовлення
+                        a(href="#").transparent-cta.basket-cta назад у каталог
+            section.view-product 
+                h2 доповніть свій образ
+                .top-prodaz-card
+                    - for(let i = 0; i < 4; i++) 
+                        include components/catalog-card
+                .catalog-cta-center
+                    a(href="catalog.pug").yellow-cta в каталог
+
+        footer 
+            include components/footer
+
+        script(src="js/scripts.js")

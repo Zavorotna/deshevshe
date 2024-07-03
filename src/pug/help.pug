@@ -1,0 +1,67 @@
+doctype html
+html(lang="uk")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=2.0")
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+        link(rel="stylesheet" href="css/style.css")
+        title Дешевше - інтернет магазин необхідних товарів для всієї родини
+    body#body
+        header
+            .fixed-header
+                include components/header
+        main.wrapper
+            p.page-look.d-flex
+                a(href="index.html") головна
+                span /
+                a(href="#")  допомога
+                span /
+                span.selected-page питання та відповіді
+            .help-page 
+                .help-menu 
+                    h1 допомога
+                    ul.menu-help-item 
+                        li
+                            a(href="#" data-href="aboutUs").active-cta-help
+                                span Про нас
+                                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                                    <path d="M1 1L6 6L1 11" stroke="#214498" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                        li
+                            a(href="#" data-href="payDelivery") 
+                                span Оплата та доставка
+                                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                                    <path d="M1 1L6 6L1 11" stroke="#214498" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                        li
+                            a(href="#" data-href="povernenia") 
+                                span Повернення та обмін
+                                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                                    <path d="M1 1L6 6L1 11" stroke="#214498" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                        li
+                            a(href="#" data-href="question") 
+                                span Питання та відповіді
+                                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                                    <path d="M1 1L6 6L1 11" stroke="#214498" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                section.about-us-block#aboutUs.active-help.help-content
+                    .description-about-us
+                        h2 Про нас
+                        p Дешевше – це роздрібний інтернет-магазин. Ми пропонуємо нашим клієнтам унікальну лінійку товарів – одяг, взуття, білизна, аксесуари, сумки, рюкзаки, товари для дому та кухні, текстиль від українських та закордонних виробників. Менеджери Дешевше на українських та турецьких складах контролюють процес упаковки і якості товару перед відправкою, спілкуються із постачальниками напряму та домовляються про найвигіднішу ціну. 
+                        p.flag-order.flag-help Наша головна мета – низькі ціни на якісні товари.
+                    include components/top-prodaz
+                    .catalog-cta-center
+                        a(href="catalog.pug").yellow-cta в каталог
+                section#question.help-content.question
+                    include components/question
+                section#povernenia.help-content.povernenia
+                    include components/povernenia
+                section#payDelivery.help-content.pay-delivery
+                    include components/pay-delivery
+                    
+        footer 
+            include components/footer
+        script(src="js/scripts.js")

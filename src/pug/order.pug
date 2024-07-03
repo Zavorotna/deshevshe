@@ -1,0 +1,215 @@
+doctype html
+html(lang="uk")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=2.0")
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+        link(rel="stylesheet", href="css/style.css")
+        title Дешевше - інтернет магазин необхідних товарів для всієї родини
+    body#body
+        header
+            .fixed-header
+                include components/header
+        main.wrapper
+            p.page-look.d-flex
+                a(href="index.html") головна
+                span /
+                a(href="#")  кошик
+                span /
+                span.selected-page оформлення замовлення
+            .grid.basket-grid.order-grid
+                .basket-main 
+                    .head-basket.flex-between.item-center
+                        h1 Оформлення замовлення
+                    .order-block 
+                        p.flag-order 
+                            span Увійдіть в акаунт, 
+                            | щоб використовувати збережені дані і відслідковувати замовлення в особистому кабінеті
+                        .order-form 
+                            form(action="#") 
+                                .flex-between.filter-header-block   
+                                    h2 Ваші дані:
+                                    a(href="#").d-flex.item-center
+                                        span очистити
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+                                            <path d="M6.99998 1.00002L1 7M0.999975 1L6.99995 6.99998" stroke="#121212" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                .personal-form 
+                                    .flex-between.item-center.form-flex
+                                        .order-form-personal
+                                            p 
+                                                label(for="name") Імʼя*
+                                            p 
+                                                input#name(type="text", name="name" required placeholder="Імʼя")
+                                        .order-form-personal
+                                            p 
+                                                label(for="lastname") Прізвище*
+                                            p 
+                                                input#name(type="text", name="lastname" required placeholder="Прізвище")
+                                    .flex-between.item-center.form-flex
+                                        .order-form-personal
+                                            p 
+                                                label(for="name") По батькові*
+                                            p 
+                                                input#name(type="text", name="name" required placeholder="По батькові")
+                                        .order-form-personal
+                                            p 
+                                                label(for="lastname") Телефон*
+                                            p 
+                                                input#name(type="tel", name="lastname" required placeholder="Телефон")
+                                .filter-header-block   
+                                    h2 Оберіть спосіб доставки:
+                                    .d-flex.item-center.post-icon
+                                        p 
+                                            label(for="ukrPoshta") 
+                                                input(type="radio" id="ukrPoshta" name="poshta")
+                                        p 
+                                            label(for="novaPoshta") 
+                                                input(type="radio" id="novaPoshta" name="poshta")
+                                        p 
+                                            label(for="meest") 
+                                                input(type="radio" id="meest" name="poshta")
+                                    .d-flex.item-center.post-radio
+                                        p.d-flex.item-center
+                                            input(type="radio" id="viddilenia" name="viddilenia")
+                                            label(for="viddilenia")
+                                            span Відділення
+                                        p.d-flex.item-center 
+                                            input(type="radio" id="adress" name="adress")
+                                            label(for="adress")
+                                            span Адреса
+                                        p.d-flex.item-center 
+                                            input(type="radio" id="poshtomat" name="poshtomat")
+                                            label(for="poshtomat")
+                                            span Поштомат
+                                        p.d-flex.item-center 
+                                            input(type="radio" id="cyfrovaAdressa" name="cyfrovaAdressa")
+                                            label(for="cyfrovaAdressa")
+                                            span Цифрова адреса
+                                .filter-header-block   
+                                    h2 Адреса одержувача:
+                                    .flex-between
+                                        .select-order
+                                            p Область*
+                                            label.arrow-select
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                                                    <path d="M11 1L6 6L1 1" stroke="#121212" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                select#oblast(name="oblast" placeholder="Область").select-placeholder
+                                                    option(disabled selected hidden value="0") Область
+                                                    option(value="1") Хмельницька
+                                                    option(value="2") Вінницька
+                                                    option(value="3") Тернопільська
+
+                                        .select-order
+                                            p Район*
+                                            label.arrow-select
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                                                    <path d="M11 1L6 6L1 1" stroke="#121212" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                select#oblast(name="oblast" placeholder="Область").select-placeholder
+                                                    option(disabled selected hidden value="0") Район
+                                                    option(value="1") Хмельницька
+                                                    option(value="2") Вінницька
+                                                    option(value="3") Тернопільська
+                                    .flex-between
+                                        .select-order
+                                            p Населений пункт*
+                                            label.arrow-select
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                                                    <path d="M11 1L6 6L1 1" stroke="#121212" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                select#oblast(name="oblast" placeholder="Область").select-placeholder
+                                                    option(disabled selected hidden value="0") Область
+                                                    option(value="1") Хмельницька
+                                                    option(value="2") Вінницька
+                                                    option(value="3") Тернопільська
+                                        .select-order
+                                            p Вулиця*
+                                            label.arrow-select
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                                                    <path d="M11 1L6 6L1 1" stroke="#121212" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                select#oblast(name="oblast" placeholder="Область").select-placeholder
+                                                    option(disabled selected hidden value="0") Область
+                                                    option(value="1") Хмельницька
+                                                    option(value="2") Вінницька
+                                                    option(value="3") Тернопільська
+                                    .flex-between
+                                        .select-order
+                                            p Номер будинку
+                                            label.arrow-select
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                                                    <path d="M11 1L6 6L1 1" stroke="#121212" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                select#oblast(name="oblast" placeholder="Область").select-placeholder
+                                                    option.gray(disabled selected hidden value="0") Область
+                                                    option(value="1") Хмельницька
+                                                    option(value="2") Вінницька
+                                                    option(value="3") Тернопільська
+                                        .order-form-personal.form-flex
+                                            p 
+                                                label(for="numbApart") Номер квартири
+                                            p 
+                                                input#numbApart(type="number", name="numbApart" placeholder="Номер квартири ")
+                                        
+                                .filter-header-block.order-checkbox
+                                    h2 Оберіть спосіб Оплати:
+                                    p
+                                        input(type="checkbox" name="liqpay" id="liqpay")
+                                        label(for="liqpay") Liqpay одразу при оформленні замовлення
+                                    p
+                                        input(type="checkbox" name="iban" id="iban")
+                                        label(for="iban") Оплата на рахунок (за реквізитами IBAN)
+                                    p
+                                        input(type="checkbox" name="oplata3" id="oplata3")
+                                        label(for="oplata3") Оплата на місці (готівкою чи терміналом)
+                                    p
+                                        input(type="checkbox" name="viddileniaNP" id="viddileniaNP")
+                                        label(for="viddileniaNP") На відділенні Нової Пошти при отриманні
+                                    p
+                                        input(type="checkbox" name="PayPal" id="PayPal")
+                                        label(for="PayPal") PayPal
+                                .order-checkbox.callBack
+                                    p
+                                        input(type="checkbox" name="callBack" id="callBack")
+                                        label.fw(for="callBack") Мені можна не телефонувати для підтвердження замовлення.
+                                    
+                                    
+
+
+
+                .form-comment.order-aside-form
+                    form(action="#")
+                        .head-comment-form.order-form-card
+                            p ваше замовлення
+                            .order-succes-form
+                                - for(let i = 0; i < 4; i++)
+                                    .flex-between.item-center 
+                                        .order-descr-card
+                                            p.img-order
+                                                picture 
+                                                    img(src="img/catalog-card.png", alt="")
+                                            .description-order 
+                                                p.head-cart Джинсові шорти
+                                                p.text-cart Колір: 
+                                                    span чорний
+                                                p.text-cart Розмір: 
+                                                    span S
+                                                p.text-cart Кількість: 
+                                                    span 1
+                                        .order-price
+                                            p 800₴
+                                    hr.order-hr
+                        .sum-basket.flex-between.item-center
+                            p.text-sum Разом:
+                            p.sum 3200₴
+                        a(href="order.html").btn-card.yellow-cta оформити замовлення
+                        //- button(type="submit").btn-card.yellow-cta оформити замовлення
+
+        footer 
+            include components/footer
+
+        script(src="js/scripts.js")
