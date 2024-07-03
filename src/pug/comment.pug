@@ -19,10 +19,10 @@ html(lang="uk")
                 a(href="#")  допомога
                 span /
                 span.selected-page відгуки
-            h1.comment-head-page відгуки про магазин:
             section.comment-section-page
                 .flex-between.comment-card-block
                     .comment-block
+                        h1.comment-head-page відгуки про магазин:
                         .comment-items
                             - for(let i = 0; i < 10; i++)
                                 include components/comment-card
