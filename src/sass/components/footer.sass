@@ -1,5 +1,7 @@
 .footer
-    padding: 37rem 0 40rem
+    padding: 37rem 0 170rem
+    +media(1024)
+        padding: 37rem 0 40rem
 .footer-hr
     width: 100%
     border: none
@@ -24,6 +26,7 @@
             &:hover
                 font-weight: 600
 .privacyPolice
+    position: relative
     padding-top: 36rem
     p
         font-size: 14rem
@@ -38,3 +41,43 @@
                 color: #214498
     p:last-child
         column-gap: 5rem
+.copyright
+    position: absolute
+    left: -40vw
+    bottom: -30vw
+    +media(375)
+        left: -30vw
+    +media(768)
+        left: -12vw
+        bottom: -15vw
+    +media(1024)
+        position: static
+
+.mobile-fixed-footer
+    position: fixed
+    bottom: 0
+    left: 0
+    width: 100%
+    grid-template-columns: repeat(3, 1fr)
+    border-top: 1px solid #1E4284
+    background: rgba(255, 255, 255, 0.90)
+    backdrop-filter: blur(2.5px)
+    z-index: 999
+    a
+        display: flex
+        align-items: center
+        justify-content: center
+        flex-direction: column
+        row-gap: 5px
+        padding: 11px
+        color: #121212
+        font-size: 10px
+        font-weight: 400
+        text-align: center
+        img
+            width: 15px
+            height: 15px
+    a + a
+        border-left: 1px solid #1E4284
+    +media(1024)
+        display: none

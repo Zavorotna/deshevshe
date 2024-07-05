@@ -26,12 +26,12 @@ header
 
 .logo
     padding-left: 10px
-    max-width: 125px
-    max-height: 25px
-    +media(1024)
+    width: 125px
+    height: 25px
+    +media(768)
         padding: 0
-        max-width: 250rem
-        max-height: 50rem
+        width: 250rem
+        height: 50rem
     img
         width: 100%
 .icon-mobile
@@ -82,6 +82,15 @@ header
         &:hover
             background-color: #F1E12F
 
+.search-mobile-form
+    display: block
+    position: absolute
+    bottom: -65%
+
+.padding-for-search
+    transition: all .25s ease
+    padding-bottom: 50px
+    
 .header-btn
     svg
         path 

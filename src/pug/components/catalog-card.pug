@@ -7,19 +7,20 @@ figure.card
             img(src="img/catalog-card.png", alt="") 
         .hover-card
             h3 Шорти джинсові жіночі, колір блакитний
+            form(action="#") 
+                .color.d-flex.item-center
+                    label
+                        input(type="radio", name="color" value="black")
+                    label
+                        input(type="radio", name="color" value="red")
+                    label
+                        input(type="radio", name="color" value="blue")
+                    label
+                        input(type="radio", name="color" value="gray")
+                    label
+                        input(type="radio", name="color" value="white") 
             p.article Артикул: 83635337
         form(action="#")
-            //- .color.d-flex.item-center
-            //-     label
-            //-         input(type="radio", name="color" value="black")
-            //-     label
-            //-         input(type="radio", name="color" value="red")
-            //-     label
-            //-         input(type="radio", name="color" value="blue")
-            //-     label
-            //-         input(type="radio", name="color" value="gray")
-            //-     label
-            //-         input(type="radio", name="color" value="white") 
             .size.d-flex.item-center
                 p
                     input(type="radio", name="size" id="xs")

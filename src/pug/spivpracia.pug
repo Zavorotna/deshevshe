@@ -18,7 +18,7 @@ html(lang="uk")
                 span /
                 span.selected-page співпраця
             .head-basket.flex-between.item-center
-                h1 вподобані товари
+                h1 співпраця
             section.spivpracia-section
                 .description-spivpracia
                     p.head-descript Товари зі складів у Туреччині:
@@ -54,13 +54,30 @@ html(lang="uk")
                     hr.descript-card.last-hr-spvp
                     .flag-order.spivpracia-flag
                         p У разі якщо клієнт бажає повернути товар, що залишився у недоторканному стані та має збережений товарний вигляд, можливе оформлення запиту на повернення.
-                section.view-product 
-                    h2 топ продажів
-                    .top-prodaz-card
-                        - for(let i = 0; i < 7; i++) 
-                            include components/catalog-card
-                    .catalog-cta-center
-                        a(href="catalog.pug").yellow-cta в каталог
+                .top-prodaz-main
+                    section.top-prodaz
+                        h2 топ продажів
+                        .wrapper-card
+                            .main-top-prodaz
+                                - for(let i = 0; i < 7; i++) 
+                                    include components/catalog-card
+                            .mobile-top-prodaz
+                                - for(let i = 0; i < 2; i++) 
+                                    include components/catalog-card
+                        .catalog-cta-center
+                            a(href="catalog.pug").yellow-cta в каталог
+                    .view-all
+                        .flex-between 
+                            a(href="#").left-arrow.gray-sircle 
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                    <path d="M23 13L15 20.5L23 28" stroke="#121212" stroke-linecap="round"/>
+                                </svg>
+                            a(href="#").right-arrow.gray-sircle 
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                    <path d="M17 13L25 20.5L17 28" stroke="#121212" stroke-linecap="round"/>
+                                </svg>
+                        a(href="#") показати усі 
+                    
         footer 
             include components/footer
         script(src="js/scripts.js")

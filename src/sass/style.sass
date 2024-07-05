@@ -56,10 +56,13 @@ body
 .header-btn
     column-gap: 10rem
 
-.social-icon
-    display: none
+.social-header
+    position: absolute
+    top: -100%
     +media(1024)
-        display: flex
+        position: static
+
+.social-icon
     a
         transition: all .5s ease
         &:hover
@@ -91,34 +94,63 @@ body
     +media(1024)
         bottom: 90rem
 .flex-arrow
+    display: none
     flex-direction: column
+    +media(1024)
+        display: block
+
 .main
-    padding: 30rem 0 100rem
+    padding-bottom: 130rem
+    +media(1024)
+        padding: 30rem 0 100rem
 
 .main-bg
     position: relative
-    width: 100vw
-    height: 100vh
-    background: url(../img/main-bg.jpg) no-repeat center/cover
+    width: 100%
+    height: 50vw
+    background: url(../img/main-bg-mobile.png) no-repeat center/cover
+    +media(768)
+        height: 80vh
+        background: url(../img/main-bg.png) no-repeat center/cover
 .new-colection
-    +media(1024)
-        left: 10%
+    display: flex
+    align-items: center
+    flex-direction: column
+    row-gap: 20px
+    padding: 0 10px
+    max-width: 55vw
+    +media(768)
+        left: 2%
     p
+        text-align: center
         text-transform: uppercase
     p:first-child
         color: #214498
-        font-size: 68rem
-        font-weight: 900
-        letter-spacing: 6.4rem
-        +media(768)
-            font-size: 128rem
+        font-size: 16px
+        font-weight: 800
+        +media(1024)
+            font-size: 52rem
+            letter-spacing: 6.4rem
+            font-weight: 900
+        +media(1920)
+            font-size: 72rem
     p:nth-child(2)
-        margin-bottom: 50rem
-        font-size: 26rem
-        font-weight: 700
-        +media(768)
-            font-size: 36rem
-
+        font-size: 12px
+        font-weight: 500
+        +media(1024)
+            padding: 50rem 0
+            font-size: 30rem
+.cta-main
+    position: absolute
+    left: 50%
+    bottom: -30vw
+    min-width: 90vw
+    transform: translateX(-25%)
+    +media(768)
+        position: static
+        max-width: 300rem
+        min-width: 300rem
+        transform: translateX(0)
 .yellow-cta
     padding: 20rem 0
     // max-width: 280rem
@@ -145,33 +177,43 @@ h2, h1
     +media(768)
         font-size: 48rem
 .perevagi
-    padding-bottom: 100rem
+    padding-bottom: 50rem
+    +media(768)
+        padding-bottom: 100rem
     div
         width: 100%
-        gap: 30rem
+        gap: 15rem
         flex-wrap: wrap
         +media(768)
+            gap: 30rem
             width: auto
         +media(1024)
             gap: 13rem
             flex-wrap: nowrap
         picture
             display: inline-block
-            min-width: 65rem
+            min-width: 65px
             +media(1024)
                 min-width: 50rem
                 max-width: 50rem
             img
-                width: 100%
+                width: 70%
+                +media(768)
+                    width: 100%
     p
-        max-width: 180rem
-        font-size: 18rem
+        max-width: 200px
+        font-size: 12px
         font-weight: 600
         text-transform: uppercase
+        +media(768)
+            font-size: 18rem
+            max-width: 180rem
 
 .popular
-    padding: 90rem 0 100rem
+    padding: 30rem 0 50rem
     background: rgba(241, 241, 241, 0.30)
+    +media(768)
+        padding: 90rem 0 100rem
     a
         color: #121212
         display: block
@@ -226,17 +268,33 @@ h2, h1
         background-color: #929090
 
 .top-prodaz
-    padding: 100rem 0
-
+    padding: 30rem 0
+    +media(768)
+        padding: 100rem 0
+        
 .top-prodaz-card
     display: grid
+
+.mobile-top-prodaz
+    display: grid
+    +media(1024)
+        display: none
+
+.main-top-prodaz
+    display: none
+    +media(1024)
+        display: grid
+
+.top-prodaz-card,
+.main-top-prodaz,
+.mobile-top-prodaz
     gap: 20rem
     width: 100%
     padding-bottom: 50rem
+    grid-template-columns: repeat(2, 1fr)
     +media(768)
-        grid-template-columns: repeat(2, 1fr)
-    +media(1024)
         grid-template-columns: repeat(4, 1fr)
+
 
 .catalog-cta-center
     width: 100%
@@ -245,20 +303,39 @@ h2, h1
     align-items: center
     a
         min-width: 300rem
-.footer-flex
+.footer-grid
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
     row-gap: 20rem
-    flex-wrap: wrap
+
+.footer-nav
     +media(1024)
-        flex-wrap: nowrap
+        display: grid
+        row-gap: 20rem
+        grid-template-columns: repeat(2, 1fr)
+.footer-contact
+    div
+        margin-bottom: 20px
+    +media(1024)
+        display: grid
+        row-gap: 20rem
+        grid-template-columns: repeat(3, 1fr)
+
 .cancel-menu
+    position: absolute
+    top: 50%
+    right: 10px
+    transform: translateY(-50%)
     +media(1024)
         display: none
 .top-prodaz-main
     position: relative
 .view-all
     position: absolute
-    top: 120rem
+    top: 90rem
     right: 0
+    +media(768)
+        top: 120rem
     a
         color: #999
         font-size: 18rem
@@ -269,15 +346,16 @@ h2, h1
         text-decoration-line: underline
         &:hover
             color: #6d6a6a
-            
-    .gray-sircle 
+    .gray-sircle
+        display: none
         width: 40px
         height: 40px
         border-radius: 50%
         background-color: #F1F1F1
+        +media(768)
+            display: flex
         &:hover
             background-color: #afacac
-            
 
 @import components/card-style
 @import components/comment

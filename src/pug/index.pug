@@ -69,11 +69,11 @@ html(lang="uk")
                         <path d="M1 0.999999L9 9L17 1" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
             section.main
-                .main-bg.wrapper
+                .main-bg
                     .new-colection.position-center
-                        p -30%
-                        p на нову колекцію
-                        a(href="catalog.html").yellow-cta в каталог 
+                        p мультимаркет для усієї родини
+                        p -30% на усі колекції літніх речей
+                        a(href="catalog.html").yellow-cta.cta-main в каталог 
             section.perevagi
                 .wrapper
                     h2 наші переваги
@@ -97,8 +97,7 @@ html(lang="uk")
                         div.d-flex.item-center
                             picture 
                                 img(src="img/kupyty.svg", alt="")
-                            p покупка  
-                                br 
+                            p покупка 
                                 span в 1 клік
             section.popular 
                 h2 популярні категорії
@@ -132,7 +131,15 @@ html(lang="uk")
                             img(src="img/img7.png", alt="")
                         span Аксесуари
             .wrapper.top-prodaz-main
-                include components/top-prodaz
+                section.top-prodaz
+                    h2 топ продажів
+                    .wrapper-card
+                        .main-top-prodaz
+                            - for(let i = 0; i < 8; i++) 
+                                include components/catalog-card
+                        .mobile-top-prodaz
+                            - for(let i = 0; i < 4; i++) 
+                                include components/catalog-card
                 .view-all
                     .flex-between 
                         a(href="#").left-arrow.gray-sircle 

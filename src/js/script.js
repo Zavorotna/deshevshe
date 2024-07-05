@@ -8,91 +8,110 @@ document.addEventListener("DOMContentLoaded", function () {
         label.style.border = "1px solid"
         label.style.borderColor = color === 'white' ? '#ccc' : 'transparent'
     })
+    //search mobile
+    if (window.innerWidth < 1024) {
+        const search = document.querySelector(".search-mobile"),
+            searchBlock = document.querySelector(".search-block"),
+            header = document.querySelector("header"),
+            flag = document.querySelector(".flag-UA")
 
+        search.addEventListener("click", function () {
+            searchBlock.classList.toggle("search-mobile-form")
+            header.classList.toggle("padding-for-search")
+        })
+    }
+    //down menu mobile and decstop
     if (document.querySelector('.down-menu')) {
-        //sub menu header
-        const menuItems = document.querySelectorAll('.down-menu'),
-            body = document.querySelector("#body"),
-            listItemMain = document.querySelectorAll(".navigation-menu-catalog > li"),
-            subMenuSecond = document.querySelectorAll(".sub-menu > li")
-        //ховер при наведені на головній навігації
-        const addHoverClass = (element, className) => element.classList.add(className),
-            removeHoverClass = (element, className) => element.classList.remove(className)
+        if (window.innerWidth > 1024) {
+            const menuItems = document.querySelectorAll('.down-menu'),
+                body = document.querySelector("#body"),
+                listItemMain = document.querySelectorAll(".navigation-menu-catalog > li"),
+                subMenuSecond = document.querySelectorAll(".sub-menu > li")
+            //sub menu header
+            //ховер при наведені на головній навігації
+            const addHoverClass = (element, className) => element.classList.add(className),
+                removeHoverClass = (element, className) => element.classList.remove(className)
 
-        listItemMain.forEach(listItem => {
-            listItem.addEventListener("mouseenter", function () {
-                const link = this.querySelector("a"),
-                    subMenu = this.querySelector(".sub-menu-main") || this.querySelector(".help-sub-menu")
+            listItemMain.forEach(listItem => {
+                listItem.addEventListener("mousemove", function () {
+                    const link = this.querySelector("a"),
+                        subMenu = this.querySelector(".sub-menu-main") || this.querySelector(".help-sub-menu")
 
-                if (link) addHoverClass(link, "yellow-header-hover")
-                if (subMenu) addHoverClass(subMenu, subMenu.classList.contains("sub-menu-main") ? "hover-sub-menu" : "hover-help-menu")
+                    if (link) addHoverClass(link, "yellow-header-hover")
+                    if (subMenu) addHoverClass(subMenu, subMenu.classList.contains("sub-menu-main") ? "hover-sub-menu" : "hover-help-menu")
+                })
+                listItem.addEventListener("mouseleave", function () {
+                    const link = this.querySelector("a"),
+                        subMenu = this.querySelector(".sub-menu-main") || this.querySelector(".help-sub-menu")
+
+                    if (link) removeHoverClass(link, "yellow-header-hover")
+                    if (subMenu) removeHoverClass(subMenu, subMenu.classList.contains("sub-menu-main") ? "hover-sub-menu" : "hover-help-menu")
+                })
             })
-            listItem.addEventListener("mouseleave", function () {
-                const link = this.querySelector("a"),
-                    subMenu = this.querySelector(".sub-menu-main") || this.querySelector(".help-sub-menu")
 
-                if (link) removeHoverClass(link, "yellow-header-hover")
-                if (subMenu) removeHoverClass(subMenu, subMenu.classList.contains("sub-menu-main") ? "hover-sub-menu" : "hover-help-menu")
+            subMenuSecond.forEach(subMenuSecList => {
+                subMenuSecList.addEventListener("mousemove", function () {
+                    addHoverClass(this, "hover-sub-sub-a")
+                    const secondSubMenu = this.querySelector(".second-subMenu")
+                    if (secondSubMenu) addHoverClass(secondSubMenu, "subSecond-hover")
+                })
+                subMenuSecList.addEventListener("mouseleave", function () {
+                    removeHoverClass(this, "hover-sub-sub-a")
+                    const secondSubMenu = this.querySelector(".second-subMenu")
+                    if (secondSubMenu) removeHoverClass(secondSubMenu, "subSecond-hover")
+                })
             })
-        })
-
-        subMenuSecond.forEach(subMenuSecList => {
-            subMenuSecList.addEventListener("mouseenter", function () {
-                addHoverClass(this, "hover-sub-sub-a")
-                const secondSubMenu = this.querySelector(".second-subMenu")
-                if (secondSubMenu) addHoverClass(secondSubMenu, "subSecond-hover")
-            })
-            subMenuSecList.addEventListener("mouseleave", function () {
-                removeHoverClass(this, "hover-sub-sub-a")
-                const secondSubMenu = this.querySelector(".second-subMenu")
-                if (secondSubMenu) removeHoverClass(secondSubMenu, "subSecond-hover")
-            })
-        })
-        // ховер на фон
-        // const toggleBodyOverflow = (toggle) => {
-        //     if (toggle) {
-        //         // body.style.height = "100vh"
-        //         // body.style.overflowY = 'hidden'
-        //     } else {
-        //         // body.style.height = ''
-        //         // body.style.overflow = ''
-        //     }
-        // }
-
-        const toggleBlackFon = (blackFon, toggle) => {
-            if (toggle) {
-                blackFon.classList.add("black-fon-style")
-                blackFon.style.display = 'block'
-            } else {
-                blackFon.classList.remove("black-fon-style")
-                blackFon.style.display = 'none'
+            const toggleBlackFon = (blackFon, toggle) => {
+                if (toggle) {
+                    blackFon.classList.add("black-fon-style")
+                    blackFon.style.display = 'block'
+                } else {
+                    blackFon.classList.remove("black-fon-style")
+                    blackFon.style.display = 'none'
+                }
             }
+
+            menuItems.forEach(item => {
+                const subMenu = item.nextElementSibling,
+                    blackFon = item.previousElementSibling,
+                    listItemMenu = blackFon.parentElement
+                const showMenu = () => {
+                    toggleBlackFon(blackFon, true)
+                }
+
+                const hideMenu = () => {
+                    toggleBlackFon(blackFon, false)
+                }
+
+                item.addEventListener('mouseenter', showMenu)
+                item.addEventListener('mouseleave', hideMenu)
+                subMenu.addEventListener('mouseenter', showMenu)
+                subMenu.addEventListener('mouseleave', hideMenu)
+                listItemMenu.addEventListener('mouseenter', showMenu)
+                listItemMenu.addEventListener('mouseleave', hideMenu)
+            })
         }
+        if (window.innerWidth < 1024) {
+            const mobileMenuItems = document.querySelectorAll(".navigation-menu-catalog > li");
 
-        menuItems.forEach(item => {
-            const subMenu = item.nextElementSibling,
-                blackFon = item.previousElementSibling,
-                listItemMenu = blackFon.parentElement
-            const showMenu = () => {
-                // toggleBodyOverflow(true)
-                toggleBlackFon(blackFon, true)
-            }
+            mobileMenuItems.forEach(mobileItem => {
+                mobileItem.addEventListener("click", function () {
 
-            const hideMenu = () => {
-                // toggleBodyOverflow(false)
-                toggleBlackFon(blackFon, false)
-            }
+                    mobileItem.querySelector("a").classList.toggle("header-hover-mobile")
+                    let itemSubMenu = mobileItem.querySelector(".mobile-menu");
+                    if (itemSubMenu) {
+                        itemSubMenu.classList.toggle("d-block");
 
-            item.addEventListener('mouseenter', showMenu)
-            item.addEventListener('mouseleave', hideMenu)
-            subMenu.addEventListener('mouseenter', showMenu)
-            subMenu.addEventListener('mouseleave', hideMenu)
-            listItemMenu.addEventListener('mouseenter', showMenu)
-            listItemMenu.addEventListener('mouseleave', hideMenu)
-        })
-
-
-        // Отримання всіх пунктів підменю
+                    }
+                });
+            });
+        }
+        let defaultMenu = document.querySelector(".default-menu");
+        if (window.innerWidth < 1024) {
+            defaultMenu.classList.remove("default-menu");
+        } else {
+            defaultMenu.classList.add("default-menu");
+        }
 
         if (window.innerWidth < 1024) {
             const mobileMenuItem = document.querySelectorAll(".second-subMenu"),
@@ -144,7 +163,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 sections = document.querySelectorAll(".scrollBurger"),
                 cancelMenu = document.querySelector(".cancel-menu"),
                 headList = document.querySelectorAll(".head-subMenu"),
-                itemMobile = document.querySelectorAll(".navigation-menu-catalog > li > a")
+                itemMobile = document.querySelectorAll(".navigation-menu-catalog > li > a"),
+                blackFon = document.querySelector(".black-fon")
 
             let isMenuOpen = false
             headList.forEach(item => {
@@ -160,6 +180,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 mobileMenu.style.overflowY = "scroll"
                 mobileMenu.style.left = "0"
                 mobileMenu.style.top = "-62px"
+                blackFon.classList.add("black-fon-mobile")
+                blackFon.style.left = "80%"
                 isMenuOpen = true
             })
 
@@ -185,9 +207,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 mobileMenu.style.top = "-62px"
                 mobileMenu.style.overflowY = ""
                 burger.style.left = "0"
+                blackFon.classList.remove("black-fon-mobile")
+                blackFon.style.left = "0"
             }
         }
     }
+    //custom select
     if (document.querySelector(".sort-select")) {
         const selects = document.querySelectorAll('.select')
 
@@ -242,7 +267,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         })
     }
-    //кастомний рендж цін
+    //custom range
     if (document.querySelector('.slider-range')) {
         const slider = document.querySelector('.slider-range'),
             minHandle = document.querySelector('#min-handle'),
@@ -334,7 +359,181 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleVisibility(menuReadMore, "visible-menu", "readmore-active-menu")
     toggleVisibility(menuReadMoreMain, "visible-menu", "readmore-active-menu-main")
 
+    //mobile slider
+    if (window.innerWidth < 1024) {
+        const imageItems = document.querySelectorAll(".image-for-slider"),
+            imgSliderBlock = document.querySelector(".img-slider"),
+            btnSlider = document.querySelector(".btn-slider");
+    
+        imageItems.forEach((imgItem, index) => {
+            let sliderImageItem = document.createElement("img"),
+                inputSliderRadio = document.createElement("input")
+            
+            inputSliderRadio.type = "radio"
+            inputSliderRadio.name = "slider-radio"
+            inputSliderRadio.id = `slider-radio-${index}`
+            if (index === 0) inputSliderRadio.checked = true
+            
+            sliderImageItem.src = imgItem.src
+            sliderImageItem.classList.add("mobile-slider")
+            if (index === 0) sliderImageItem.classList.add("active")
+    
+            imgSliderBlock.appendChild(sliderImageItem)
+            btnSlider.appendChild(inputSliderRadio)
+        })
+    
+        const radioButtons = document.querySelectorAll('input[name="slider-radio"]'),
+            comments = document.querySelectorAll('.mobile-slider')
+        let currentIndexRadio = 0
+    
+        function switchComment(index) {
+            radioButtons[index].checked = true
+            comments.forEach((comment) => {
+                comment.classList.remove('active')
+            })
+            comments[index].classList.add('active')
+            currentIndexRadio = index
+        }
+    
+        // function startInterval() {
+        //     return setInterval(() => {
+        //         currentIndexRadio = (currentIndexRadio + 1) % radioButtons.length
+        //         switchComment(currentIndexRadio)
+        //     }, 3000)
+        // }
+    
+        // let intervalRadio = startInterval()
+    
+        radioButtons.forEach((radioButton, index) => {
+            radioButton.addEventListener('change', () => {
+                // clearInterval(intervalRadio)
+                switchComment(index)
+                // intervalRadio = startInterval()
+            })
+        })
+    
+        imgSliderBlock.addEventListener('touchstart', handleTouchStart, false)
+        imgSliderBlock.addEventListener('touchmove', handleTouchMove, false)
+    
+        let x1 = null
+    
+        function handleTouchStart(evt) {
+            const firstTouch = evt.touches[0]
+            x1 = firstTouch.clientX
+        }
+    
+        function handleTouchMove(evt) {
+            if (!x1) {
+                return false
+            }
+    
+            let x2 = evt.touches[0].clientX
+            let xDiff = x2 - x1
+    
+            if (xDiff > 0) {
+                currentIndexRadio = (currentIndexRadio - 1 + radioButtons.length) % radioButtons.length
+            } else {
+                currentIndexRadio = (currentIndexRadio + 1) % radioButtons.length
+            }
+    
+            switchComment(currentIndexRadio)
+            // clearInterval(intervalRadio)
+            // intervalRadio = startInterval()
+    
+            x1 = null
+        }
+    }
+    
+    // if (window.innerWidth < 1024) {
+    //     const imageItems = document.querySelectorAll(".image-for-slider"),
+    //         imgSliderBlock = document.querySelector(".img-slider"),
+    //         btnSlider = document.querySelector(".btn-slider");
+    
+    //     imageItems.forEach((imgItem, index) => {
+    //         let sliderImageItem = document.createElement("img"),
+    //             inputSliderRadio = document.createElement("input");
+            
+    //         inputSliderRadio.type = "radio";
+    //         inputSliderRadio.name = "slider-radio";
+    //         inputSliderRadio.id = `slider-radio-${index}`;
+    //         if (index === 0) inputSliderRadio.checked = true;
+            
+    //         sliderImageItem.src = imgItem.src;
+    //         sliderImageItem.classList.add("mobile-slider");
+    //         if (index === 0) sliderImageItem.classList.add("active");
+    
+    //         imgSliderBlock.appendChild(sliderImageItem);
+    //         btnSlider.appendChild(inputSliderRadio);
+    //     });
+    
+    //     const radioButtons = document.querySelectorAll('input[name="slider-radio"]'),
+    //         comments = document.querySelectorAll('.mobile-slider');
+    //     let currentIndexRadio = 0;
+    
+    //     function switchComment(index) {
+    //         radioButtons[index].checked = true;
+    //         comments.forEach((comment) => {
+    //             comment.classList.remove('active');
+    //         });
+    //         comments[index].classList.add('active');
+    //         currentIndexRadio = index;
+    //     }
+    
+    //     function startInterval() {
+    //         return setInterval(() => {
+    //             currentIndexRadio = (currentIndexRadio + 1) % radioButtons.length;
+    //             switchComment(currentIndexRadio);
+    //         }, 3000);
+    //     }
+    
+    //     let intervalRadio = startInterval();
+    
+    //     radioButtons.forEach((radioButton, index) => {
+    //         radioButton.addEventListener('change', () => {
+    //             clearInterval(intervalRadio);
+    //             switchComment(index);
+    //             intervalRadio = startInterval();
+    //         });
+    //     });
+    
+    //     imgSliderBlock.addEventListener('touchstart', handleTouchStart, false);
+    //     imgSliderBlock.addEventListener('touchmove', handleTouchMove, false);
+    
+    //     let x1 = null;
+    
+    //     function handleTouchStart(evt) {
+    //         const firstTouch = evt.touches[0];
+    //         x1 = firstTouch.clientX;
+    //     }
+    
+    //     function handleTouchMove(evt) {
+    //         if (!x1) {
+    //             return false;
+    //         }
+    
+    //         let x2 = evt.touches[0].clientX;
+    //         let xDiff = x2 - x1;
+    
+    //         if (xDiff > 0) {
+    //             currentIndexRadio = (currentIndexRadio - 1 + radioButtons.length) % radioButtons.length;
+    //         } else {
+    //             currentIndexRadio = (currentIndexRadio + 1) % radioButtons.length;
+    //         }
+    
+    //         switchComment(currentIndexRadio);
+    //         clearInterval(intervalRadio);
+    //         intervalRadio = startInterval();
+    
+    //         x1 = null;
+    //     }
+    // }
+    
 
+
+
+
+
+    //slider fow window width > 1024
     function slider() {
         const sliderContainer = document.querySelector('.carousel-card'),
             sliderImages = [...document.querySelectorAll('.carousel-item')],
@@ -386,6 +585,7 @@ document.addEventListener("DOMContentLoaded", function () {
             slider()
         })
     }
+    //btn fow card block haracteristic window width > 1024
     if (document.querySelector("#delivery")) {
         const buttons = document.querySelectorAll('.transparent-cta'),
             sections = document.querySelectorAll('.description-product, .haracteristic-block, .comment-card, .delivery-card')
@@ -440,27 +640,29 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
 
-
-    const cabinetCta = document.querySelector(".cabinet-cta"),
+    //popup registration-enter 
+    const cabinetCta = document.querySelectorAll(".cabinet-cta"),
         blackFonReg = document.querySelector(".black-fon-popup"),
         popupCabinet = document.querySelector(".popup-cabinet"),
         cancelCabinetPopup = document.querySelector(".cancel-popup-cabinet"),
         eyeReg = document.querySelectorAll(".eye")
 
-    cabinetCta.addEventListener("click", function (e) {
-        e.preventDefault()
-        console.log("+");
-        popupCabinet.style.display = "block"
-        blackFonReg.style.display = "block"
+    cabinetCta.forEach(itemCta => {
+        itemCta.addEventListener("click", function (e) {
+            e.preventDefault()
+            console.log("+");
+            popupCabinet.style.display = "block"
+            blackFonReg.style.display = "block"
+        })
+        cancelCabinetPopup.addEventListener("click", function (e) {
+            e.preventDefault()
+            popupCabinet.style.display = "none"
+            blackFonReg.style.display = "none"
+
+        })
     })
 
-    cancelCabinetPopup.addEventListener("click", function (e) {
-        e.preventDefault()
-        popupCabinet.style.display = "none"
-        blackFonReg.style.display = "none"
-
-    })
-
+    // visible password
     eyeReg.forEach(eye => {
         eye.addEventListener('click', function (e) {
             e.preventDefault()
@@ -490,7 +692,7 @@ document.addEventListener("DOMContentLoaded", function () {
         registrationForm.classList.add('active-form')
         entryForm.classList.remove('active-form')
     })
-
+    // page with help information - navigation
     if (document.querySelector(".menu-help-item ")) {
         const ctaHelp = document.querySelectorAll(".menu-help-item a")
 
@@ -502,8 +704,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 helpItem.classList.remove("hover-cta-help")
             })
         })
-        
-        
+
+
     }
     const menuItems = document.querySelectorAll('.menu-help-item a'),
         contentSections = document.querySelectorAll('.help-content')
@@ -530,7 +732,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (menuItems.length > 0) {
         menuItems.forEach(item => {
-            item.addEventListener('click', function(event) {
+            item.addEventListener('click', function (event) {
                 event.preventDefault()
                 const target = this.getAttribute('data-href')
                 activateSection(target)
@@ -549,7 +751,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-        window.addEventListener('hashchange', function() {
+        window.addEventListener('hashchange', function () {
             const newHash = window.location.hash.substring(1)
             activateSection(newHash)
         })
