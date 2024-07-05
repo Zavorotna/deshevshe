@@ -390,7 +390,7 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleVisibility(menuReadMoreMain, "visible-menu", "readmore-active-menu-main")
 
     //mobile slider
-    if (window.innerWidth < 1024) {
+    if (window.innerWidth < 1024 && document.querySelector(".btn-slider")) {
         const imageItems = document.querySelectorAll(".image-for-slider"),
             imgSliderBlock = document.querySelector(".img-slider"),
             btnSlider = document.querySelector(".btn-slider");
