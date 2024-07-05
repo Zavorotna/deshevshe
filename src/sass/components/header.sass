@@ -46,7 +46,7 @@ header
     p
         column-gap: 5rem
     p:first-child
-       margin-bottom: 10rem 
+        margin-bottom: 10rem
     a
         color: #121212
         font-size: 12rem
@@ -65,22 +65,25 @@ header
         max-width: 365rem
     input
         width: 100%
-        padding: 12px 10px
+        padding: 12px 30px 9px
         outline: none
         border: none
-        border: 1px solid #9E9E9E
+        border-bottom: 1px solid #121212
     button
         position: absolute
         top: 0
-        right: 0
+        left: -10px
         width: 40px
         height: 100%
         transition: all .5s ease
         border: none
-        background-color: #214498
+        background-color: transparent
         cursor: pointer
-        &:hover
-            background-color: #F1E12F
+.name-autorization
+    max-width: 75rem
+    color: #121212
+    font-size: 12px
+    font-weight: 400
 
 .search-mobile-form
     display: block
@@ -90,15 +93,36 @@ header
 .padding-for-search
     transition: all .25s ease
     padding-bottom: 50px
-    
-.header-btn
+
+.like-cta
     svg
-        path 
+        path
             transition: all .5s ease
             fill: #214498
         &:hover
             > path
                 fill: #F1E12F
+.cart-cta
+    svg
+        path
+            transition: all .5s ease
+            fill: #214498
+            stroke: #214498
+        &:hover
+            path
+                fill: #F1E12F
+                stroke: #F1E12F
+.cabinet-cta
+    a
+        column-gap: 10px
+    svg
+        path,
+        circle
+            transition: all .5s ease
+            stroke: #214498
+        &:hover
+            > path, circle
+                stroke: #F1E12F
 
 div.decstop-cart
     display: none
@@ -108,7 +132,6 @@ div.decstop-cart
     display: none
     +media(1024)
         display: block
-
 
 .burger,
 .burger-admin
@@ -151,4 +174,3 @@ div.decstop-cart
     position: absolute
     top: 20px
     right: 20px
-    

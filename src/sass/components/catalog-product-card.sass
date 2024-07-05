@@ -5,7 +5,7 @@
     +media(1440)
         column-gap: 120rem
 .page-look
-    padding: 18rem 0 35rem
+    padding: 22rem 0 35rem
     column-gap: 15rem
     span, a
         color: #121212
@@ -17,6 +17,9 @@
 
     .selected-page
         font-weight: 500
+        overflow: hidden
+        white-space: nowrap
+        text-overflow: ellipsis
 
 .header-catalog-card
     padding: 10rem 0 30rem
@@ -314,7 +317,7 @@
 
 .visible,
 .visible-menu
-    max-height: 1000rem
+    max-height: 3000rem
     transition: max-height 1s ease
 .visible-menu
     overflow: auto
@@ -376,7 +379,7 @@
         font-weight: 700
         > svg
             transform: scale(1.1)
-        
+
 .current-page
     font-weight: 700
 
@@ -387,6 +390,5 @@
     padding-right: 10rem
     padding-left: 30rem
 
-.view-product 
+.view-product
     padding: 69rem 0 50rem
-

@@ -81,7 +81,7 @@ html(lang="uk")
                             label
                                 input(type="radio", name="color" value="white") 
                     .form-card
-                        .black-fon-popup
+                        .black-fon-popup-size
                         .flex-between.item-center
                             p Оберіть розмір:
                             .popup-size-table 
@@ -232,7 +232,10 @@ html(lang="uk")
                         li Є можливість оплатити PayPal.
             section.view-product 
                 h2 з цим товаром купують
-                .top-prodaz-card
+                .main-top-prodaz
+                    - for(let i = 0; i < 4; i++) 
+                        include components/catalog-card
+                .mobile-top-prodaz
                     - for(let i = 0; i < 4; i++) 
                         include components/catalog-card
         footer

@@ -20,6 +20,36 @@ document.addEventListener("DOMContentLoaded", function () {
             header.classList.toggle("padding-for-search")
         })
     }
+        function rearrangeSections() {
+            if (window.innerWidth < 1024) {
+                document.querySelectorAll('.haracteristic-btn a').forEach(button => {
+                    let targetId = button.getAttribute('data-target')
+                    let targetSection = document.getElementById(targetId)
+                    if (targetSection) {
+                        // button.parentNode.removeChild(targetSection);
+                        button.insertAdjacentElement('afterend', targetSection)
+                    }
+                })
+                document.querySelectorAll('.transparent-cta[data-target]').forEach(button => {
+                    button.classList.add('readmore');
+                })
+                document.querySelectorAll('.description-product, .haracteristic-block, .comment-card, .delivery-card').forEach(section => {
+                    section.classList.add('description-more');
+                })
+                const initialButton = document.querySelector('.transparent-cta[data-target="about"]'),
+                    initialSection = document.getElementById('about')
+                if (initialButton && initialSection) {
+                    initialButton.classList.add('readmore-active')
+                    initialSection.classList.add('visible')
+                }
+            } 
+        }
+    
+        rearrangeSections()
+    
+        window.addEventListener('resize', rearrangeSections)
+    
+    
     //down menu mobile and decstop
     if (document.querySelector('.down-menu')) {
         if (window.innerWidth > 1024) {
@@ -586,7 +616,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
     //btn fow card block haracteristic window width > 1024
-    if (document.querySelector("#delivery")) {
+    if (document.querySelector("#delivery") && window.innerWidth >= 1024) {
         const buttons = document.querySelectorAll('.transparent-cta'),
             sections = document.querySelectorAll('.description-product, .haracteristic-block, .comment-card, .delivery-card')
 
@@ -622,14 +652,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (document.querySelector(".popup-size-cta")) {
         const popupSize = document.querySelector(".popup-size-cta"),
-            blackFonPOpup = document.querySelector(".black-fon-popup"),
+            blackFonPOpup = document.querySelector(".black-fon-popup-size"),
             tablePopup = document.querySelector(".size-table-popup"),
             cancelPopupSize = document.querySelector(".cancel-size-popup")
         popupSize.addEventListener("click", function () {
             blackFonPOpup.classList.add("black-fon-style")
             tablePopup.style.display = "block"
-            body.style.height = "100vh"
-            body.style.overflow = "hidden"
+            console.log(blackFonPOpup);
 
         })
         cancelPopupSize.addEventListener("click", function () {

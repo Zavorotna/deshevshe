@@ -265,7 +265,7 @@ h2, h1
         height: 5rem
         background-color: #ccc
     &::-webkit-scrollbar-thumb
-        background-color: #929090
+        background-color: #121212
 
 .top-prodaz
     padding: 30rem 0
@@ -277,6 +277,15 @@ h2, h1
 
 .mobile-top-prodaz
     display: grid
+    gap: 10rem
+    grid-template-columns: repeat(4, 45vw)
+    overflow-x: auto 
+    &::-webkit-scrollbar
+        width: 100%
+        height: 5rem
+        background-color: #ccc
+    &::-webkit-scrollbar-thumb
+        background-color: #121212
     +media(1024)
         display: none
 
@@ -286,8 +295,7 @@ h2, h1
         display: grid
 
 .top-prodaz-card,
-.main-top-prodaz,
-.mobile-top-prodaz
+.main-top-prodaz
     gap: 20rem
     width: 100%
     padding-bottom: 50rem
