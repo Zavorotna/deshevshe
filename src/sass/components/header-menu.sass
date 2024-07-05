@@ -19,7 +19,9 @@
 .help-sub-menu,
 .second-subMenu
     display: none
-
+.sub-menu-main
+    position: relative
+    z-index: 50
 .mobile-head-menu
     position: absolute
     top: 30px
@@ -43,7 +45,7 @@
     height: 100vh
     padding: 100rem 20rem
     background-color: #fff
-    z-index: 100
+    z-index: 27
     transition: all .5s ease
     +media(1024)
         position: relative
@@ -175,11 +177,11 @@ a.header-hover-mobile
     width: 100%
     height: 100%
     background: rgba(0, 0, 0, 0.50)
-    z-index: 10
+    z-index: 0
 .black-fon-mobile
     top: 0
     transition: all .5s ease
-    z-index: 0
+    z-index: 25
 .down-menu
     position: relative
     svg

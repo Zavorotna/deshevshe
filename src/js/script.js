@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     //down menu mobile and decstop
     if (document.querySelector('.down-menu')) {
-        if (window.innerWidth > 1024) {
+        if (window.innerWidth >= 1024) {
             const menuItems = document.querySelectorAll('.down-menu'),
                 body = document.querySelector("#body"),
                 listItemMain = document.querySelectorAll(".navigation-menu-catalog > li"),
@@ -91,34 +91,28 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (secondSubMenu) removeHoverClass(secondSubMenu, "subSecond-hover")
                 })
             })
-            const toggleBlackFon = (blackFon, toggle) => {
-                if (toggle) {
-                    blackFon.classList.add("black-fon-style")
-                    blackFon.style.display = 'block'
-                } else {
-                    blackFon.classList.remove("black-fon-style")
-                    blackFon.style.display = 'none'
-                }
-            }
 
             menuItems.forEach(item => {
                 const subMenu = item.nextElementSibling,
-                    blackFon = item.previousElementSibling,
-                    listItemMenu = blackFon.parentElement
+                    blackFon = document.querySelector(".black-fon")
+                    console.log(blackFon);
+                    // listItemMenu = document.querySelector(".navigation-menu-catalog > li")
+                    console.log(subMenu);
                 const showMenu = () => {
-                    toggleBlackFon(blackFon, true)
+                    blackFon.classList.add("black-fon-style")
+                    blackFon.style.display = 'block'
+                    
                 }
 
                 const hideMenu = () => {
-                    toggleBlackFon(blackFon, false)
+                    blackFon.classList.remove("black-fon-style")
+                    blackFon.style.display = 'none'
                 }
 
                 item.addEventListener('mouseenter', showMenu)
                 item.addEventListener('mouseleave', hideMenu)
                 subMenu.addEventListener('mouseenter', showMenu)
                 subMenu.addEventListener('mouseleave', hideMenu)
-                listItemMenu.addEventListener('mouseenter', showMenu)
-                listItemMenu.addEventListener('mouseleave', hideMenu)
             })
         }
         if (window.innerWidth < 1024) {
@@ -126,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             mobileMenuItems.forEach(mobileItem => {
                 mobileItem.addEventListener("click", function () {
-
+                    console.log(mobileItem);
                     mobileItem.querySelector("a").classList.toggle("header-hover-mobile")
                     let itemSubMenu = mobileItem.querySelector(".mobile-menu");
                     if (itemSubMenu) {
@@ -193,7 +187,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 sections = document.querySelectorAll(".scrollBurger"),
                 cancelMenu = document.querySelector(".cancel-menu"),
                 headList = document.querySelectorAll(".head-subMenu"),
-                itemMobile = document.querySelectorAll(".navigation-menu-catalog > li > a"),
                 blackFon = document.querySelector(".black-fon")
 
             let isMenuOpen = false
