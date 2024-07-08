@@ -3,8 +3,8 @@ figure
 
 .flag
     position: absolute
-    top: 10rem
-    left: -8rem
+    top: 9rem
+    left: -7rem
     display: inline-block
     background-color: #FDF028
     z-index: 5
@@ -109,11 +109,17 @@ figure
     z-index: 4
 
 .blue-btn
-    padding: 19rem
+    font-size: 12px
+    padding: 10rem
     color: #FFF
     background-color: #214498
     transition: all .25s ease
     cursor: pointer
+    +media(1024)
+        font-size: 18rem
+        padding: 19rem
     &:hover
         color: #121212
         background: #FDF028
+
+

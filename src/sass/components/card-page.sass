@@ -26,17 +26,11 @@
         height: 20px
         border-radius: 50%
         border: 1px solid #121212
-        &:checked
-            &::after
-                content: ""
-                position: absolute
-                top: 50%
-                left: 50%
-                width: 15px
-                height: 15px    
-                background-color: #1E4284
-                border-radius: 50%
-                transform: translate(-50%, -50%)
+        &:checked  
+            outline: 1px solid #121212
+            border: 2px solid #fff
+            background-color: #1E4284
+            border-radius: 50%
             
 .mobile-slider
     position: absolute
@@ -167,37 +161,27 @@
         background-color: red
         cursor: pointer
         z-index: 4
-        &:checked::after
-            content: ""
-            position: absolute
-            top: 50%
-            left: 50%
-            transform: translate(-50%, -50%)
-            width: 24rem
-            height: 24rem
-            border: 1rem solid #000
+        &:checked
+            // border-width: 5px        
+            outline: 1px solid #000
             border-radius: 50%
-        &:disabled
-            &::before
-                content: ""
-                position: absolute
-                width: 100%
-                height: 100%
-                border-radius: 50%
-                background-color: rgba(255, 255, 255, 0.5)
-
-            &::after
-                content: ""
-                position: absolute
-                top: 50%
-                left: 0
-                width: 100%
-                border-top: 1px solid #000
-                transform: rotate(-45deg)
-                z-index: 10
-                
-
-            
+        // &:disabled
+            // background: linear-gradient
+            // &::before
+            //     content: ""
+            //     position: absolute
+                // width: 100%
+                // height: 100%
+                // border-radius: 50%
+            // &::after
+            //     content: ""
+            //     position: absolute
+            //     top: 50%
+            //     left: 0
+            //     width: 100%
+            //     border-top: 1px solid #000
+            //     transform: rotate(-45deg)
+            //     z-index: 10
 
 .sale-procent
     color: #EC0F0F

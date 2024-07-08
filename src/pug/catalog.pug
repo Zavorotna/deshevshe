@@ -26,9 +26,13 @@ html(lang="uk")
                 include components/catalog-product-card
             section.view-product 
                 h2 переглянуті товари
-                .top-prodaz-card
-                    - for(let i = 0; i < 4; i++) 
-                        include components/catalog-card
+                .wrapper-card
+                    .main-top-prodaz
+                        - for(let i = 0; i < 4; i++) 
+                            include components/catalog-card
+                    .mobile-top-prodaz
+                        - for(let i = 0; i < 4; i++) 
+                            include components/catalog-card
 
         footer
             #footer

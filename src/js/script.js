@@ -5,8 +5,50 @@ document.addEventListener("DOMContentLoaded", function () {
         let color = input.value,
             label = input
         label.style.backgroundColor = color
-        label.style.border = "1px solid"
-        label.style.borderColor = color === 'white' ? '#ccc' : 'transparent'
+        label.style.border = "2px solid"
+        label.style.borderColor = color === 'white' ? '#D9D9D9' : 'white'
+    })
+    //view catalog chacge
+    if(document.querySelector(".catalog-container")) {
+        const catalogContainer = document.querySelector(".catalog-container"),
+            boxBtn = document.querySelector(".box a"),
+            lineBtn = document.querySelector(".line a"),
+            catalogCard = catalogContainer.querySelectorAll("figure")
+    
+        lineBtn.addEventListener("click", function() {
+            this.classList.add("active-btn-card-line")
+            boxBtn.classList.remove("active-btn-card")
+            catalogContainer.classList.add("line-catalog")
+            catalogContainer.classList.remove("grid-catalog")
+            catalogCard.forEach(itemCard => {
+                itemCard.querySelector(".card-view-block").classList.add("flex-between")
+                itemCard.querySelector(".main-info-card").classList.add("d-flex")
+                itemCard.querySelector("picture").classList.add("picture-line")
+                itemCard.querySelector(".flag").classList.add("flag-line")
+            })
+        })
+        boxBtn.addEventListener("click", function() {
+            this.classList.add("active-btn-card")
+            lineBtn.classList.remove("active-btn-card-line")
+            catalogContainer.classList.remove("line-catalog")
+            catalogContainer.classList.add("grid-catalog")
+            catalogCard.forEach(itemCard => {
+                itemCard.querySelector(".card-view-block").classList.remove("flex-between")
+                itemCard.querySelector(".main-info-card").classList.remove("d-flex")
+                itemCard.querySelector("picture").classList.remove("picture-line")
+                itemCard.querySelector(".flag").classList.remove("flag-line")
+            })
+        })
+
+    }
+    //submit click on select count
+    document.querySelectorAll('.select__item').forEach(item => {
+        item.addEventListener('click', function() {
+            const value = this.getAttribute('data-value')
+            document.querySelector('.select__input').value = value
+            document.querySelector('#countForm').submit()
+            document.querySelector('#sortForm').submit()
+        })
     })
     //search mobile
     if (window.innerWidth < 1024) {
@@ -44,12 +86,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             } 
         }
-    
+        
         rearrangeSections()
-    
+        
         window.addEventListener('resize', rearrangeSections)
-    
-    
+        
+        
+    const blackFon = document.querySelector(".black-fon")
     //down menu mobile and decstop
     if (document.querySelector('.down-menu')) {
         if (window.innerWidth >= 1024) {
@@ -121,20 +164,20 @@ document.addEventListener("DOMContentLoaded", function () {
             mobileMenuItems.forEach(mobileItem => {
                 mobileItem.addEventListener("click", function () {
                     console.log(mobileItem);
-                    mobileItem.querySelector("a").classList.toggle("header-hover-mobile")
+                    // mobileItem.querySelector("a").classList.toggle("header-hover-mobile")
                     let itemSubMenu = mobileItem.querySelector(".mobile-menu");
                     if (itemSubMenu) {
-                        itemSubMenu.classList.toggle("d-block");
+                        itemSubMenu.classList.toggle("d-block")
 
                     }
-                });
-            });
+                })
+            })
         }
-        let defaultMenu = document.querySelector(".default-menu");
+        let defaultMenu = document.querySelector(".default-menu")
         if (window.innerWidth < 1024) {
-            defaultMenu.classList.remove("default-menu");
+            defaultMenu.classList.remove("default-menu")
         } else {
-            defaultMenu.classList.add("default-menu");
+            defaultMenu.classList.add("default-menu")
         }
 
         if (window.innerWidth < 1024) {
@@ -180,14 +223,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             })
         })
-
         if (document.querySelector("#burger")) {
             const burger = document.querySelector(".burger"),
-                mobileMenu = document.querySelector(".navigation-menu-catalog"),
-                sections = document.querySelectorAll(".scrollBurger"),
+            mobileMenu = document.querySelector(".navigation-menu-catalog"),
+            sections = document.querySelectorAll(".scrollBurger"),
                 cancelMenu = document.querySelector(".cancel-menu"),
-                headList = document.querySelectorAll(".head-subMenu"),
-                blackFon = document.querySelector(".black-fon")
+                headList = document.querySelectorAll(".head-subMenu")
 
             let isMenuOpen = false
             headList.forEach(item => {
@@ -222,6 +263,10 @@ document.addEventListener("DOMContentLoaded", function () {
             cancelMenu.addEventListener("click", function () {
                 closeMenu()
             })
+            blackFon.addEventListener("click", function() {
+                closeMenu()
+                
+            })
 
             function closeMenu() {
                 burger.classList.remove('active')
@@ -234,6 +279,36 @@ document.addEventListener("DOMContentLoaded", function () {
                 blackFon.style.left = "0"
             }
         }
+    }
+    //filter catalog mobile
+    if(document.querySelector(".filter-btn-mobile")) {
+        const filterMobileBtn = document.querySelector(".filter-btn-mobile"),
+            filterMobile = document.querySelector(".filter"),
+            cancelFilter = document.querySelector(".cancel-filter")
+    
+        filterMobileBtn.addEventListener("click", function(e) {
+            e.preventDefault()
+            // filterMobile.classList.add("filter-mobile-menu")
+            filterMobile.style.left = "0"
+            filterMobile.style.transition = "all .5s ease"
+            blackFon.classList.add("black-fon-mobile")
+            blackFon.style.left = "80%"
+        })
+        function closeFilter() {
+            blackFon.classList.remove("black-fon-mobile")
+            blackFon.style.left = "0"
+            filterMobile.style.left = "-100%"
+            filterMobile.style.transition = ""
+
+        }
+        cancelFilter.addEventListener("click", function(e) {
+            // filterMobile.classList.remove("filter-mobile-menu")
+            closeFilter()
+        })
+        blackFon.addEventListener("click", function() {
+            closeFilter()
+
+        })
     }
     //custom select
     if (document.querySelector(".sort-select")) {
@@ -418,20 +493,9 @@ document.addEventListener("DOMContentLoaded", function () {
             currentIndexRadio = index
         }
     
-        // function startInterval() {
-        //     return setInterval(() => {
-        //         currentIndexRadio = (currentIndexRadio + 1) % radioButtons.length
-        //         switchComment(currentIndexRadio)
-        //     }, 3000)
-        // }
-    
-        // let intervalRadio = startInterval()
-    
         radioButtons.forEach((radioButton, index) => {
             radioButton.addEventListener('change', () => {
-                // clearInterval(intervalRadio)
                 switchComment(index)
-                // intervalRadio = startInterval()
             })
         })
     
@@ -460,102 +524,11 @@ document.addEventListener("DOMContentLoaded", function () {
             }
     
             switchComment(currentIndexRadio)
-            // clearInterval(intervalRadio)
-            // intervalRadio = startInterval()
     
             x1 = null
         }
     }
     
-    // if (window.innerWidth < 1024) {
-    //     const imageItems = document.querySelectorAll(".image-for-slider"),
-    //         imgSliderBlock = document.querySelector(".img-slider"),
-    //         btnSlider = document.querySelector(".btn-slider");
-    
-    //     imageItems.forEach((imgItem, index) => {
-    //         let sliderImageItem = document.createElement("img"),
-    //             inputSliderRadio = document.createElement("input");
-            
-    //         inputSliderRadio.type = "radio";
-    //         inputSliderRadio.name = "slider-radio";
-    //         inputSliderRadio.id = `slider-radio-${index}`;
-    //         if (index === 0) inputSliderRadio.checked = true;
-            
-    //         sliderImageItem.src = imgItem.src;
-    //         sliderImageItem.classList.add("mobile-slider");
-    //         if (index === 0) sliderImageItem.classList.add("active");
-    
-    //         imgSliderBlock.appendChild(sliderImageItem);
-    //         btnSlider.appendChild(inputSliderRadio);
-    //     });
-    
-    //     const radioButtons = document.querySelectorAll('input[name="slider-radio"]'),
-    //         comments = document.querySelectorAll('.mobile-slider');
-    //     let currentIndexRadio = 0;
-    
-    //     function switchComment(index) {
-    //         radioButtons[index].checked = true;
-    //         comments.forEach((comment) => {
-    //             comment.classList.remove('active');
-    //         });
-    //         comments[index].classList.add('active');
-    //         currentIndexRadio = index;
-    //     }
-    
-    //     function startInterval() {
-    //         return setInterval(() => {
-    //             currentIndexRadio = (currentIndexRadio + 1) % radioButtons.length;
-    //             switchComment(currentIndexRadio);
-    //         }, 3000);
-    //     }
-    
-    //     let intervalRadio = startInterval();
-    
-    //     radioButtons.forEach((radioButton, index) => {
-    //         radioButton.addEventListener('change', () => {
-    //             clearInterval(intervalRadio);
-    //             switchComment(index);
-    //             intervalRadio = startInterval();
-    //         });
-    //     });
-    
-    //     imgSliderBlock.addEventListener('touchstart', handleTouchStart, false);
-    //     imgSliderBlock.addEventListener('touchmove', handleTouchMove, false);
-    
-    //     let x1 = null;
-    
-    //     function handleTouchStart(evt) {
-    //         const firstTouch = evt.touches[0];
-    //         x1 = firstTouch.clientX;
-    //     }
-    
-    //     function handleTouchMove(evt) {
-    //         if (!x1) {
-    //             return false;
-    //         }
-    
-    //         let x2 = evt.touches[0].clientX;
-    //         let xDiff = x2 - x1;
-    
-    //         if (xDiff > 0) {
-    //             currentIndexRadio = (currentIndexRadio - 1 + radioButtons.length) % radioButtons.length;
-    //         } else {
-    //             currentIndexRadio = (currentIndexRadio + 1) % radioButtons.length;
-    //         }
-    
-    //         switchComment(currentIndexRadio);
-    //         clearInterval(intervalRadio);
-    //         intervalRadio = startInterval();
-    
-    //         x1 = null;
-    //     }
-    // }
-    
-
-
-
-
-
     //slider fow window width > 1024
     function slider() {
         const sliderContainer = document.querySelector('.carousel-card'),
@@ -649,16 +622,30 @@ document.addEventListener("DOMContentLoaded", function () {
             tablePopup = document.querySelector(".size-table-popup"),
             cancelPopupSize = document.querySelector(".cancel-size-popup")
         popupSize.addEventListener("click", function () {
-            blackFonPOpup.classList.add("black-fon-style")
             tablePopup.style.display = "block"
-            console.log(blackFonPOpup);
-
+            if(window.innerWidth >= 1024) {
+                blackFonPOpup.classList.add("black-fon-style")
+            } else {
+                blackFonPOpup.classList.add("black-fon-mobile")
+            }
+            // console.log(blackFonPOpup);
+            
         })
-        cancelPopupSize.addEventListener("click", function () {
-            blackFonPOpup.classList.remove("black-fon-style")
+        function cancelSizePopup() {
+            if(window.innerWidth >= 1024) {
+                blackFonPOpup.classList.remove("black-fon-style")
+            } else {
+                blackFonPOpup.classList.remove("black-fon-mobile")
+            }
             tablePopup.style.display = "none"
             body.style.height = ""
             body.style.overflow = ""
+        }
+        cancelPopupSize.addEventListener("click", function () {
+            cancelSizePopup()
+        })
+        blackFonPOpup.addEventListener("click", function() {
+            cancelSizePopup()
         })
     }
 

@@ -1,7 +1,39 @@
 .filter
-    min-width: 265rem
+    position: fixed
+    top: 0
+    left: -100%
+    width: 80%
+    height: 100%
+    padding: 100rem 20rem
+    background-color: #fff
+    overflow-y: scroll
+    z-index: 9999
+    transition: all .5s ease
+    +media(1024)
+        padding: 0
+        position: static
+        min-width: 265rem
+        overflow: auto
+        z-index: 0
+
+.mobile-head-menu 
+    +media(1024)
+        display: none
+.filter-btn-mobile
+    a
+        color: #121212
+        font-size: 12px
+        font-weight: 500
+    +media(1024)
+        display: none
+
 .catalog-main
-    column-gap: 60rem
+    width: 100%
+    .black-fon
+        +media(1024)
+            display: none
+    +media(1024)
+        column-gap: 60rem
     +media(1440)
         column-gap: 120rem
 .page-look
@@ -24,9 +56,13 @@
 .header-catalog-card
     padding: 10rem 0 30rem
 .catalog-head
-    margin: 0
-    font-size: 24rem
-    font-weight: 600
+    display: none
+    +media(1024)
+        display: block
+        margin: 0
+        font-size: 24rem
+        font-weight: 600
+
 .filter-header-block
     padding: 29rem 0 21rem
     h2
@@ -41,6 +77,11 @@
         font-weight: 300
         opacity: 0.5
 //sort select
+.view-catalog-card
+    column-gap: 10px
+    p
+        font-size: 14px
+        font-weight: 500
 .sort-select
     position: relative
     z-index: 25
@@ -51,16 +92,22 @@
         font-weight: 500
 .select
     position: relative
-    width: 200rem
-    height: 30rem
-    border: 1rem solid #1E1E1E
+    // border: 1rem solid #1E1E1E
     background: #FFF
     z-index: 7
-
+    +media(1024)
+        width: 150rem
+        height: 30rem
+.icon-select 
+    +media(1024)
+        display: none
+.select-count
+    .select
+        width: 40px
 .is-opened
     .select__in
         &:after
-            transform: translateY(-50%) rotate(45deg)
+            transform: translateY(0%) rotate(45deg)
     .select__list
         visibility: visible
         max-height: none
@@ -72,49 +119,102 @@
         &:hover
             font-weight: 500
 
-.is-active
+.is-active,
+.text-select
     display: none
-
-.select__in
-    position: absolute
-    padding-left: 20rem
-    top: 50%
-    color: #121212
-    left: 50%
-    width: 100%
-    font-size: 14rem
-    font-weight: 500
-    user-select: none
-    transform: translate(-50%, -50%)
-    cursor: pointer
-    &::after
-        transition: all 1s ease
-        font-weight: 500
-        content: ""
-        position: absolute
-        top: 50%
-        right: 15rem
-        width: 8rem
-        height: 8rem
+.text-select
+    +media(1024)
         display: block
-        border-top: 1rem solid #1E1E1E
-        border-left: 1rem solid #1E1E1E
-        transform: translateY(-50%) rotate(225deg)
+.select-count
+    .select__in
+        position: absolute
+        padding-left: 0rem
+        top: 50%
+        color: #121212
+        left: 50%
+        width: 100%
+        font-size: 14rem
+        font-weight: 500
+        user-select: none
+        transform: translate(-50%, -50%)
+        cursor: pointer
+        &::after
+            transition: all 1s ease
+            font-weight: 500
+            content: ""
+            position: absolute
+            top: 25%
+            right: 15rem
+            width: 8rem
+            height: 8rem
+            display: block
+            border-top: 1rem solid #1E1E1E
+            border-left: 1rem solid #1E1E1E
+            transform: translateY(-25%) rotate(225deg)
+    .select__list
+        left: -100px
+        +media(1024)
+            left: -0rem
+            min-width: 50rem
+.popularity-select
+    position: relative
+    width: 15px
+    height: 15px
+    +media(1024)
+        width: auto
+        height: auto
+    svg
+        position: absolute
+        top: 0
+        left: -16px
+    .select__in
+        +media(1024)
+            position: absolute
+            padding-left: 0rem
+            top: 50%
+            color: #121212
+            left: 50%
+            width: 100%
+            font-size: 14rem
+            font-weight: 500
+            user-select: none
+            transform: translate(-50%, -50%)
+            cursor: pointer
+            &::after
+                transition: all 1s ease
+                font-weight: 500
+                content: ""
+                position: absolute
+                top: 25%
+                right: 15rem
+                width: 8rem
+                height: 8rem
+                display: block
+                border-top: 1rem solid #1E1E1E
+                border-left: 1rem solid #1E1E1E
+                transform: translateY(-25%) rotate(225deg)
 .select__list
     display: block
     overflow: hidden
-    width: 100.5%
+    width: 150rem
+    top: 20px
+    left: -150rem
     border-bottom: 1rem solid #1E1E1E
     border-left: 1rem solid #1E1E1E
     border-right: 1rem solid #1E1E1E
     background: #FFF
     position: absolute
-    top: 100%
-    left: -.5rem
     transition: opacity .2s ease .1s
     visibility: hidden
     max-height: 0
     opacity: 0
+    +media(768)
+        width: 100.5%
+        top: 100%
+        left: -.5rem
+    +media(1024)
+        left: -100rem
+        min-width: 250rem
 
 .select__item
     display: none
@@ -126,12 +226,52 @@
     cursor: pointer
 
 .catalog-container
-    display: grid
-    gap: 20rem
-    grid-template-columns: repeat(3, 1fr)
+    gap: 10rem
     width: 100%
+    min-width: 65vw
     padding-bottom: 50rem
+    +media(1024)
+        gap: 20rem
 
+.grid-catalog
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    +media(768)
+        grid-template-columns: repeat(3, 1fr)
+.line-catalog
+    grid-template-columns: 1fr
+    .card
+        padding: 10rem 0
+        border-bottom: 1px solid #D9D9D9
+        +media(1024)
+            padding: 20rem 0
+.flag-line
+    top: 35rem
+.active-btn-card
+    svg
+        rect 
+            stroke: #1E4284
+.active-btn-card-line
+    svg
+        rect 
+            fill: #1E4284
+.main-info-card
+    column-gap: 30rem
+.btn-view-block
+    +media(1024)
+        min-width: 300rem
+.card-view-block
+    column-gap: 20px
+    +media(1024)
+        column-gap: 80px
+.picture-line
+    min-width: 100rem
+    max-width: 150px
+    min-height: 100rem
+    +media(1024)
+        min-width: 200px
+        max-width: 300px
+        // min-height: 250px
 .slider-range
     position: relative
     width: 100%
@@ -141,7 +281,6 @@
 
 .range
     position: absolute
-    // width: 210rem
     height: 100%
     background: #214498
     box-sizing: border-box
@@ -282,7 +421,7 @@
     transition: all .5s ease
     svg
         path
-            fill: #fff
+            // fill: #fff
             +media(1024)
                 fill: #121212
     &:hover
@@ -391,4 +530,7 @@
     padding-left: 30rem
 
 .view-product
-    padding: 69rem 0 50rem
+    padding: 69rem 0 100rem
+    +media(1024)
+        padding: 69rem 0 50rem
+

@@ -22,9 +22,9 @@ html
         font-size: 2px
 
 body
-    font-family: Montserrat
     color: #121212
-
+body, button
+    font-family: Montserrat
 .wrapper
     max-width: 90%
     margin: 0 auto
@@ -268,14 +268,15 @@ h2, h1
         background-color: #121212
 
 .top-prodaz
-    padding: 30rem 0
+    padding: 30rem 0 100rem
     +media(768)
-        padding: 100rem 0
+        padding: 100rem 0 0 0
         
 .top-prodaz-card
     display: grid
 
 .mobile-top-prodaz
+    padding-bottom: 10px
     display: grid
     gap: 10rem
     grid-template-columns: repeat(4, 45vw)
@@ -301,6 +302,8 @@ h2, h1
     padding-bottom: 50rem
     grid-template-columns: repeat(2, 1fr)
     +media(768)
+        grid-template-columns: repeat(3, 1fr)
+    +media(1220)
         grid-template-columns: repeat(4, 1fr)
 
 
@@ -329,7 +332,8 @@ h2, h1
         row-gap: 20rem
         grid-template-columns: repeat(3, 1fr)
 
-.cancel-menu
+.cancel-menu,
+.cancel-filter
     position: absolute
     top: 50%
     right: 10px
