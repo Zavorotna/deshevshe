@@ -1,14 +1,20 @@
 .order-grid
-    grid-template-columns: 60vw 25vw
+    grid-template-columns: 1fr
+    +media(1024)
+        grid-template-columns: 60vw 25vw
 .order-form
-    max-width: 50vw
     padding-bottom: 100rem
+    +media(1024)
+        max-width: 50vw
     .filter-header-block
         h2
             padding-bottom: 12rem
             text-align: left
 .order-aside-form
-    min-width: 300rem 
+    order: -1
+    +media(1024)
+        order: 0
+        min-width: 300rem 
 .flag-order
     width: 100%
     padding: 20rem

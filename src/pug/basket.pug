@@ -42,11 +42,22 @@ html(lang="uk")
                         a(href="order.html").btn-card.yellow-cta оформити замовлення
                         //- button(type="submit").btn-card.yellow-cta.basket-cta оформити замовлення
                         a(href="#").transparent-cta.basket-cta назад у каталог
-            section.view-product 
-                h2 доповніть свій образ
-                .top-prodaz-card
-                    - for(let i = 0; i < 4; i++) 
-                        include components/catalog-card
+            .top-prodaz-main
+                section.view-product 
+                    h2 доповніть свій образ
+                    .top-prodaz-card
+                        - for(let i = 0; i < 4; i++) 
+                            include components/catalog-card
+                .view-all
+                    .flex-between 
+                        a(href="#").left-arrow.gray-sircle 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <path d="M23 13L15 20.5L23 28" stroke="#121212" stroke-linecap="round"/>
+                            </svg>
+                        a(href="#").right-arrow.gray-sircle 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <path d="M17 13L25 20.5L17 28" stroke="#121212" stroke-linecap="round"/>
+                            </svg>
 
         footer 
             include components/footer

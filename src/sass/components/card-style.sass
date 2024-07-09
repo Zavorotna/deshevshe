@@ -46,14 +46,18 @@ figure
 .hover-card
     h3
         min-height: 50rem
-        padding: 20rem 0 15rem
+        padding: 15rem 0 10rem
         font-size: 16rem
         font-weight: 500
         box-sizing: content-box
+        +media(1024)
+            padding: 20rem 0 15rem
 
 .price-block
     column-gap: 10rem
-    padding-bottom: 15rem
+    padding-bottom: 10rem
+    +media(1024)
+        padding-bottom: 15rem
 
 .price
     font-size: 24rem
@@ -68,13 +72,17 @@ figure
     opacity: .5
 .color, .size
     column-gap: 10rem
-    padding-bottom: 15rem
+    padding-bottom: 10rem
+    +media(1024)
+        padding-bottom: 15rem
 
 .article
-    padding-bottom: 15rem
+    padding-bottom: 10rem
     color: #9E9E9E
     font-size: 14rem
     font-weight: 400
+    +media(1024)
+        padding-bottom: 15rem
 
 .size
     input
