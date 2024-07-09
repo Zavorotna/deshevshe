@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
             catalogContainer.classList.add("line-catalog")
             catalogContainer.classList.remove("grid-catalog")
             catalogCard.forEach(itemCard => {
-                itemCard.querySelector(".card-view-block").classList.add("flex-between")
+                itemCard.querySelector(".card-view-block").classList.add("grig-card-line")
                 itemCard.querySelector(".main-info-card").classList.add("d-flex")
                 itemCard.querySelector("picture").classList.add("picture-line")
                 itemCard.querySelector(".flag").classList.add("flag-line")
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
             catalogContainer.classList.remove("line-catalog")
             catalogContainer.classList.add("grid-catalog")
             catalogCard.forEach(itemCard => {
-                itemCard.querySelector(".card-view-block").classList.remove("flex-between")
+                itemCard.querySelector(".card-view-block").classList.remove("grig-card-line")
                 itemCard.querySelector(".main-info-card").classList.remove("d-flex")
                 itemCard.querySelector("picture").classList.remove("picture-line")
                 itemCard.querySelector(".flag").classList.remove("flag-line")
@@ -654,7 +654,8 @@ document.addEventListener("DOMContentLoaded", function () {
         blackFonReg = document.querySelector(".black-fon-popup"),
         popupCabinet = document.querySelector(".popup-cabinet"),
         cancelCabinetPopup = document.querySelector(".cancel-popup-cabinet"),
-        eyeReg = document.querySelectorAll(".eye")
+        eyeReg = document.querySelectorAll(".eye"),
+        navigationMenuPopup = document.querySelector(".navigation-menu-catalog")
 
     cabinetCta.forEach(itemCta => {
         itemCta.addEventListener("click", function (e) {
@@ -662,11 +663,13 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("+");
             popupCabinet.style.display = "block"
             blackFonReg.style.display = "block"
+            navigationMenuPopup.style.zIndex = "20"
         })
         cancelCabinetPopup.addEventListener("click", function (e) {
             e.preventDefault()
             popupCabinet.style.display = "none"
             blackFonReg.style.display = "none"
+            navigationMenuPopup.style.zIndex = "30"
 
         })
     })

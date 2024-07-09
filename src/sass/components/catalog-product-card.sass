@@ -236,8 +236,14 @@
 .grid-catalog
     display: grid
     grid-template-columns: repeat(2, 1fr)
-    +media(768)
+    +media(1150)
         grid-template-columns: repeat(3, 1fr)
+.grig-card-line
+    display: grid
+    grid-template-rows: 1fr
+    gap: 10px
+    +media(768)
+        grid-template-columns: repeat(2, 1fr)
 .line-catalog
     grid-template-columns: 1fr
     .card
@@ -261,13 +267,13 @@
     +media(1024)
         min-width: 300rem
 .card-view-block
+    flex-wrap: wrap
     column-gap: 20px
-    +media(1024)
+    +media(768)
+        flex-wrap: nowrap
+    +media(1150)
         column-gap: 80px
 .picture-line
-    min-width: 100rem
-    max-width: 150px
-    min-height: 100rem
     +media(1024)
         min-width: 200px
         max-width: 300px
