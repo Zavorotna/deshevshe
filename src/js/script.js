@@ -76,35 +76,59 @@ document.addEventListener("DOMContentLoaded", function () {
             header.classList.toggle("padding-for-search")
         })
     }
-        function rearrangeSections() {
-            if (window.innerWidth < 1024) {
-                document.querySelectorAll('.haracteristic-btn a').forEach(button => {
-                    let targetId = button.getAttribute('data-target')
-                    let targetSection = document.getElementById(targetId)
-                    if (targetSection) {
-                        // button.parentNode.removeChild(targetSection);
-                        button.insertAdjacentElement('afterend', targetSection)
-                    }
-                })
-                document.querySelectorAll('.transparent-cta[data-target]').forEach(button => {
-                    button.classList.add('readmore');
-                })
-                document.querySelectorAll('.description-product, .haracteristic-block, .comment-card, .delivery-card').forEach(section => {
-                    section.classList.add('description-more');
-                })
-                const initialButton = document.querySelector('.transparent-cta[data-target="about"]'),
-                    initialSection = document.getElementById('about')
-                if (initialButton && initialSection) {
-                    initialButton.classList.add('readmore-active')
-                    initialSection.classList.add('visible')
+    function rearrangeSections() {
+        if (window.innerWidth < 1024) {
+            const sections = [
+                {
+                    buttonSelector: '.haracteristic-btn a',
+                    targetAttr: 'data-target',
+                    sectionSelector: '.description-product, .haracteristic-block, .comment-card, .delivery-card',
+                    initialButtonSelector: '.transparent-cta[data-target="about"]',
+                    initialSectionId: 'about',
+                    readmoreClass: 'readmore',
+                    moreClass: 'description-more',
+                    activeClass: 'readmore-active',
+                    visibleClass: 'visible'
+                },
+                {
+                    buttonSelector: '.menu-help-item a',
+                    targetAttr: 'data-href',
+                    sectionSelector: '.help-content',
+                    initialButtonSelector: '.menu-help-item a[data-href="aboutUs"]',
+                    initialSectionId: 'aboutUs',
+                    readmoreClass: 'readmore',
+                    moreClass: 'description-more',
+                    activeClass: 'readmore-active',
+                    visibleClass: 'visible'
                 }
-            } 
+            ];
+    
+            sections.forEach(({ buttonSelector, targetAttr, sectionSelector, initialButtonSelector, initialSectionId, readmoreClass, moreClass, activeClass, visibleClass }) => {
+                document.querySelectorAll(buttonSelector).forEach(button => {
+                    let targetId = button.getAttribute(targetAttr);
+                    let targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        button.insertAdjacentElement('afterend', targetSection);
+                    }
+                });
+                document.querySelectorAll(`${buttonSelector}[${targetAttr}]`).forEach(button => {
+                    button.classList.add(readmoreClass);
+                });
+                document.querySelectorAll(sectionSelector).forEach(section => {
+                    section.classList.add(moreClass);
+                });
+                const initialButton = document.querySelector(initialButtonSelector),
+                    initialSection = document.getElementById(initialSectionId);
+                if (initialButton && initialSection) {
+                    initialButton.classList.add(activeClass);
+                    initialSection.classList.add(visibleClass);
+                }
+            });
         }
-        
-        rearrangeSections()
-        
-        window.addEventListener('resize', rearrangeSections)
-        
+    }
+    
+    rearrangeSections();
+    window.addEventListener('resize', rearrangeSections);
         
     const blackFon = document.querySelector(".black-fon")
     //down menu mobile and decstop
@@ -463,9 +487,9 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
 
-    const btnReadMore = document.querySelectorAll(".readmore")
-    const menuReadMore = document.querySelectorAll(".readmore-menu")
-    const menuReadMoreMain = document.querySelectorAll(".readmore-menu-main")
+    const btnReadMore = document.querySelectorAll(".readmore"),
+        menuReadMore = document.querySelectorAll(".readmore-menu"),
+        menuReadMoreMain = document.querySelectorAll(".readmore-menu-main")
 
     toggleVisibility(btnReadMore, "visible", "readmore-active")
     toggleVisibility(menuReadMore, "visible-menu", "readmore-active-menu")
@@ -629,7 +653,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector('.description-product').classList.add('active')
         document.querySelector('[data-target="about"]').classList.add('active')
     }
-
+    //popup size card
     if (document.querySelector(".popup-size-cta")) {
         const popupSize = document.querySelector(".popup-size-cta"),
             blackFonPOpup = document.querySelector(".black-fon-popup-size"),
@@ -642,7 +666,6 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 blackFonPOpup.classList.add("black-fon-mobile")
             }
-            // console.log(blackFonPOpup);
             
         })
         function cancelSizePopup() {
@@ -733,53 +756,56 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     }
-    const menuItems = document.querySelectorAll('.menu-help-item a'),
-        contentSections = document.querySelectorAll('.help-content')
-
-    function activateSection(target) {
-        menuItems.forEach(i => i.classList.remove('active-cta-help'))
-
-        const activeItem = Array.from(menuItems).find(i => i.getAttribute('data-href') === target)
-        if (activeItem) {
-            activeItem.classList.add('active-cta-help')
-        }
-
-        contentSections.forEach(section => {
-            section.style.display = 'none'
-            section.classList.remove('active-help')
-        })
-
-        const targetSection = document.getElementById(target)
-        if (targetSection) {
-            targetSection.style.display = 'block'
-            targetSection.classList.add('active-help')
-        }
-    }
-
-    if (menuItems.length > 0) {
-        menuItems.forEach(item => {
-            item.addEventListener('click', function (event) {
-                event.preventDefault()
-                const target = this.getAttribute('data-href')
-                activateSection(target)
-                history.pushState(null, '', `#${target}`)
+    if(document.querySelector('.help-content') && window.innerWidth >= 1024) {
+        const menuItems = document.querySelectorAll('.menu-help-item a'),
+            contentSections = document.querySelectorAll('.help-content')
+    
+        function activateSection(target) {
+            menuItems.forEach(i => i.classList.remove('active-cta-help'))
+    
+            const activeItem = Array.from(menuItems).find(i => i.getAttribute('data-href') === target)
+            if (activeItem) {
+                activeItem.classList.add('active-cta-help')
+            }
+    
+            contentSections.forEach(section => {
+                section.style.display = 'none'
+                section.classList.remove('active-help')
             })
-        })
-
-        const hash = window.location.hash.substring(1)
-        if (hash) {
-            activateSection(hash)
-        } else {
-            const initialSection = document.getElementById(menuItems[0].getAttribute('data-href'))
-            if (initialSection) {
-                initialSection.style.display = 'block'
-                initialSection.classList.add('active-help')
+    
+            const targetSection = document.getElementById(target)
+            if (targetSection) {
+                targetSection.style.display = 'block'
+                targetSection.classList.add('active-help')
             }
         }
+    
+        if (menuItems.length > 0) {
+            menuItems.forEach(item => {
+                item.addEventListener('click', function (event) {
+                    event.preventDefault()
+                    const target = this.getAttribute('data-href')
+                    activateSection(target)
+                    history.pushState(null, '', `#${target}`)
+                })
+            })
+    
+            const hash = window.location.hash.substring(1)
+            if (hash) {
+                activateSection(hash)
+            } else {
+                const initialSection = document.getElementById(menuItems[0].getAttribute('data-href'))
+                if (initialSection) {
+                    initialSection.style.display = 'block'
+                    initialSection.classList.add('active-help')
+                }
+            }
+    
+            window.addEventListener('hashchange', function () {
+                const newHash = window.location.hash.substring(1)
+                activateSection(newHash)
+            })
+        }
 
-        window.addEventListener('hashchange', function () {
-            const newHash = window.location.hash.substring(1)
-            activateSection(newHash)
-        })
     }
 })
