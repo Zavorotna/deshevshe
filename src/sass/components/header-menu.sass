@@ -42,12 +42,12 @@
     top: -62px
     left: -100%
     width: 80%
-    min-height: 100vh
-    height: 100%
-    padding: 100rem 20rem
+    height: 100vh
+    padding: 100rem 20rem 150rem
     background-color: #fff
     transition: all .5s ease
     z-index: 30
+    box-sizing: content-box
     +media(1024)
         position: relative
         top: 0
@@ -59,6 +59,7 @@
         overflow: none
         justify-content: space-between
         background-color: #214498
+        box-sizing: border-box
     > li
         border-bottom: 1px solid #D9D9D9
         +media(1024)

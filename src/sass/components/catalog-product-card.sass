@@ -3,19 +3,20 @@
     top: 0
     left: -100%
     width: 80%
-    min-height: 100vh
-    height: 100%
-    padding: 100rem 20rem
+    height: 100vh
+    padding: 100rem 20rem 150rem
     background-color: #fff
     overflow-y: scroll
     z-index: 9999
     transition: all .5s ease
+    box-sizing: content-box
     +media(1024)
         padding: 0
         position: static
         min-width: 265rem
         overflow: auto
         z-index: 0
+        box-sizing: border-box
 
 .mobile-head-menu 
     +media(1024)
