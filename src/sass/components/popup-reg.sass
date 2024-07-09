@@ -18,10 +18,12 @@
         text-transform: uppercase
 .reg-hr
     width: 100%
-    min-width: 460rem
+    // width: 90vw
     margin: 0 auto
     border: none
     border: 1rem solid #D9D9D9
+    +media(1024)
+        min-width: 460rem
 
 .popup-cabinet
     position: absolute
@@ -31,7 +33,7 @@
     background-color: #fff
     transform: translateX(-50%)
     z-index: 30
-    max-width: 90vw
+    width: 90vw
     max-height: 90vh
     overflow-y: scroll
     +media(1024)
