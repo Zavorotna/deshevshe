@@ -111,7 +111,7 @@ body, button
     background: url(../img/main-bg-mobile.png) no-repeat center/cover
     +media(768)
         height: 80vh
-        background: url(../img/main-bg.png) no-repeat center/cover
+        background: url(../img/main-bg.png) no-repeat 80%/cover
 .new-colection
     display: flex
     align-items: center
@@ -279,7 +279,7 @@ h2, h1
     padding-bottom: 10px
     display: grid
     gap: 10rem
-    grid-template-columns: repeat(4, 45vw)
+    grid-auto-flow: column
     overflow-x: auto 
     &::-webkit-scrollbar
         width: 100%

@@ -27,10 +27,7 @@ html(lang="uk")
             section.view-product 
                 h2 переглянуті товари
                 .wrapper-card
-                    .main-top-prodaz
-                        - for(let i = 0; i < 4; i++) 
-                            include components/catalog-card
-                    .mobile-top-prodaz
+                    .top-prodaz-card
                         - for(let i = 0; i < 4; i++) 
                             include components/catalog-card
 

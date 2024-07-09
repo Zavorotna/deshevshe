@@ -11,10 +11,15 @@
         p.head-cart Джинсові шорти
         p.text-cart Артикул: 
             span 83635337
-        p.text-cart Колір: 
-            span чорний
+        p.text-cart.d-flex.item-center
+            span Колір: 
+            //- span чорний
+            span.color-cart
         p.text-cart Розмір: 
             span S
+        .price-cart.mobile-price
+            p.text-cart Ціна:
+                span.price-cart-text 800₴
     .count-cart 
         p.d-flex.text-cart.item-center 
             span Кількість:
@@ -27,7 +32,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="8" height="7" viewBox="0 0 8 7" fill="none">
                     <path d="M2.912 7.004V-0.0039978H4.256V7.004H2.912ZM0 4.14V2.876H7.168V4.14H0Z" fill="black"/>
                 </svg>
-    .price-cart 
+    .price-cart.desctop-price
         p.text-cart Ціна:
             span.price-cart-text 800₴
     .sum-cart 

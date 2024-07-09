@@ -8,6 +8,20 @@ document.addEventListener("DOMContentLoaded", function () {
         label.style.border = "2px solid"
         label.style.borderColor = color === 'white' ? '#D9D9D9' : 'white'
     })
+    if(document.querySelector(".top-prodaz-card")) {
+        const cardView = document.querySelectorAll(".top-prodaz-card")
+        cardView.forEach(itemCard => {
+            if(window.innerWidth < 1024) {
+                itemCard.classList.add("mobile-top-prodaz")
+                itemCard.classList.remove("top-prodaz-card")
+            } else {
+                itemCard.classList.remove("mobile-top-prodaz")
+                itemCard.classList.add("top-prodaz-card")
+
+            }
+        })
+
+    }
     //view catalog chacge
     if(document.querySelector(".catalog-container")) {
         const catalogContainer = document.querySelector(".catalog-container"),

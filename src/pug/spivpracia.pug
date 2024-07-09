@@ -58,11 +58,8 @@ html(lang="uk")
                     section.top-prodaz
                         h2 топ продажів
                         .wrapper-card
-                            .main-top-prodaz
+                            .top-prodaz-card
                                 - for(let i = 0; i < 7; i++) 
-                                    include components/catalog-card
-                            .mobile-top-prodaz
-                                - for(let i = 0; i < 4; i++) 
                                     include components/catalog-card
                         //- .catalog-cta-center
                         //-     a(href="catalog.pug").yellow-cta в каталог

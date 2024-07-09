@@ -131,15 +131,8 @@ html(lang="uk")
                             img(src="img/img7.png", alt="")
                         span Аксесуари
             .wrapper.top-prodaz-main
-                section.top-prodaz
-                    h2 топ продажів
-                    .wrapper-card
-                        .main-top-prodaz
-                            - for(let i = 0; i < 8; i++) 
-                                include components/catalog-card
-                        .mobile-top-prodaz
-                            - for(let i = 0; i < 4; i++) 
-                                include components/catalog-card
+                include components/top-prodaz
+                        
                 .view-all
                     .flex-between 
                         a(href="#").left-arrow.gray-sircle 
