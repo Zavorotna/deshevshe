@@ -21,7 +21,7 @@ html(lang="uk")
                 span.selected-page оформлення замовлення
             .grid.basket-grid.order-grid
                 .basket-main 
-                    .head-basket.flex-between.item-center
+                    .head-basket.order-head.flex-between.item-center
                         h1 Оформлення замовлення
                     .order-block 
                         p.flag-order 
@@ -71,7 +71,7 @@ html(lang="uk")
                                         p 
                                             label(for="meest") 
                                                 input(type="radio" id="meest" name="poshta")
-                                    .d-flex.item-center.post-radio
+                                    .item-center.post-radio
                                         p.d-flex.item-center
                                             input(type="radio" id="viddilenia" name="viddilenia")
                                             label(for="viddilenia")
@@ -84,10 +84,6 @@ html(lang="uk")
                                             input(type="radio" id="poshtomat" name="poshtomat")
                                             label(for="poshtomat")
                                             span Поштомат
-                                        p.d-flex.item-center 
-                                            input(type="radio" id="cyfrovaAdressa" name="cyfrovaAdressa")
-                                            label(for="cyfrovaAdressa")
-                                            span Цифрова адреса
                                 .filter-header-block   
                                     h2 Адреса одержувача:
                                     .flex-between
@@ -157,52 +153,56 @@ html(lang="uk")
                                         
                                 .filter-header-block.order-checkbox
                                     h2 Оберіть спосіб Оплати:
-                                    p
+                                    p.d-flex.item-center
                                         input(type="checkbox" name="liqpay" id="liqpay")
                                         label(for="liqpay") Liqpay одразу при оформленні замовлення
-                                    p
+                                    p.d-flex.item-center
                                         input(type="checkbox" name="iban" id="iban")
                                         label(for="iban") Оплата на рахунок (за реквізитами IBAN)
-                                    p
+                                    p.d-flex.item-center
                                         input(type="checkbox" name="oplata3" id="oplata3")
                                         label(for="oplata3") Оплата на місці (готівкою чи терміналом)
-                                    p
+                                    p.d-flex.item-center
                                         input(type="checkbox" name="viddileniaNP" id="viddileniaNP")
                                         label(for="viddileniaNP") На відділенні Нової Пошти при отриманні
-                                    p
+                                    p.d-flex.item-center
                                         input(type="checkbox" name="PayPal" id="PayPal")
                                         label(for="PayPal") PayPal
                                 .order-checkbox.callBack
-                                    p
+                                    p.d-flex.item-center
                                         input(type="checkbox" name="callBack" id="callBack")
                                         label.fw(for="callBack") Мені можна не телефонувати для підтвердження замовлення.
+                                button(type="submit").btn-card.yellow-cta.order-cta-mobile оформити замовлення
                 .form-comment.order-aside-form
                     form(action="#")
                         .head-comment-form.order-form-card
                             p ваше замовлення
                             .order-succes-form
                                 - for(let i = 0; i < 4; i++)
-                                    .flex-between.item-center 
+                                    .flex-between.item-center.order-card 
                                         .order-descr-card
                                             p.img-order
                                                 picture 
                                                     img(src="img/catalog-card.png", alt="")
                                             .description-order 
                                                 p.head-cart Джинсові шорти
-                                                p.text-cart Колір: 
-                                                    span чорний
+                                                p.text-cart.d-flex.item-center
+                                                    span Колір: 
+                                                    span.color-cart
                                                 p.text-cart Розмір: 
                                                     span S
                                                 p.text-cart Кількість: 
                                                     span 1
-                                        .order-price
+                                                .order-price.mobile-price
+                                                    p 800₴
+                                        .order-price.desctop-price
                                             p 800₴
                                     hr.order-hr
                         .sum-basket.flex-between.item-center
                             p.text-sum Разом:
                             p.sum 3200₴
-                        a(href="order.html").btn-card.yellow-cta оформити замовлення
-                        //- button(type="submit").btn-card.yellow-cta оформити замовлення
+                        //- a(href="order.html").btn-card.yellow-cta оформити замовлення
+                        button(type="submit").btn-card.yellow-cta.order-cta-desctop оформити замовлення
 
         footer 
             include components/footer
