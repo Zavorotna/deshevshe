@@ -14,7 +14,8 @@
         padding: 0
         position: static
         min-width: 265rem
-        overflow: auto
+        height: auto
+        overflow: none
         z-index: 0
         box-sizing: border-box
 
@@ -238,6 +239,10 @@
 .grid-catalog
     display: grid
     grid-template-columns: repeat(2, 1fr)
+    +media(768)
+        grid-template-columns: repeat(4, 1fr)
+    +media(1024)
+        grid-template-columns: repeat(2, 1fr)
     +media(1150)
         grid-template-columns: repeat(3, 1fr)
 .grig-card-line

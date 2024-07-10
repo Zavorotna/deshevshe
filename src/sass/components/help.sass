@@ -8,8 +8,13 @@
         text-align: left
         font-size: 24rem
         font-weight: 600
+    h2
+        display: none
+        +media(1024)
+            display: block
+            
 .help-content.visible
-        padding: 20px 0
+    padding: 20px 0
 .help-content.description-more
     background-color: #fff
 .menu-help-item
@@ -38,6 +43,7 @@
         background: #214498
         border: 1rem solid #214498
     .readmore
+        padding: 12px
         border: 1px solid #121212
         color: #121212
         font-size: 14px
@@ -45,6 +51,8 @@
         background-color: #fff
         letter-spacing: 0.7px
         text-transform: uppercase
+        &::after
+            right: 15px
         svg
             display: none
     .readmore-active
@@ -52,6 +60,7 @@
         background: #214498
         border: 1rem solid #214498
         &::after
+            right: 15px
             border-color: #fff
 
 .hover-cta-help,
@@ -91,14 +100,22 @@ a.active-cta-help
 
 .question-item
     margin-bottom: 10rem
+.description-question
+    a.readmore-question
+        padding: 0
+        color: #121212
+        font-size: 14px
+        font-weight: 500
+        border: none
+        background: #F1F1F1
+        text-transform: none
+        span
+            display: inline-block
+            padding: 20rem 20rem 20rem 35rem
+        &::after
+            border-color: #121212
+            left: 10rem
 
-a.readmore-question
-    background: #F1F1F1
-    span
-        display: inline-block
-        padding: 10rem 20rem
-    &::after
-        left: 10rem
 .description-more-question
     border: 1rem solid #F1F1F1
     background: #FFF

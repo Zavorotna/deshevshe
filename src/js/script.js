@@ -68,8 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (window.innerWidth < 1024) {
         const search = document.querySelector(".search-mobile"),
             searchBlock = document.querySelector(".search-block"),
-            header = document.querySelector("header"),
-            flag = document.querySelector(".flag-UA")
+            header = document.querySelector("header")
 
         search.addEventListener("click", function () {
             searchBlock.classList.toggle("search-mobile-form")
@@ -111,14 +110,18 @@ document.addEventListener("DOMContentLoaded", function () {
                         button.insertAdjacentElement('afterend', targetSection);
                     }
                 });
+    
                 document.querySelectorAll(`${buttonSelector}[${targetAttr}]`).forEach(button => {
                     button.classList.add(readmoreClass);
                 });
+    
                 document.querySelectorAll(sectionSelector).forEach(section => {
                     section.classList.add(moreClass);
                 });
+    
                 const initialButton = document.querySelector(initialButtonSelector),
                     initialSection = document.getElementById(initialSectionId);
+    
                 if (initialButton && initialSection) {
                     initialButton.classList.add(activeClass);
                     initialSection.classList.add(visibleClass);
@@ -127,8 +130,42 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
     
-    rearrangeSections();
-    window.addEventListener('resize', rearrangeSections);
+    function handleHashChange() {
+        if(window.innerWidth < 1024) {
+            const hash = window.location.hash.substring(1); // Remove the '#' from the hash
+            if (hash) {
+                document.querySelectorAll('.help-content').forEach(section => {
+                    section.classList.remove('visible')
+                    console.log(section);
+                })
+        
+                document.querySelectorAll('.menu-help-item a').forEach(button => {
+                    button.classList.remove('readmore-active');
+                })
+        
+                const targetLink = document.querySelector(`.menu-help-item a[data-href="${hash}"]`);
+                const targetSection = document.getElementById(hash);
+        
+                if (targetLink && targetSection) {
+                    targetLink.classList.add('readmore-active');
+                    targetSection.classList.add('visible');
+                }
+            }
+        }
+    }
+    
+    document.querySelectorAll('.help-sub-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            setTimeout(handleHashChange, 0)
+        })
+    })
+    
+    rearrangeSections()
+    handleHashChange()
+    window.addEventListener('hashchange', handleHashChange)
+    
+    
+    // window.addEventListener('resize', rearrangeSections);
         
     const blackFon = document.querySelector(".black-fon")
     //down menu mobile and decstop
