@@ -31,6 +31,24 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = targetUrl
         })
     })
+    //швидка покупка
+    // const cardProduct = document.querySelectorAll(".card") 
+    // cardProduct.forEach(itemCard => {
+    //     itemCard.addEventListener("mouseenter", function() {
+    //         this.style.transform = "scale(1.1)"
+    //         this.querySelector(".orderCtaCard").style.display = "none"
+    //         this.querySelector(".oneClick").style.display = "block"
+    //         this.querySelector(".oneClick-color").style.display = "block"
+    //         this.querySelector(".oneClick-size").style.display = "block"
+    //     })
+    //     itemCard.addEventListener("mouseleave", function() {
+    //         this.querySelector(".orderCtaCard").style.display = "block"
+    //         this.querySelector(".oneClick").style.display = "none"
+    //         this.querySelector(".oneClick-color").style.display = "none"
+    //         this.querySelector(".oneClick-size").style.display = "none"
+    //     })
+    // })
+
     //view catalog chacge
     if (document.querySelector(".catalog-container")) {
         const catalogContainer = document.querySelector(".catalog-container"),

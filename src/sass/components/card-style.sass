@@ -45,6 +45,22 @@ figure
         transition: all .5s ease
         &:hover
             transform: scale(1.15)
+.oneClick-text
+    display: none
+    font-size: 14px
+    font-weight: 500
+    padding-bottom: 5px
+button.oneClick
+    display: none
+    span
+        display: inline-block
+        padding-right: 5px
+    &:hover
+        svg
+            path 
+                fill: #121212
+                stroke: #121212
+
 .hover-card
     h3
         min-height: 50rem
@@ -75,8 +91,6 @@ figure
 .color, .size
     column-gap: 10rem
     padding-bottom: 10rem
-    +media(1024)
-        padding-bottom: 15rem
 
 .article
     padding-bottom: 10rem
@@ -131,5 +145,3 @@ figure
     &:hover
         color: #121212
         background: #FDF028
-
-
