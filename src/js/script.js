@@ -8,10 +8,10 @@ document.addEventListener("DOMContentLoaded", function () {
         label.style.border = "2px solid"
         label.style.borderColor = color === 'white' ? '#D9D9D9' : 'white'
     })
-    if(document.querySelector(".top-prodaz-card")) {
+    if (document.querySelector(".top-prodaz-card")) {
         const cardView = document.querySelectorAll(".top-prodaz-card")
         cardView.forEach(itemCard => {
-            if(window.innerWidth < 1024) {
+            if (window.innerWidth < 1024) {
                 itemCard.classList.add("mobile-top-prodaz")
                 itemCard.classList.remove("top-prodaz-card")
             } else {
@@ -23,13 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
     //view catalog chacge
-    if(document.querySelector(".catalog-container")) {
+    if (document.querySelector(".catalog-container")) {
         const catalogContainer = document.querySelector(".catalog-container"),
             boxBtn = document.querySelector(".box a"),
             lineBtn = document.querySelector(".line a"),
             catalogCard = catalogContainer.querySelectorAll("figure")
-    
-        lineBtn.addEventListener("click", function() {
+
+        lineBtn.addEventListener("click", function () {
             this.classList.add("active-btn-card-line")
             boxBtn.classList.remove("active-btn-card")
             catalogContainer.classList.add("line-catalog")
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 itemCard.querySelector(".flag").classList.add("flag-line")
             })
         })
-        boxBtn.addEventListener("click", function() {
+        boxBtn.addEventListener("click", function () {
             this.classList.add("active-btn-card")
             lineBtn.classList.remove("active-btn-card-line")
             catalogContainer.classList.remove("line-catalog")
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     //submit click on select count
     document.querySelectorAll('.select__item').forEach(item => {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function () {
             const value = this.getAttribute('data-value')
             document.querySelector('.select__input').value = value
             document.querySelector('#countForm').submit()
@@ -75,10 +75,10 @@ document.addEventListener("DOMContentLoaded", function () {
             header.classList.toggle("padding-for-search")
         })
     }
+
     function rearrangeSections() {
         if (window.innerWidth < 1024) {
-            const sections = [
-                {
+            const sections = [{
                     buttonSelector: '.haracteristic-btn a',
                     targetAttr: 'data-target',
                     sectionSelector: '.description-product, .haracteristic-block, .comment-card, .delivery-card',
@@ -100,73 +100,83 @@ document.addEventListener("DOMContentLoaded", function () {
                     activeClass: 'readmore-active',
                     visibleClass: 'visible'
                 }
-            ];
-    
-            sections.forEach(({ buttonSelector, targetAttr, sectionSelector, initialButtonSelector, initialSectionId, readmoreClass, moreClass, activeClass, visibleClass }) => {
+            ]
+
+            sections.forEach(({
+                buttonSelector,
+                targetAttr,
+                sectionSelector,
+                initialButtonSelector,
+                initialSectionId,
+                readmoreClass,
+                moreClass,
+                activeClass,
+                visibleClass
+            }) => {
                 document.querySelectorAll(buttonSelector).forEach(button => {
-                    let targetId = button.getAttribute(targetAttr);
-                    let targetSection = document.getElementById(targetId);
+                    let targetId = button.getAttribute(targetAttr)
+                    let targetSection = document.getElementById(targetId)
                     if (targetSection) {
-                        button.insertAdjacentElement('afterend', targetSection);
+                        button.insertAdjacentElement('afterend', targetSection)
                     }
-                });
-    
+                })
+
                 document.querySelectorAll(`${buttonSelector}[${targetAttr}]`).forEach(button => {
-                    button.classList.add(readmoreClass);
-                });
-    
+                    button.classList.add(readmoreClass)
+                })
+
                 document.querySelectorAll(sectionSelector).forEach(section => {
-                    section.classList.add(moreClass);
-                });
-    
+                    section.classList.add(moreClass)
+                })
+
                 const initialButton = document.querySelector(initialButtonSelector),
-                    initialSection = document.getElementById(initialSectionId);
-    
+                    initialSection = document.getElementById(initialSectionId)
+
                 if (initialButton && initialSection) {
-                    initialButton.classList.add(activeClass);
-                    initialSection.classList.add(visibleClass);
+                    initialButton.classList.add(activeClass)
+                    initialSection.classList.add(visibleClass)
                 }
-            });
+            })
         }
     }
-    
+
     function handleHashChange() {
-        if(window.innerWidth < 1024) {
-            const hash = window.location.hash.substring(1); // Remove the '#' from the hash
+        if (window.innerWidth < 1024) {
+            const hash = window.location.hash.substring(1) // Remove the '#' from the hash
             if (hash) {
                 document.querySelectorAll('.help-content').forEach(section => {
                     section.classList.remove('visible')
-                    console.log(section);
+                    console.log(section)
                 })
-        
+
                 document.querySelectorAll('.menu-help-item a').forEach(button => {
-                    button.classList.remove('readmore-active');
+                    button.classList.remove('readmore-active')
                 })
-        
-                const targetLink = document.querySelector(`.menu-help-item a[data-href="${hash}"]`);
-                const targetSection = document.getElementById(hash);
-        
+
+                const targetLink = document.querySelector(`.menu-help-item a[data-href="${hash}"]`)
+                const targetSection = document.getElementById(hash)
+
                 if (targetLink && targetSection) {
-                    targetLink.classList.add('readmore-active');
-                    targetSection.classList.add('visible');
+                    targetLink.classList.add('readmore-active')
+                    targetSection.classList.add('visible')
                 }
             }
         }
     }
-    
+
     document.querySelectorAll('.help-sub-menu a').forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function () {
             setTimeout(handleHashChange, 0)
         })
     })
-    
+
     rearrangeSections()
     handleHashChange()
     window.addEventListener('hashchange', handleHashChange)
-    
-    
-    // window.addEventListener('resize', rearrangeSections);
-        
+
+
+    // window.addEventListener('resize', rearrangeSections)
+
     const blackFon = document.querySelector(".black-fon")
     //down menu mobile and decstop
     if (document.querySelector('.down-menu')) {
@@ -213,13 +223,13 @@ document.addEventListener("DOMContentLoaded", function () {
             menuItems.forEach(item => {
                 const subMenu = item.nextElementSibling,
                     blackFon = document.querySelector(".black-fon")
-                    console.log(blackFon);
-                    // listItemMenu = document.querySelector(".navigation-menu-catalog > li")
-                    console.log(subMenu);
+                console.log(blackFon)
+                // listItemMenu = document.querySelector(".navigation-menu-catalog > li")
+                console.log(subMenu)
                 const showMenu = () => {
                     blackFon.classList.add("black-fon-style")
                     blackFon.style.display = 'block'
-                    
+
                 }
 
                 const hideMenu = () => {
@@ -234,13 +244,13 @@ document.addEventListener("DOMContentLoaded", function () {
             })
         }
         if (window.innerWidth < 1024) {
-            const mobileMenuItems = document.querySelectorAll(".navigation-menu-catalog > li");
+            const mobileMenuItems = document.querySelectorAll(".navigation-menu-catalog > li")
 
             mobileMenuItems.forEach(mobileItem => {
                 mobileItem.addEventListener("click", function () {
-                    console.log(mobileItem);
+                    console.log(mobileItem)
                     // mobileItem.querySelector("a").classList.toggle("header-hover-mobile")
-                    let itemSubMenu = mobileItem.querySelector(".mobile-menu");
+                    let itemSubMenu = mobileItem.querySelector(".mobile-menu")
                     if (itemSubMenu) {
                         itemSubMenu.classList.toggle("d-block")
 
@@ -268,13 +278,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     item.classList.remove("default-menu")
                 }
             })
-            const mobileSubMenu = document.querySelectorAll(".mobile-item > a");
+            const mobileSubMenu = document.querySelectorAll(".mobile-item > a")
             mobileSubMenu.forEach(mobileItem => {
                 mobileItem.addEventListener("click", function (e) {
                     e.preventDefault()
-                    const mobileMenuItem = mobileItem.nextElementSibling;
+                    const mobileMenuItem = mobileItem.nextElementSibling
                     if (mobileMenuItem) {
-                        mobileMenuItem.classList.toggle("d-block");
+                        mobileMenuItem.classList.toggle("d-block")
                     }
                 })
             })
@@ -300,8 +310,8 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         if (document.querySelector("#burger")) {
             const burger = document.querySelector(".burger"),
-            mobileMenu = document.querySelector(".navigation-menu-catalog"),
-            sections = document.querySelectorAll(".scrollBurger"),
+                mobileMenu = document.querySelector(".navigation-menu-catalog"),
+                sections = document.querySelectorAll(".scrollBurger"),
                 cancelMenu = document.querySelector(".cancel-menu"),
                 headList = document.querySelectorAll(".head-subMenu")
 
@@ -309,7 +319,7 @@ document.addEventListener("DOMContentLoaded", function () {
             headList.forEach(item => {
                 item.addEventListener("click", function () {
                     let subSubmenu = item.nextElementSibling
-                    console.log(item.nextElementSibling);
+                    console.log(item.nextElementSibling)
                     subSubmenu.classList.toggle("d-block")
                 })
             })
@@ -338,9 +348,9 @@ document.addEventListener("DOMContentLoaded", function () {
             cancelMenu.addEventListener("click", function () {
                 closeMenu()
             })
-            blackFon.addEventListener("click", function() {
+            blackFon.addEventListener("click", function () {
                 closeMenu()
-                
+
             })
 
             function closeMenu() {
@@ -356,12 +366,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
     //filter catalog mobile
-    if(document.querySelector(".filter-btn-mobile")) {
+    if (document.querySelector(".filter-btn-mobile")) {
         const filterMobileBtn = document.querySelector(".filter-btn-mobile"),
             filterMobile = document.querySelector(".filter"),
             cancelFilter = document.querySelector(".cancel-filter")
-    
-        filterMobileBtn.addEventListener("click", function(e) {
+
+        filterMobileBtn.addEventListener("click", function (e) {
             e.preventDefault()
             // filterMobile.classList.add("filter-mobile-menu")
             filterMobile.style.left = "0"
@@ -369,6 +379,7 @@ document.addEventListener("DOMContentLoaded", function () {
             blackFon.classList.add("black-fon-mobile")
             blackFon.style.left = "80%"
         })
+
         function closeFilter() {
             blackFon.classList.remove("black-fon-mobile")
             blackFon.style.left = "0"
@@ -376,11 +387,11 @@ document.addEventListener("DOMContentLoaded", function () {
             filterMobile.style.transition = ""
 
         }
-        cancelFilter.addEventListener("click", function(e) {
+        cancelFilter.addEventListener("click", function (e) {
             // filterMobile.classList.remove("filter-mobile-menu")
             closeFilter()
         })
-        blackFon.addEventListener("click", function() {
+        blackFon.addEventListener("click", function () {
             closeFilter()
 
         })
@@ -415,7 +426,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     selectIn.innerHTML = item.innerHTML
                     selectItems.forEach(_item => {
                         _item.classList.remove('is-active')
-                    });
+                    })
                     item.classList.add('is-active')
                     select.classList.remove('is-opened')
                 })
@@ -536,29 +547,29 @@ document.addEventListener("DOMContentLoaded", function () {
     if (window.innerWidth < 1024 && document.querySelector(".btn-slider")) {
         const imageItems = document.querySelectorAll(".image-for-slider"),
             imgSliderBlock = document.querySelector(".img-slider"),
-            btnSlider = document.querySelector(".btn-slider");
-    
+            btnSlider = document.querySelector(".btn-slider")
+
         imageItems.forEach((imgItem, index) => {
             let sliderImageItem = document.createElement("img"),
                 inputSliderRadio = document.createElement("input")
-            
+
             inputSliderRadio.type = "radio"
             inputSliderRadio.name = "slider-radio"
             inputSliderRadio.id = `slider-radio-${index}`
             if (index === 0) inputSliderRadio.checked = true
-            
+
             sliderImageItem.src = imgItem.src
             sliderImageItem.classList.add("mobile-slider")
             if (index === 0) sliderImageItem.classList.add("active")
-    
+
             imgSliderBlock.appendChild(sliderImageItem)
             btnSlider.appendChild(inputSliderRadio)
         })
-    
+
         const radioButtons = document.querySelectorAll('input[name="slider-radio"]'),
             comments = document.querySelectorAll('.mobile-slider')
         let currentIndexRadio = 0
-    
+
         function switchComment(index) {
             radioButtons[index].checked = true
             comments.forEach((comment) => {
@@ -567,43 +578,43 @@ document.addEventListener("DOMContentLoaded", function () {
             comments[index].classList.add('active')
             currentIndexRadio = index
         }
-    
+
         radioButtons.forEach((radioButton, index) => {
             radioButton.addEventListener('change', () => {
                 switchComment(index)
             })
         })
-    
+
         imgSliderBlock.addEventListener('touchstart', handleTouchStart, false)
         imgSliderBlock.addEventListener('touchmove', handleTouchMove, false)
-    
+
         let x1 = null
-    
+
         function handleTouchStart(evt) {
             const firstTouch = evt.touches[0]
             x1 = firstTouch.clientX
         }
-    
+
         function handleTouchMove(evt) {
             if (!x1) {
                 return false
             }
-    
+
             let x2 = evt.touches[0].clientX
             let xDiff = x2 - x1
-    
+
             if (xDiff > 0) {
                 currentIndexRadio = (currentIndexRadio - 1 + radioButtons.length) % radioButtons.length
             } else {
                 currentIndexRadio = (currentIndexRadio + 1) % radioButtons.length
             }
-    
+
             switchComment(currentIndexRadio)
-    
+
             x1 = null
         }
     }
-    
+
     //slider fow window width > 1024
     function slider() {
         const sliderContainer = document.querySelector('.carousel-card'),
@@ -671,7 +682,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         buttons.forEach(button => {
             button.addEventListener('click', function (event) {
-                event.preventDefault();
+                event.preventDefault()
                 const target = button.getAttribute('data-target')
 
                 hideAllSections()
@@ -698,15 +709,16 @@ document.addEventListener("DOMContentLoaded", function () {
             cancelPopupSize = document.querySelector(".cancel-size-popup")
         popupSize.addEventListener("click", function () {
             tablePopup.style.display = "block"
-            if(window.innerWidth >= 1024) {
+            if (window.innerWidth >= 1024) {
                 blackFonPOpup.classList.add("black-fon-style")
             } else {
                 blackFonPOpup.classList.add("black-fon-mobile")
             }
-            
+
         })
+
         function cancelSizePopup() {
-            if(window.innerWidth >= 1024) {
+            if (window.innerWidth >= 1024) {
                 blackFonPOpup.classList.remove("black-fon-style")
             } else {
                 blackFonPOpup.classList.remove("black-fon-mobile")
@@ -718,7 +730,7 @@ document.addEventListener("DOMContentLoaded", function () {
         cancelPopupSize.addEventListener("click", function () {
             cancelSizePopup()
         })
-        blackFonPOpup.addEventListener("click", function() {
+        blackFonPOpup.addEventListener("click", function () {
             cancelSizePopup()
         })
     }
@@ -734,7 +746,7 @@ document.addEventListener("DOMContentLoaded", function () {
     cabinetCta.forEach(itemCta => {
         itemCta.addEventListener("click", function (e) {
             e.preventDefault()
-            console.log("+");
+            console.log("+")
             popupCabinet.style.display = "block"
             blackFonReg.style.display = "block"
             navigationMenuPopup.style.zIndex = "20"
@@ -793,30 +805,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     }
-    if(document.querySelector('.help-content') && window.innerWidth >= 1024) {
+    if (document.querySelector('.help-content') && window.innerWidth >= 1024) {
         const menuItems = document.querySelectorAll('.menu-help-item a'),
             contentSections = document.querySelectorAll('.help-content')
-    
+
         function activateSection(target) {
             menuItems.forEach(i => i.classList.remove('active-cta-help'))
-    
+
             const activeItem = Array.from(menuItems).find(i => i.getAttribute('data-href') === target)
             if (activeItem) {
                 activeItem.classList.add('active-cta-help')
             }
-    
+
             contentSections.forEach(section => {
                 section.style.display = 'none'
                 section.classList.remove('active-help')
             })
-    
+
             const targetSection = document.getElementById(target)
             if (targetSection) {
                 targetSection.style.display = 'block'
                 targetSection.classList.add('active-help')
             }
         }
-    
+
         if (menuItems.length > 0) {
             menuItems.forEach(item => {
                 item.addEventListener('click', function (event) {
@@ -826,7 +838,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     history.pushState(null, '', `#${target}`)
                 })
             })
-    
+
             const hash = window.location.hash.substring(1)
             if (hash) {
                 activateSection(hash)
@@ -837,7 +849,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     initialSection.classList.add('active-help')
                 }
             }
-    
+
             window.addEventListener('hashchange', function () {
                 const newHash = window.location.hash.substring(1)
                 activateSection(newHash)
@@ -845,4 +857,115 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     }
+
+    if (document.querySelector("#ukrPoshta")) {
+        const ukrPoshta = document.querySelector('#ukrPoshta'),
+            novaPoshta = document.querySelector('#novaPoshta'),
+            meest = document.querySelector('#meest'),
+            deliveryOptions = document.querySelector('.post-radio'),
+            cityVilageOptions = document.querySelector('#cityVilageOptions'),
+            forCity = document.querySelector('#forCityAdress'),
+            forCityViddilenia = document.querySelector('#forCityViddilenia'),
+            forVilage = document.querySelector('#forVilage'),
+            poshtomatOption = document.querySelector('#postomatOption'),
+            forPostomat = document.querySelector('#forPostomat'),
+            deliveryRadios = document.querySelectorAll('input[name="adress"]'),
+            cityVilageRadios = document.querySelectorAll('input[name="cityVilage"]')
+
+        deliveryOptions.style.display = 'none'
+        cityVilageOptions.style.display = 'none'
+        forCity.style.display = 'none'
+        forCityViddilenia.style.display = 'none'
+        forVilage.style.display = 'none'
+        forPostomat.style.display = 'none'
+        poshtomatOption.style.display = 'none'
+
+        function showDeliveryOptions() {
+            if (ukrPoshta.checked || novaPoshta.checked || meest.checked) {
+                deliveryOptions.style.display = 'flex'
+                if (meest.checked) {
+                    poshtomatOption.style.display = 'none'
+                    if (document.querySelector('#poshtomat').checked) {
+                        document.querySelector('#poshtomat').checked = false
+                    }
+                } else {
+                    poshtomatOption.style.display = 'flex'
+                }
+            } else {
+                deliveryOptions.style.display = 'none'
+                cityVilageOptions.style.display = 'none'
+                forCity.style.display = 'none'
+                forCityViddilenia.style.display = 'none'
+                forVilage.style.display = 'none'
+                forPostomat.style.display = 'none'
+            }
+        }
+
+        function showCityVilageOptions() {
+            if (document.querySelector('#viddilenia').checked || document.querySelector('#adress').checked || document.querySelector('#poshtomat').checked) {
+                cityVilageOptions.style.display = 'flex'
+            } else {
+                cityVilageOptions.style.display = 'none'
+                forCity.style.display = 'none'
+                forCityViddilenia.style.display = 'none'
+                forVilage.style.display = 'none'
+                forPostomat.style.display = 'none'
+            }
+        }
+
+        function showCityOrVilageForm() {
+            forCity.style.display = 'none'
+            forCityViddilenia.style.display = 'none'
+            forVilage.style.display = 'none'
+            forPostomat.style.display = 'none'
+
+            if (document.querySelector('#viddilenia').checked) {
+                if (document.querySelector('#city').checked) {
+                    forCityViddilenia.style.display = 'block'
+                } else if (document.querySelector('#vilage').checked) {
+                    forVilage.style.display = 'block'
+                }
+            } else if (document.querySelector('#adress').checked) {
+                if (document.querySelector('#city').checked) {
+                    forCity.style.display = 'block'
+                } else if (document.querySelector('#vilage').checked) {
+                    forVilage.style.display = 'block'
+                }
+            } else if (document.querySelector('#poshtomat').checked) {
+                forPostomat.style.display = 'block'
+            }
+        }
+
+        ukrPoshta.addEventListener('change', () => {
+            showDeliveryOptions()
+            showCityVilageOptions()
+            showCityOrVilageForm()
+        })
+        novaPoshta.addEventListener('change', () => {
+            showDeliveryOptions()
+            showCityVilageOptions()
+            showCityOrVilageForm()
+        })
+        meest.addEventListener('change', () => {
+            showDeliveryOptions()
+            showCityVilageOptions()
+            showCityOrVilageForm()
+        })
+
+        deliveryRadios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                showCityVilageOptions()
+                showCityOrVilageForm()
+            })
+        })
+
+        cityVilageRadios.forEach(radio => {
+            radio.addEventListener('change', showCityOrVilageForm)
+        })
+
+        showDeliveryOptions()
+        showCityVilageOptions()
+        showCityOrVilageForm()
+    }
+
 })

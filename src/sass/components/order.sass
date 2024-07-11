@@ -89,6 +89,8 @@
         height: 45rem
         border: none
         border-radius: 0
+        &:checked
+            outline: solid
     #ukrPoshta
         background: #F1F1F1 url(../img/укрпошта.svg) no-repeat center
         background-size: 30%
@@ -104,6 +106,9 @@
         background-size: 30%
         +media(768)
             background-size: 80%
+.form-post-grid
+    +media(1024)
+        grid-template-columns: repeat(2, 1fr)
 .order-form
     .post-radio
         +media(768)
