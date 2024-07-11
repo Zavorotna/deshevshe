@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // const cardProduct = document.querySelectorAll(".card") 
     // cardProduct.forEach(itemCard => {
     //     itemCard.addEventListener("mouseenter", function() {
-    //         this.style.transform = "scale(1.1)"
     //         this.querySelector(".orderCtaCard").style.display = "none"
     //         this.querySelector(".oneClick").style.display = "block"
     //         this.querySelector(".oneClick-color").style.display = "block"
@@ -48,7 +47,51 @@ document.addEventListener("DOMContentLoaded", function () {
     //         this.querySelector(".oneClick-size").style.display = "none"
     //     })
     // })
-
+    document.querySelectorAll(".card").forEach(itemCard => {
+        let cloneCard
+    
+        itemCard.addEventListener("mouseenter", function(event) {
+            if (!event.target.closest(".orderCtaCard")) {
+                const rect = itemCard.getBoundingClientRect()
+                cloneCard = itemCard.cloneNode(true)
+    
+                cloneCard.classList.add("card-clone")
+    
+                cloneCard.style.position = "absolute"
+                cloneCard.style.top = `${rect.top + window.scrollY}px`
+                cloneCard.style.left = `${rect.left + window.scrollX}px`
+                cloneCard.style.width = `${rect.width}px`
+                cloneCard.style.height = `${rect.height}px`
+                cloneCard.style.transform = "scale(1.01)"
+                cloneCard.style.transformOrigin = "center center"
+                cloneCard.style.zIndex = 10
+    
+                document.body.appendChild(cloneCard)
+    
+                cloneCard.querySelector(".orderCtaCard").style.display = "none"
+                cloneCard.querySelector(".oneClick").style.display = "block"
+                cloneCard.querySelector(".oneClick-color").style.display = "block"
+                cloneCard.querySelector(".oneClick-size").style.display = "block"
+    
+                cloneCard.addEventListener("mouseleave", function() {
+                    if (cloneCard) {
+                        document.body.removeChild(cloneCard)
+                        cloneCard = null
+                    }
+                })
+            }
+        })
+    
+        itemCard.querySelector(".orderCtaCard").addEventListener("mouseenter", function(event) {
+            if (cloneCard) {
+                document.body.removeChild(cloneCard)
+                cloneCard = null
+            }
+        })
+    })
+    
+    
+    
     //view catalog chacge
     if (document.querySelector(".catalog-container")) {
         const catalogContainer = document.querySelector(".catalog-container"),
