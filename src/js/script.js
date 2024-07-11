@@ -22,6 +22,15 @@ document.addEventListener("DOMContentLoaded", function () {
         })
 
     }
+    const image = document.querySelectorAll(".card img")
+
+    image.forEach(itemImg => {
+        itemImg.addEventListener("click", function() {
+            var targetUrl = "card.html"
+    
+            window.location.href = targetUrl
+        })
+    })
     //view catalog chacge
     if (document.querySelector(".catalog-container")) {
         const catalogContainer = document.querySelector(".catalog-container"),
