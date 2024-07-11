@@ -1,0 +1,110 @@
+doctype html
+html(lang="uk")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=2.0")
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+        link(rel="stylesheet" href="css/style.css")
+        title Дешевше - інтернет магазин необхідних товарів для всієї родини
+    body#body
+        header
+            .fixed-header
+                include components/header
+        main.wrapper
+            p.page-look.d-flex
+                a(href="index.html") головна
+                span /
+                a(href="#") особистий кабінет
+                span /
+                span.selected-page профіль
+            .help-page 
+                .help-menu 
+                    h1 особистий кабінет
+                    ul.menu-help-item.menu-cabinet-item
+                        li
+                            a(href="javascript:void(0)" data-href="profile").active-cta-help
+                                span Профіль
+                                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                                    <path d="M1 1L6 6L1 11" stroke="#214498" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                        li
+                            a(href="javascript:void(0)" data-href="mySale") 
+                                span Мої знижки
+                                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                                    <path d="M1 1L6 6L1 11" stroke="#214498" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                        li
+                            a(href="javascript:void(0)" data-href="cart") 
+                                span Кошик
+                                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                                    <path d="M1 1L6 6L1 11" stroke="#214498" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                        li
+                            a(href="javascript:void(0)" data-href="listOrder") 
+                                span Список замовлень
+                                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                                    <path d="M1 1L6 6L1 11" stroke="#214498" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                        li
+                            a(href="javascript:void(0)" data-href="myBackProduct") 
+                                span Мої повернення
+                                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                                    <path d="M1 1L6 6L1 11" stroke="#214498" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                        li
+                            a(href="javascript:void(0)" data-href="myLikeProduct") 
+                                span Вподобані товари
+                                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+                                    <path d="M1 1L6 6L1 11" stroke="#214498" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                section.about-us-block#profile.active-help.help-content
+                    .description-about-us
+                        h2 Ваші дані:
+                        .order-form 
+                            form(action="#") 
+                                .personal-form 
+                                    .flex-between.item-center.form-flex
+                                        .order-form-personal
+                                            p 
+                                                label(for="lastname") Прізвище*
+                                            p 
+                                                input#lastname(type="text", name="lastname" required placeholder="Прізвище")
+                                        .order-form-personal
+                                            p 
+                                                label(for="userPhone") Телефон*
+                                            p 
+                                                input#userPhone(type="tel", name="userPhone" required placeholder="Телефон")
+                                    .flex-between.item-center.form-flex
+                                        .order-form-personal
+                                            p 
+                                                label(for="nameProfile") Імʼя*
+                                            p 
+                                                input#nameProfile(type="text", name="nameProfile" required placeholder="Імʼя")
+                                        .order-form-personal
+                                            p 
+                                                label(for="emailProfile") E-mail*
+                                            p 
+                                                input#emailProfile(type="email", name="emailProfile" required placeholder="Ваш e-mail")
+                                    .flex-between.item-center.form-flex
+                                        .order-form-personal
+                                            p 
+                                                label(for="secondNameProfile") По батькові*
+                                            p 
+                                                input#secondNameProfile(type="text", name="secondNameProfile" required placeholder="По батькові")
+                                        .order-form-personal
+                                            p 
+                                                label(for="dateBorn") День народження
+                                            p 
+                                                input#dateBorn(type="text", name="dateBorn" required placeholder="День народження")
+                section#mySale.help-content
+                    include components/question
+                section#povernenia.help-content.povernenia
+                    include components/povernenia
+                section#payDelivery.help-content.pay-delivery
+                    include components/pay-delivery
+                    
+        footer 
+            include components/footer
+        script(src="js/scripts.js")
