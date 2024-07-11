@@ -98,13 +98,14 @@ html(lang="uk")
                                                 label(for="dateBorn") День народження
                                             p 
                                                 input#dateBorn(type="text", name="dateBorn" required placeholder="День народження")
+                    p.flag-help.flag-order Дякуємо за реєстрацію!
+                    
                 section#mySale.help-content
                     include components/question
                 section#povernenia.help-content.povernenia
                     include components/povernenia
                 section#payDelivery.help-content.pay-delivery
                     include components/pay-delivery
-                    
         footer 
             include components/footer
         script(src="js/scripts.js")
