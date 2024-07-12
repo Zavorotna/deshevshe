@@ -275,7 +275,8 @@ h2, h1
     +media(768)
         padding: 100rem 0 50rem
         
-.top-prodaz-card
+.top-prodaz-card,
+.top-prodaz-cabinetLike
     display: grid
 
 .mobile-top-prodaz
@@ -301,7 +302,8 @@ h2, h1
     .top-prodaz-card
         grid-template-columns: repeat(3, 1fr)
 .top-prodaz-card,
-.main-top-prodaz
+.main-top-prodaz,
+.top-prodaz-cabinetLike
     gap: 20rem
     width: 100%
     padding-bottom: 50rem
@@ -310,8 +312,9 @@ h2, h1
         grid-template-columns: repeat(3, 1fr)
     +media(1220)
         grid-template-columns: repeat(4, 1fr)
-
-
+.top-prodaz-cabinetLike
+    +media(1220)
+        grid-template-columns: repeat(3, 1fr)
 .catalog-cta-center
     width: 100%
     display: flex
@@ -386,4 +389,5 @@ h2, h1
 @import components/contacts
 @import components/like-product
 @import components/spivpracia
+@import components/cabinet
 @import components/footer

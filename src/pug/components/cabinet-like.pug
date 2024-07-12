@@ -1,0 +1,11 @@
+.description-about-us
+    h2 Вподобані товари
+    .full-like-product
+        .top-prodaz-cabinetLike
+            - for(let i = 0; i < 3; i++) 
+                include like-card
+    .empty-like-cabinet
+        div
+            p Створюйте та зберігайте свої приватні списки товарів. 
+            p Додавайте товари, які хочете зберегти особисто для себе та зручно керуйте ними.
+        a(href="#").yellow-cta.btn-card.cabinet-cta в каталог

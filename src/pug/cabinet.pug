@@ -19,7 +19,7 @@ html(lang="uk")
                 a(href="#") особистий кабінет
                 span /
                 span.selected-page профіль
-            .help-page 
+            .help-page.cabinet-page
                 .help-menu 
                     h1 особистий кабінет
                     ul.menu-help-item.menu-cabinet-item
@@ -36,7 +36,7 @@ html(lang="uk")
                                     <path d="M1 1L6 6L1 11" stroke="#214498" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                         li
-                            a(href="javascript:void(0)" data-href="cart") 
+                            a(href="javascript:void(0)" data-href="cartCabinet").cartCabinet
                                 span Кошик
                                 <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
                                     <path d="M1 1L6 6L1 11" stroke="#214498" stroke-linecap="round" stroke-linejoin="round"/>
@@ -48,7 +48,7 @@ html(lang="uk")
                                     <path d="M1 1L6 6L1 11" stroke="#214498" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                         li
-                            a(href="javascript:void(0)" data-href="myBackProduct") 
+                            a(href="javascript:void(0)" data-href="myReturn") 
                                 span Мої повернення
                                 <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
                                     <path d="M1 1L6 6L1 11" stroke="#214498" stroke-linecap="round" stroke-linejoin="round"/>
@@ -59,7 +59,7 @@ html(lang="uk")
                                 <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
                                     <path d="M1 1L6 6L1 11" stroke="#214498" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
-                section.about-us-block#profile.active-help.help-content
+                section.about-us-block#profile.active-help.help-content.cabinet-section
                     .description-about-us
                         h2 Ваші дані:
                         .order-form 
@@ -98,14 +98,24 @@ html(lang="uk")
                                                 label(for="dateBorn") День народження
                                             p 
                                                 input#dateBorn(type="text", name="dateBorn" required placeholder="День народження")
-                    p.flag-help.flag-order Дякуємо за реєстрацію!
+                            p.flag-help.flag-order.flag-cabinet Дякуємо за реєстрацію!
                     
-                section#mySale.help-content
-                    include components/question
-                section#povernenia.help-content.povernenia
-                    include components/povernenia
-                section#payDelivery.help-content.pay-delivery
-                    include components/pay-delivery
+                section#mySale.help-content.cabinet-section
+                    include components/cabinet-sale
+                section#cartCabinet.help-content.cabinet-section
+                    include components/cabinet-cart
+                section#listOrder.help-content.cabinet-section
+                    include components/listOrder
+                section#myReturn.help-content.cabinet-section
+                    include components/myReturn
+                section#myLikeProduct.help-content.cabinet-section
+                    include components/cabinet-like
+            .top-prodaz-main.cabinet-top-prodaz
+                section.view-product 
+                    h2 доповніть свій образ
+                    .top-prodaz-card
+                        - for(let i = 0; i < 4; i++) 
+                            include components/catalog-card
         footer 
             include components/footer
         script(src="js/scripts.js")
