@@ -995,27 +995,77 @@ document.addEventListener("DOMContentLoaded", function () {
         showCityVilageOptions()
         showCityOrVilageForm()
     }
-    const topProdazMain = document.querySelector('.top-prodaz-main.cabinet-top-prodaz'),
-        descriptionAboutUs = document.querySelector('.cabinet-cart-product'),
-        originalParent = topProdazMain.parentElement,
-        originalNextSibling = topProdazMain.nextElementSibling
-
-    function moveTopProdazMain() {
-      if (window.innerWidth <= 1024) {
-        if (topProdazMain && topProdazMain.parentElement !== descriptionAboutUs) {
-          descriptionAboutUs.appendChild(topProdazMain)
+    if(document.querySelector('.cabinet-top-prodaz')) {
+        const topProdazMain = document.querySelector('.top-prodaz-main.cabinet-top-prodaz'),
+            descriptionAboutUs = document.querySelector('.cabinet-cart-product'),
+            originalParent = topProdazMain.parentElement,
+            originalNextSibling = topProdazMain.nextElementSibling
+    
+        function moveTopProdazMain() {
+          if (window.innerWidth <= 1024) {
+            if (topProdazMain && topProdazMain.parentElement !== descriptionAboutUs) {
+              descriptionAboutUs.appendChild(topProdazMain)
+            }
+          } else {
+              originalParent.appendChild(topProdazMain)
+          }
         }
-      } else {
-          originalParent.appendChild(topProdazMain)
-        // if (topProdazMain && topProdazMain.parentElement !== originalParent) {
-        //   if (originalNextSibling) {
-        //     originalParent.insertBefore(topProdazMain, originalNextSibling)
-        //   } else {
-        //   }
-        // }
-      }
+    
+        moveTopProdazMain()
+        window.addEventListener('resize', moveTopProdazMain)
+
+    }
+    const phoneInput = document.querySelector('#userPhone')
+
+  phoneInput.addEventListener('input', function () {
+    let phoneNumber = phoneInput.value.trim()
+    const mask = "+380"
+
+    if (!phoneNumber.startsWith(mask)) {
+      phoneNumber = mask + phoneNumber
     }
 
-    moveTopProdazMain()
-    window.addEventListener('resize', moveTopProdazMain)
+    let cleanedValue = phoneNumber.replace(/[^\d+]/g, "")
+
+    if (cleanedValue.length > 13) {
+      cleanedValue = cleanedValue.slice(0, 13)
+    }
+
+    const validInput = isValidPhoneNumber(cleanedValue)
+
+    if (validInput && cleanedValue.length === 13) {
+      phoneInput.style.borderColor = 'green'
+    } else {
+      phoneInput.style.borderColor = 'red'
+    }
+  })
+
+
+  function isValidPhoneNumber(phoneNumber) {
+    return /^\+?(\d{2})?([(]?\d{3}[)]?)\s?[-]?\s?(?:\d{3})\s?[-]?(?:\s?\d{2})\s?[-]?(?:\s?\d{2})$/.test(phoneNumber)
+  }
+  const inputMasks = document.querySelectorAll(".inputMask")
+
+  inputMasks.forEach(function (inputMask) {
+    inputMask.addEventListener("click", function () {
+      if (!inputMask.value) {
+        inputMask.value = "+380";
+      }
+    })
+
+    inputMask.addEventListener("input", function () {
+      let inputValue = inputMask.value;
+      let cleanedValue = inputValue.replace(/[^\d+]/g, "")
+
+      inputMask.value = cleanedValue
+
+      if (cleanedValue.length > 13) {
+        inputMask.value = cleanedValue.slice(0, 13)
+      }
+
+      if (!cleanedValue.startsWith("+380")) {
+        inputMask.value = "+380" + cleanedValue.slice(3)
+      }
+    })
+  })
 })

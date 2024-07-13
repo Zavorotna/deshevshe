@@ -230,11 +230,21 @@ html(lang="uk")
                         li При замовленні кур'єрської доставки з нашого магазину— оплата на місці (готівкою чи терміналом);
                         li Оплата на відділенні Нової Пошти при отриманні посилки (послуга "зворотня доставка");
                         li Є можливість оплатити PayPal.
-            section.view-product 
+            section.view-product.top-prodaz-main
                 h2 з цим товаром купують
                 .top-prodaz-card
                     - for(let i = 0; i < 4; i++) 
                         include components/catalog-card
+                .view-all
+                    .flex-between 
+                        a(href="#").left-arrow.gray-sircle 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <path d="M23 13L15 20.5L23 28" stroke="#121212" stroke-linecap="round"/>
+                            </svg>
+                        a(href="#").right-arrow.gray-sircle 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <path d="M17 13L25 20.5L17 28" stroke="#121212" stroke-linecap="round"/>
+                            </svg>
         footer
             include components/footer
         script(src="js/scripts.js")
