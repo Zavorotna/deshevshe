@@ -153,15 +153,24 @@ button.oneClick
         background: #FDF028
 .haracteristic-block-card
     position: relative
+.btn-view-block
+    column-gap: 10rem
 .oneClickBtn
-    position: absolute
-    top: 20px
-    right: 0
+    position: relative
+    z-index: 30
+    width: 50px
+    padding: 12px 15px
     background-color: transparent 
     border: none
     cursor: pointer
+    border: 1px solid #214498
+    transition: all .5s ease
+    &:hover
+        border: 1px solid #FDF028
+        svg 
+            fill: #FDF028
     svg
         transition: all .5s ease
+        width: 25px
+        height: 25px
         fill: #214498
-        &:hover
-            fill: #FDF028

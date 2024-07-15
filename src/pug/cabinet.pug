@@ -98,6 +98,64 @@ html(lang="uk")
                                                 label(for="dateBorn") День народження
                                             p 
                                                 input#dateBorn(type="text", name="dateBorn" required placeholder="День народження")
+                                h2 Доставка:
+                                .d-flex.item-center.post-icon
+                                    p 
+                                        label(for="ukrPoshta") 
+                                            input(type="radio" id="ukrPoshta" name="poshta")
+                                    p 
+                                        label(for="novaPoshta") 
+                                            input(type="radio" id="novaPoshta" name="poshta")
+                                    p 
+                                        label(for="meest") 
+                                            input(type="radio" id="meest" name="poshta")
+                                .flex-between.post-cabinet
+                                    .select-order
+                                        p Регіон/Область**
+                                        label.arrow-select
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                                                <path d="M11 1L6 6L1 1" stroke="#121212" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            select#oblastVillage(required name="oblast" placeholder="Область").select-placeholder
+                                                option(disabled selected hidden value="0") Область
+                                                option(value="1") Хмельницька
+                                                option(value="2") Вінницька
+                                                option(value="3") Тернопільська
+
+                                    .select-order
+                                        p Район*
+                                        label.arrow-select
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                                                <path d="M11 1L6 6L1 1" stroke="#121212" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            select#regionVillage(required name="oblast" placeholder="Область").select-placeholder
+                                                option(disabled selected hidden value="0") Район
+                                                option(value="1") Хмельницька
+                                                option(value="2") Вінницька
+                                                option(value="3") Тернопільська
+                                .flex-between.post-cabinet
+                                    .select-order
+                                        p Село*
+                                        label.arrow-select
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                                                <path d="M11 1L6 6L1 1" stroke="#121212" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            select#vilageSelect(required name="oblast" placeholder="Область").select-placeholder
+                                                option(disabled selected hidden value="0") Населений пункт
+                                                option(value="1") Хмельницька
+                                                option(value="2") Вінницька
+                                                option(value="3") Тернопільська
+                                    .select-order
+                                        p Відділення пошти*
+                                        label.arrow-select
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                                                <path d="M11 1L6 6L1 1" stroke="#121212" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            select#oblast(required name="oblast" placeholder="Область").select-placeholder
+                                                option(disabled selected hidden value="0") Вулиця
+                                                option(value="1") Хмельницька
+                                                option(value="2") Вінницька
+                                                option(value="3") Тернопільська
                             p.flag-help.flag-order.flag-cabinet Дякуємо за реєстрацію!
                     
                 section#mySale.help-content.cabinet-section
