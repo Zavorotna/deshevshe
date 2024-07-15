@@ -904,7 +904,9 @@ document.addEventListener("DOMContentLoaded", function () {
             poshtomatOption = document.querySelector('#postomatOption'),
             forPostomat = document.querySelector('#forPostomat'),
             deliveryRadios = document.querySelectorAll('input[name="adress"]'),
-            cityVilageRadios = document.querySelectorAll('input[name="cityVilage"]')
+            cityVilageRadios = document.querySelectorAll('input[name="cityVilage"]'),
+            ukrPostRadio = document.querySelector("#ukrPostRadio"),
+            noveMeestRadio = document.querySelector("#novaPostMeest")
 
         deliveryOptions.style.display = 'none'
         cityVilageOptions.style.display = 'none'
@@ -913,6 +915,8 @@ document.addEventListener("DOMContentLoaded", function () {
         forVilage.style.display = 'none'
         forPostomat.style.display = 'none'
         poshtomatOption.style.display = 'none'
+        noveMeestRadio.style.display = "none"
+        ukrPostRadio.style.display = "none"
 
         function showDeliveryOptions() {
             if (ukrPoshta.checked || novaPoshta.checked || meest.checked) {
@@ -933,10 +937,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 forVilage.style.display = 'none'
                 forPostomat.style.display = 'none'
             }
+            if (ukrPoshta.checked) {
+                ukrPostRadio.style.display = "flex"
+                noveMeestRadio.style.display = "none"
+            } else {
+                ukrPostRadio.style.display = "none"
+                // noveMeestRadio.style.display = "flex"
+            }
         }
 
         function showCityVilageOptions() {
-            if (document.querySelector('#viddilenia').checked || document.querySelector('#adress').checked || document.querySelector('#poshtomat').checked) {
+            if (document.querySelector('#viddilenia').checked || document.querySelector('#adress').checked || document.querySelector('#poshtomat').checked || document.querySelector('#viddileniaExpres').checked || document.querySelector('#viddileniaUkr').checked || document.querySelector('#curierExpres').checked || document.querySelector('#curierUkr').checked) {
                 cityVilageOptions.style.display = 'flex'
             } else {
                 cityVilageOptions.style.display = 'none'
@@ -953,7 +964,7 @@ document.addEventListener("DOMContentLoaded", function () {
             forVilage.style.display = 'none'
             forPostomat.style.display = 'none'
 
-            if (document.querySelector('#viddilenia').checked) {
+            if (document.querySelector('#viddilenia').checked || document.querySelector('#viddileniaExpres').checked || document.querySelector('#viddileniaExpres').checked || document.querySelector('#viddileniaUkr').checked || document.querySelector('#curierExpres').checked || document.querySelector('#curierUkr').checked) {
                 if (document.querySelector('#city').checked) {
                     forCityViddilenia.style.display = 'block'
                 } else if (document.querySelector('#vilage').checked) {
@@ -967,7 +978,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             } else if (document.querySelector('#poshtomat').checked) {
                 forPostomat.style.display = 'block'
-            }
+            } 
         }
 
         ukrPoshta.addEventListener('change', () => {

@@ -154,22 +154,28 @@ button.oneClick
 .haracteristic-block-card
     position: relative
 .btn-view-block
-    column-gap: 10rem
+    column-gap: 15rem
 .oneClickBtn
     position: relative
     z-index: 30
-    width: 50px
-    padding: 12px 15px
+    width: 60rem
+    max-height: 60rem
     background-color: transparent 
     border: none
     cursor: pointer
     border: 1px solid #214498
     transition: all .5s ease
+    +media(1024)
+        min-width: 60rem
     &:hover
         border: 1px solid #FDF028
         svg 
             fill: #FDF028
     svg
+        position: absolute
+        top: 50%
+        left: 55%
+        transform: translate(-50%, -50%)
         transition: all .5s ease
         width: 25px
         height: 25px

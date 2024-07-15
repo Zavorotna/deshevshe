@@ -13,6 +13,15 @@ html(lang="uk")
             .fixed-header
                 include components/header
         main.wrapper
+            .d-flex.flex-arrow
+                a(href="#body").arrow-up.arrow
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="10" viewBox="0 0 18 10" fill="none">
+                        <path d="M1 9L9 0.999999L17 9" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                a(href="#footer").arrow-down.arrow
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="10" viewBox="0 0 18 10" fill="none">
+                        <path d="M1 0.999999L9 9L17 1" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
             p.page-look.d-flex
                 a(href="index.html") головна
                 span /
@@ -184,6 +193,6 @@ html(lang="uk")
                                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
                                     <path d="M17 13L25 20.5L17 28" stroke="#121212" stroke-linecap="round"/>
                                 </svg>
-        footer 
+        footer#footer
             include components/footer
         script(src="js/scripts.js")

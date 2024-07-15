@@ -71,7 +71,7 @@ html(lang="uk")
                                         p 
                                             label(for="meest") 
                                                 input(type="radio" id="meest" name="poshta")
-                                    .item-center.post-radio
+                                    .item-center.post-radio#novaPostMeest
                                         p.d-flex.item-center
                                             input(type="radio" id="viddilenia" name="adress")
                                             label(for="viddilenia")
@@ -79,11 +79,28 @@ html(lang="uk")
                                         p.d-flex.item-center 
                                             input(type="radio" id="adress" name="adress")
                                             label(for="adress")
-                                            span Адреса
+                                            span Курʼєр
                                         p.d-flex.item-center#postomatOption
                                             input(type="radio" id="poshtomat" name="adress")
                                             label(for="poshtomat")
                                             span Поштомат
+                                    .item-center.post-radio#ukrPostRadio
+                                        p.d-flex.item-center
+                                            input(type="radio" id="viddileniaExpres" name="adress")
+                                            label(for="viddileniaExpres")
+                                            span Експрес доставка у відділення
+                                        p.d-flex.item-center 
+                                            input(type="radio" id="viddileniaUkr" name="adress")
+                                            label(for="viddileniaUkr")
+                                            span Доставка у відділення
+                                        p.d-flex.item-center#postomatOption
+                                            input(type="radio" id="curierExpres" name="adress")
+                                            label(for="curierExpres")
+                                            span Експрес доставка кур'єром
+                                        p.d-flex.item-center#postomatOption
+                                            input(type="radio" id="curierUkr" name="adress")
+                                            label(for="curierUkr")
+                                            span Доставка кур'єром
                                     .item-center.post-radio.cityVilage#cityVilageOptions
                                         p.d-flex.item-center
                                             input(type="radio" id="city" name="cityVilage")
