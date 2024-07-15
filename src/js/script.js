@@ -792,11 +792,17 @@ document.addEventListener("DOMContentLoaded", function () {
     eyeReg.forEach(eye => {
         eye.addEventListener('click', function (e) {
             e.preventDefault()
-            const target = document.getElementById(this.getAttribute('data-target'))
+            const target = document.getElementById(this.getAttribute('data-target')),
+                targerEye = document.querySelector("svg")
+                console.log(targerEye);
             if (target.type === 'password') {
                 target.type = 'text'
+                targerEye.style.display = "block"
+                eye.classList.remove("closeEye")
             } else {
                 target.type = 'password'
+                targerEye.style.display = "none"
+                eye.classList.add("closeEye")
             }
         })
     })
