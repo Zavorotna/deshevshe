@@ -23,6 +23,23 @@ header
     +media(1024)
         padding: 30px 0
         flex-wrap: nowrap
+.flag-img
+    position: relative
+    width: 35rem
+    &::before
+        content: ""
+        position: absolute
+        top: -10px
+        left: -20px
+        width: 35px
+        height: 20px
+        background: url(../img/flag.png) no-repeat center/cover
+        +media(768)
+            top: -35rem
+            left: -70rem
+            width: 135rem
+            height: 74rem
+
 
 .logo
     padding-left: 10px
@@ -35,7 +52,10 @@ header
     img
         width: 100%
 .icon-mobile
-    column-gap: 10px
+    column-gap: 5px
+    svg
+        width: 15px
+        height: 15px
     +media(1024)
         display: none
 .mobile-cart
@@ -61,8 +81,6 @@ header
         display: block
         min-width: 200rem
         max-width: 250rem
-    +media(1220)
-        max-width: 365rem
     input
         width: 100%
         padding: 12px 30px 9px
@@ -96,6 +114,8 @@ header
 
 .like-cta
     svg
+        width: 15px
+        height: 15px
         path
             transition: all .5s ease
             fill: #214498
