@@ -793,8 +793,9 @@ document.addEventListener("DOMContentLoaded", function () {
         eye.addEventListener('click', function (e) {
             e.preventDefault()
             const target = document.getElementById(this.getAttribute('data-target')),
-                targerEye = document.querySelector("svg")
+                targerEye = this.querySelector("svg")
                 console.log(targerEye);
+            console.log(targerEye);
             if (target.type === 'password') {
                 target.type = 'text'
                 targerEye.style.display = "block"
@@ -978,7 +979,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             } else if (document.querySelector('#poshtomat').checked) {
                 forPostomat.style.display = 'block'
-            } 
+            }
         }
 
         ukrPoshta.addEventListener('change', () => {
@@ -1012,77 +1013,79 @@ document.addEventListener("DOMContentLoaded", function () {
         showCityVilageOptions()
         showCityOrVilageForm()
     }
-    if(document.querySelector('.cabinet-top-prodaz')) {
+    if (document.querySelector('.cabinet-top-prodaz')) {
         const topProdazMain = document.querySelector('.top-prodaz-main.cabinet-top-prodaz'),
             descriptionAboutUs = document.querySelector('.cabinet-cart-product'),
             originalParent = topProdazMain.parentElement,
             originalNextSibling = topProdazMain.nextElementSibling
-    
+
         function moveTopProdazMain() {
-          if (window.innerWidth <= 1024) {
-            if (topProdazMain && topProdazMain.parentElement !== descriptionAboutUs) {
-              descriptionAboutUs.appendChild(topProdazMain)
+            if (window.innerWidth <= 1024) {
+                if (topProdazMain && topProdazMain.parentElement !== descriptionAboutUs) {
+                    descriptionAboutUs.appendChild(topProdazMain)
+                }
+            } else {
+                originalParent.appendChild(topProdazMain)
             }
-          } else {
-              originalParent.appendChild(topProdazMain)
-          }
         }
-    
+
         moveTopProdazMain()
         window.addEventListener('resize', moveTopProdazMain)
 
     }
-    const phoneInput = document.querySelector('#userPhone')
+    if (document.querySelector('#userPhone')) {
+        const phoneInput = document.querySelector('#userPhone')
 
-  phoneInput.addEventListener('input', function () {
-    let phoneNumber = phoneInput.value.trim()
-    const mask = "+380"
+        phoneInput.addEventListener('input', function () {
+            let phoneNumber = phoneInput.value.trim()
+            const mask = "+380"
 
-    if (!phoneNumber.startsWith(mask)) {
-      phoneNumber = mask + phoneNumber
+            if (!phoneNumber.startsWith(mask)) {
+                phoneNumber = mask + phoneNumber
+            }
+
+            let cleanedValue = phoneNumber.replace(/[^\d+]/g, "")
+
+            if (cleanedValue.length > 13) {
+                cleanedValue = cleanedValue.slice(0, 13)
+            }
+
+            const validInput = isValidPhoneNumber(cleanedValue)
+
+            if (validInput && cleanedValue.length === 13) {
+                phoneInput.style.borderColor = 'green'
+            } else {
+                phoneInput.style.borderColor = 'red'
+            }
+        })
     }
 
-    let cleanedValue = phoneNumber.replace(/[^\d+]/g, "")
 
-    if (cleanedValue.length > 13) {
-      cleanedValue = cleanedValue.slice(0, 13)
+    function isValidPhoneNumber(phoneNumber) {
+        return /^\+?(\d{2})?([(]?\d{3}[)]?)\s?[-]?\s?(?:\d{3})\s?[-]?(?:\s?\d{2})\s?[-]?(?:\s?\d{2})$/.test(phoneNumber)
     }
+    const inputMasks = document.querySelectorAll(".inputMask")
 
-    const validInput = isValidPhoneNumber(cleanedValue)
+    inputMasks.forEach(function (inputMask) {
+        inputMask.addEventListener("click", function () {
+            if (!inputMask.value) {
+                inputMask.value = "+380";
+            }
+        })
 
-    if (validInput && cleanedValue.length === 13) {
-      phoneInput.style.borderColor = 'green'
-    } else {
-      phoneInput.style.borderColor = 'red'
-    }
-  })
+        inputMask.addEventListener("input", function () {
+            let inputValue = inputMask.value;
+            let cleanedValue = inputValue.replace(/[^\d+]/g, "")
 
+            inputMask.value = cleanedValue
 
-  function isValidPhoneNumber(phoneNumber) {
-    return /^\+?(\d{2})?([(]?\d{3}[)]?)\s?[-]?\s?(?:\d{3})\s?[-]?(?:\s?\d{2})\s?[-]?(?:\s?\d{2})$/.test(phoneNumber)
-  }
-  const inputMasks = document.querySelectorAll(".inputMask")
+            if (cleanedValue.length > 13) {
+                inputMask.value = cleanedValue.slice(0, 13)
+            }
 
-  inputMasks.forEach(function (inputMask) {
-    inputMask.addEventListener("click", function () {
-      if (!inputMask.value) {
-        inputMask.value = "+380";
-      }
+            if (!cleanedValue.startsWith("+380")) {
+                inputMask.value = "+380" + cleanedValue.slice(3)
+            }
+        })
     })
-
-    inputMask.addEventListener("input", function () {
-      let inputValue = inputMask.value;
-      let cleanedValue = inputValue.replace(/[^\d+]/g, "")
-
-      inputMask.value = cleanedValue
-
-      if (cleanedValue.length > 13) {
-        inputMask.value = cleanedValue.slice(0, 13)
-      }
-
-      if (!cleanedValue.startsWith("+380")) {
-        inputMask.value = "+380" + cleanedValue.slice(3)
-      }
-    })
-  })
 })

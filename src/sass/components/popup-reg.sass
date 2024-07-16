@@ -104,15 +104,17 @@
         &:hover
             > path
                 fill: none
-
+.openEye
+    display: none
 .closeEye
     &::before
         content: ""
         position: absolute
-        top: -1px
+        top: -3%
         right: 0
         width: 17px
         height: 13px
+        transform: translateY(-50%)
         background-image: url(../img/closeEye.svg)
 .d-flex.item-center.cta-reg a
     cursor: pointer
