@@ -15,6 +15,7 @@ header
 .header
     position: relative
     background-color: #fff
+    column-gap: 8px
     padding: 15px 0
     z-index: 25
     flex-wrap: wrap
@@ -25,34 +26,35 @@ header
         flex-wrap: nowrap
 .flag-img
     position: relative
-    width: 35rem
+    // width: 35rem
     &::before
         content: ""
         position: absolute
-        top: -10px
+        top: 50%
         left: -20px
         width: 35px
         height: 20px
         background: url(../img/flag.png) no-repeat center/cover
+        transform: translateY(-50%)
         +media(768)
-            top: -35rem
             left: -70rem
             width: 135rem
             height: 74rem
 
-
 .logo
-    padding-left: 10px
-    width: 125px
+    padding-left: 25px
+    width: 145px
     height: 25px
+    +media(375)
+        width: 165px
     +media(768)
-        padding: 0
-        width: 250rem
+        padding-left: 70px
+        width: 350rem
         height: 50rem
     img
         width: 100%
 .icon-mobile
-    column-gap: 5px
+    column-gap: 10px
     svg
         width: 15px
         height: 15px
@@ -114,7 +116,7 @@ header
 
 .like-cta
     svg
-        width: 15px
+        width: 18px
         height: 15px
         path
             transition: all .5s ease

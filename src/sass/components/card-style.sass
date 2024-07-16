@@ -26,8 +26,10 @@ figure
         text-transform: uppercase
 .card
     position: relative
-    min-width: 140px
+    min-width: 45vw
     cursor: pointer
+    +media(768)
+        min-width: 20vw
     a
         position: absolute
         width: 100%
@@ -140,6 +142,7 @@ button.oneClick
 
 .blue-btn
     font-size: 12px
+    height: 50px
     padding: 10rem
     color: #FFF
     background-color: #214498
@@ -158,7 +161,7 @@ button.oneClick
 .oneClickBtn
     position: relative
     z-index: 30
-    width: 60rem
+    width: 60px
     max-height: 60rem
     background-color: transparent 
     border: none
