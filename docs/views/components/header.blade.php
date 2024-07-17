@@ -104,7 +104,7 @@
 </svg></a></p><p class="cabinet-cta"> <a class="d-flex item-center" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
 <circle cx="8.50016" cy="4.16667" r="3.41667" stroke="none" stroke-width="1.5"/>
 <path d="M16 14.9999C16 11.318 12.6421 8.33325 8.5 8.33325C4.35786 8.33325 1 11.318 1 14.9999" stroke="#1E4284" stroke-width="1.5" stroke-linecap="round"/>
-</svg><span class="name-autorization">Денис Зембіцький</span></a></p><p class="cart-cta"> <a href="basket.html"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+</svg><span class="name-autorization">Денис Зембіцький</span></a></p><p class="cart-cta"> <a href="basket.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 15" fill="none">
 <g clip-path="url(#clip0_2001_1242)">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M4.77019 6.43505C4.54519 6.33005 4.44019 6.01505 4.53019 5.74505L6.24019 0.345052C6.33019 0.0600517 6.58519 -0.0749483 6.79519 0.0450517C7.02019 0.150052 7.12519 0.465052 7.03519 0.735052L5.32519 6.13505C5.26519 6.34505 5.10019 6.48005 4.93519 6.48005C4.89019 6.48005 4.84519 6.48005 4.80019 6.46505C4.80019 6.45005 4.78519 6.45005 4.77019 6.43505Z" fill="#none" stroke="#none" stroke-width="0.3"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M9.67476 6.13501L7.96476 0.735008C7.87476 0.465008 7.97976 0.150008 8.20476 0.0450078C8.41476 -0.0749922 8.66976 0.0450079 8.75976 0.345008L10.4698 5.74501C10.5598 6.01501 10.4548 6.33001 10.2298 6.43501C10.1848 6.46501 10.1248 6.48001 10.0648 6.48001C9.89976 6.48001 9.73476 6.34501 9.67476 6.13501Z" fill="#none" stroke="#none" stroke-width="0.3"/>
