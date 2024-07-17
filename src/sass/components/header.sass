@@ -49,9 +49,12 @@ header
     +media(375)
         width: 165px
     +media(768)
+        padding-left: 60px
+        width: 300rem
+        height: 50rem
+    +media(1200)
         padding-left: 70px
         width: 350rem
-        height: 50rem
     +media(1440)
         padding-left: 100px
     img
@@ -129,7 +132,8 @@ header
                 fill: #F1E12F
 .cart-cta
     svg
-        width: 25px
+        +media(1024)
+            width: 25px
         path
             transition: all .5s ease
             fill: #214498

@@ -893,7 +893,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-    if (document.querySelector("#ukrPoshta")) {
+    if (document.querySelector("#ukrPostRadio")) {
         const ukrPoshta = document.querySelector('#ukrPoshta'),
             novaPoshta = document.querySelector('#novaPoshta'),
             meest = document.querySelector('#meest'),
