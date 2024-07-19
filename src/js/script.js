@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     buttonSelector: '.menu-help-item a',
                     targetAttr: 'data-href',
                     sectionSelector: '.help-content',
-                    initialButtonSelector: '.menu-help-item a[data-href="aboutUs"]',
+                    initialButtonSelectorNoActive: '', //якщо треба зробити щось активним тоді додати туди селектор
                     initialSectionId: 'aboutUs',
                     readmoreClass: 'readmore',
                     moreClass: 'description-more',
@@ -200,8 +200,6 @@ document.addEventListener("DOMContentLoaded", function () {
             })
         })
     }
-
-
 
     // window.addEventListener('resize', rearrangeSections)
 
