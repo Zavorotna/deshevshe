@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
             mobileMenuItems.forEach(mobileItem => {
                 mobileItem.addEventListener("click", function () {
                     console.log(mobileItem)
-                    // mobileItem.querySelector("a").classList.toggle("header-hover-mobile")
+                    mobileItem.querySelector("a").classList.toggle("header-hover-mobile")
                     let itemSubMenu = mobileItem.querySelector(".mobile-menu")
                     if (itemSubMenu) {
                         itemSubMenu.classList.toggle("d-block")
@@ -285,10 +285,12 @@ document.addEventListener("DOMContentLoaded", function () {
             })
         }
         let defaultMenu = document.querySelector(".default-menu")
-        if (window.innerWidth < 1024) {
-            defaultMenu.classList.remove("default-menu")
-        } else {
-            defaultMenu.classList.add("default-menu")
+        if(defaultMenu) {
+            if (window.innerWidth < 1024) {
+                defaultMenu.classList.remove("default-menu")
+            } else {
+                defaultMenu.classList.add("default-menu")
+            }
         }
 
         if (window.innerWidth < 1024) {
