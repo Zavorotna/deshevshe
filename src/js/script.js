@@ -8,6 +8,16 @@ document.addEventListener("DOMContentLoaded", function () {
         label.style.border = "2px solid"
         label.style.borderColor = color === 'white' ? '#D9D9D9' : 'white'
     })
+    //color to cart product
+    const colorCart = document.querySelectorAll('.color-cart')
+    colorCart.forEach(colorCart => {
+        let color = colorCart.getAttribute("data-color")
+        console.log(color);
+        colorCart.style.backgroundColor = color
+        colorCart.style.border = "2px solid"
+        colorCart.style.borderColor = color === 'white' ? '#D9D9D9' : 'white'
+    })
+
     if (document.querySelector(".top-prodaz-card")) {
         const cardView = document.querySelectorAll(".top-prodaz-card")
         cardView.forEach(itemCard => {
