@@ -558,7 +558,7 @@ document.addEventListener("DOMContentLoaded", function () {
         minHandle.addEventListener('touchstart', (e) => handleDrag(e, minHandle))
         maxHandle.addEventListener('touchstart', (e) => handleDrag(e, maxHandle))
 
-        updateRange()
+        updateRange();
 
     }
     // випадаючі категорії в каталозі
